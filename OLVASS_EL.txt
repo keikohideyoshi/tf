@@ -1,0 +1,24 @@
+TF Analyzer 0.6.4 Obsidian - Windows hordozhato verzio
+====================================================
+
+A WINDOWSOS FORDITAS UTAN:
+1. Nyisd meg a dist\TF_Analyzer_0_6_4_Windows mappat.
+2. Inditsd el a TF_Analyzer.exe fajlt (dupla kattintas).
+3. A bongeszo megnyitja a http://127.0.0.1:8501 cimet.
+4. A program a sajat gepeden fut, internet nem kell a hasznalatahoz.
+5. Bezárás: a megnyilo konzolablakban Ctrl+C, vagy az ablak bezarasa.
+6. Az adatbazis helye: adatok\tf_analyzer.sqlite3 (a program mappajaban).
+7. A teljes TF_Analyzer_0_6_4_Windows mappat kell atmasolni, nem csak az exe-t.
+8. A mappa irhato helyen legyen, peldaul Dokumentumok vagy Asztal;
+   ne a vedett Program Files mappaban.
+
+FONTOS:
+- Elso inditaskor a Windows SmartScreen figyelmeztethet az alairatlan exe-re.
+- A Windows tuzfal esetleges kerdesenel eleg a helyi gep (localhost),
+  nem szukseges nyilvanos halozati hozzaferes.
+- Ha a 8501-es port foglalt, zard be a masik Streamlit programot.
+- Ha mar van korabbi tf_analyzer.sqlite3 adatbazisod, a program bezarasa
+  utan masold az adatok mappaba. Elotte keszits biztonsagi masolatot.
+- A mentest a MENTES_ADATBAZIS.bat fajllal is elvegezheted (program leallitva).
+- A program NEM egyetlen fajlos EXE: a _internal mappa kotelezo.
+- Nincs kulon Python-telepitesi igeny a mar leforditott alkalmazas hasznalatahoz.
