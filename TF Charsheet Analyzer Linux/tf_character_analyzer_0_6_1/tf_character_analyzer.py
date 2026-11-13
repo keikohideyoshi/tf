@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""TF Character Analyzer 0.5 — local multi-turn archive and skill trends."""
+"""TF Character Analyzer 0.6.1 — local multi-turn archive and skill trends."""
 import webbrowser
 import argparse, html, json, re, sqlite3, sys
 from pathlib import Path
@@ -124,12 +124,12 @@ document.querySelectorAll('.filter').forEach(inp=>inp.addEventListener('input',(
     return f'''<!doctype html><html lang="hu"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>TF – {esc(character)} – fejlődéstörténet</title><style>{STYLE}select{{width:100%;max-width:580px}}.note{{padding:12px;border-left:3px solid #72b6ff;background:#182335}}.chartbox{{padding:15px;background:#182335;border:1px solid #31415b;border-radius:12px}}</style></head><body><nav><a href="#top">Áttekintés</a><a href="#chartsection">Grafikon</a><a href="#skills">Szakértelmek</a><a href="#stats">Tulajdonságok</a><a href="#log">Változásnapló</a></nav><main id="top"><h1>{esc(character)} – fejlődéstörténet</h1><p class="muted">TF Character Analyzer 0.5 · SQLite-alapú, helyi archívum</p><div class="cards">{card_html}</div><section id="chartsection"><h2>Szakértelmek alakulása</h2><p class="note">Legfeljebb öt szakértelem választható (Ctrl+kattintás). A grafikon minden sorozatot külön skáláz, ezért a görbék magassága nem alkalmas különböző szakértelmek szintjének közvetlen összehasonlítására. A pontos érték az adatpont fölé húzott egérrel látható.</p><input id="skillsearch" type="search" placeholder="Szakértelem szűrése név szerint…" aria-label="Szakértelmek szűrése"><p class="small">A keresés szűkíti a választható szakértelmeket. Ctrl+kattintással több is kijelölhető.</p><select id="chosen" multiple size="8">{options}</select><p class="small" id="legend">{esc(' · '.join(default))}</p><div class="chartbox" id="chart">{chart}</div></section><section id="skills"><h2>Szakértelmek: {first} → {last}</h2><p class="muted">A perjel utáni érték változását csak változatlan szint esetén számoljuk különbségként. Szintlépésnél az érték visszaállhat, ezért nem kezeljük összeadható fejlődési pontként.</p><input class="filter" data-target="skills-table" placeholder="Szakértelem keresése…"><div class="panel tablewrap"><table id="skills-table"><thead><tr><th>Szakértelem</th><th>Csoport</th><th>Első</th><th>Utolsó</th><th>Szintváltozás</th><th>Perjel utáni változás</th></tr></thead><tbody>{''.join(x[3] for x in skillrows)}</tbody></table></div></section><section id="stats"><h2>Tulajdonságok és harci értékek</h2><div class="panel tablewrap"><table><thead><tr><th>Mutató</th><th>Alap {first}</th><th>Alap {last}</th><th>Alap változás</th><th>Módosított változás</th></tr></thead><tbody>{''.join(statrows)}</tbody></table></div></section><section id="log"><h2>Szakértelem-változásnapló</h2><input class="filter" data-target="log-table" placeholder="Forduló vagy szakértelem keresése…"><div class="panel tablewrap"><table id="log-table"><thead><tr><th>Fordulók</th><th>Szakértelem</th><th>Előtte</th><th>Utána</th><th>Szintkülönbség</th></tr></thead><tbody>{''.join(change_rows)}</tbody></table></div></section><p class="muted">Forrás: importált TF karakterlapok. A hiányzó fordulókat nem becsüljük. Az eredeti HTML-ek külön exportálhatók.</p></main>{js}</body></html>'''
 
 def main():
-    p=argparse.ArgumentParser(description='TF Character Analyzer 0.5.1 – HTML/MHTML import, SQLite, fejlődéskövetés')
+    p=argparse.ArgumentParser(description='TF Character Analyzer 0.6.1 – HTML/MHTML import, SQLite, fejlődéskövetés')
     p.add_argument('files',nargs='*');p.add_argument('-o','--output',default='tf_karakterlapok');args=p.parse_args()
     if not args.files:
         try:
-            from tkinter import Tk,filedialog
-            root=Tk();root.withdraw();args.files=list(filedialog.askopenfilenames(title='TF fordulók kiválasztása',filetypes=[('TF fordulók','*.html *.htm *.mhtml *.mht'),('Minden fájl','*.*')]));root.destroy()
+            from tf_picker import choose_turns
+            args.files=choose_turns()
         except Exception as exc:p.error('Nem sikerült megnyitni a fájlválasztót: '+str(exc))
     out=Path(args.output);out.mkdir(parents=True,exist_ok=True)
     conn=sqlite3.connect(out/'tf_karakterek.sqlite3');init(conn)
