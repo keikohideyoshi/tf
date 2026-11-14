@@ -10,7 +10,7 @@ from tvp import analyze, analyze_html, movement_conditionals_html, conditional_h
 from combat import analyze_combat, analyze_combat_html
 from obsidian_theme import apply_obsidian, show_banner, themed_chart
 
-st.set_page_config(page_title="TF Analyzer 0.6.5 | Obsidian",page_icon="📖",layout="wide")
+st.set_page_config(page_title="TF Analyzer 0.6.6 | Obsidian",page_icon="📖",layout="wide")
 apply_obsidian()
 show_banner()
 
@@ -82,7 +82,7 @@ with tabs[0]:
     st.dataframe(pd.DataFrame([{"Forduló":x["turn"],"Fájl":x["filename"],"Parancssorok":len(x["commands"]),
       "Szövegsorok":x["lines"],"Hibajelzések":len(x["failures"])} for x in turns]),hide_index=True,use_container_width=True)
 with tabs[1]:
-    st.subheader("TVP-mérleg és források – 0.6.5 (HTML + MHTML)")
+    st.subheader("TVP-mérleg és források – 0.6.6 (HTML + MHTML)")
     st.caption("A tvpkap és tvpkolt HTML-jelölésekből kiolvasott tételek; a sáfránykő és a sztázisrelikvia szöveges kivétel. Sáfránypor, pszi meditáció, moa spektroszkóp, időtorzítás, tudatpont átváltás és reverziós prizma: szövegminta alapján azonosított bevételi források. A TVP-kiadásokat a legközelebbi megelőző &lt;td width=250&gt; parancssor első szava alapján csoportosítjuk; a numerikus paraméterek nem képeznek külön kategóriát. A bizonytalan tételek ellenőrizendők.")
     rows=[{"Forduló":x["turn"],"Típus":r["kind"],"TVP":r["amount"],"Kategória":r["category"],
            "KP":r["kp"],"Parancs":r["command"],"Egyenleg":r["balance"],"Ellenőrzés":r["quality"],
