@@ -14,7 +14,7 @@ BG='#151a23'; PANEL='#202735'; FG='#edf2fa'; MUTED='#a7b4c6'; ACCENT='#528bff'
 
 class App:
     def __init__(self, root):
-        self.root=root; root.title('TF ZIP Letöltő 1.1'); root.geometry('820x630'); root.minsize(650,490); root.configure(bg=BG)
+        self.root=root; root.title('TF ZIP Letöltő 1.2'); root.geometry('820x630'); root.minsize(650,490); root.configure(bg=BG)
         self.events=queue.Queue(); self.busy=False; self.login_event=threading.Event()
         self.character=tk.StringVar(value='TF3042')
         self.folder=tk.StringVar(value=str(Path.home()/'Letöltések'/'TF'/'TF3042'))
