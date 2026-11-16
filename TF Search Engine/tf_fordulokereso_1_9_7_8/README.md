@@ -1,3 +1,9 @@
+## 1.9.7.7: varázslatkeresési útvonalak
+
+A `hatás` oszlop alapján a támadó/védekező varázslatokat harci szövegben, a többit kizárólag V/VV indexben keresi. Lásd `VALTOZASOK_1_9_7_7.md`.
+
+# TF Fordulókereső 1.9.6.1
+
 # TF Fordulókereső 1.9.4
 
 A párhuzamos importálás részletei: `VALTOZASOK_1_9_4.md`.
@@ -115,3 +121,7 @@ A keresés szöveges összefoglalót és ellenőrizhető találati listát jelen
 - A tárgykereső `app/object_search.py` változatlan. A meglévő exportálás, sötét felület, ingyenes/opcionális AI és a venv-es `start.sh` megmarad.
 
 **Korlátok:** A részletes sebzésrangsor, a „majdnem meghaltam” szubjektív értelmezése, a teljes küldetéslánc rekonstrukciója, a tárgyszerzés forrásának automatikus azonosítása és minden szabad nyelvű kérdés megválaszolása még nincs kész. A varázslat- és NPC-keresés első, szövegmintákon alapuló változat; ellenőrizd a forrásfordulót. A `tests/test_natural_19.py` tesztek futtatása: `python -m unittest discover -s tests -v`.
+
+## 1.9.7.8 – varázslatkeresési gyorsítás
+
+A nem harci varázslatok keresése közvetlenül a `tf_spell_cast` indexelt táblát kérdezi le. A korábbi fordulók indexelése az első kereséskor történhet; a következő keresésnek már nem kell újra feldolgoznia a fordulókat. A „Keresési diagnosztika” jelölővel a `logs/search_performance.log` naplóban láthatók a `spell_command_index_backfill`, `spell_command_index_sql` és `spell_command_results` szakaszok.

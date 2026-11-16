@@ -29,6 +29,7 @@ def conn():
  CREATE TABLE IF NOT EXISTS entities(kind TEXT NOT NULL, entity_id INTEGER NOT NULL,name TEXT NOT NULL,details TEXT NOT NULL,PRIMARY KEY(kind,entity_id));
  CREATE TABLE IF NOT EXISTS turns(id INTEGER PRIMARY KEY,character_id INTEGER NOT NULL,character TEXT NOT NULL,turn_number INTEGER NOT NULL,source_path TEXT NOT NULL UNIQUE,sha256 TEXT NOT NULL);
  CREATE TABLE IF NOT EXISTS blocks(id INTEGER PRIMARY KEY,turn_id INTEGER NOT NULL,seq INTEGER NOT NULL,section TEXT NOT NULL,content TEXT NOT NULL,FOREIGN KEY(turn_id) REFERENCES turns(id) ON DELETE CASCADE);
+ CREATE INDEX IF NOT EXISTS idx_blocks_turn ON blocks(turn_id);
  CREATE TABLE IF NOT EXISTS events(id INTEGER PRIMARY KEY,turn_id INTEGER NOT NULL,block_id INTEGER,event_type TEXT NOT NULL,description TEXT NOT NULL,entity_id INTEGER,FOREIGN KEY(turn_id) REFERENCES turns(id) ON DELETE CASCADE);
  CREATE VIRTUAL TABLE IF NOT EXISTS block_fts USING fts5(content,content='blocks',content_rowid='id',tokenize='unicode61 remove_diacritics 2');
  CREATE TRIGGER IF NOT EXISTS blocks_ai AFTER INSERT ON blocks BEGIN INSERT INTO block_fts(rowid,content) VALUES(new.id,new.content);END;
@@ -179,6 +180,9 @@ def _store_parsed_turn(c,parsed):
   ensure(c)
   c.execute('INSERT OR REPLACE INTO tf_event_index VALUES(?,?,?,?)',
             (tid,VERSION,pack(battles),pack(commands)))
+  from spell_index import ensure as ensure_spells,store as store_spells
+  ensure_spells(c)
+  store_spells(c,tid,commands,VERSION)
  return f'imported: {name} #{cid}, {turn}. forduló, {len(entries)} blokk, {len(errors)} hiba'
 
 
@@ -310,7 +314,7 @@ def stats(c):
 # 1.2: A fordulókeresés csak a felhasználó által importált fordulókat vizsgálja.
 # Egy találat = egy forduló; az összes előfordulást összeszámoljuk,
 # de legfeljebb néhány szövegkörnyezeti példát jelenítünk meg.
-def search_turns(c, query, character_id=None, sample_limit=3):
+def search_turns(c, query, character_id=None, sample_limit=3, turn_range=None):
  q=' '.join(query.split()).casefold()
  if not q:return []
  # Szóközök között rugalmas egyezés; az aposztróf nem tokenelési határ.
@@ -320,6 +324,8 @@ def search_turns(c, query, character_id=None, sample_limit=3):
               b.seq,b.content FROM turns t JOIN blocks b ON b.turn_id=t.id"""
  if character_id is not None:
   sql+=' WHERE t.character_id=?';params.append(character_id)
+ if turn_range is not None:
+  sql+=(' AND ' if params else ' WHERE ')+'t.id BETWEEN ? AND ?';params.extend(turn_range)
  sql+=' ORDER BY t.character COLLATE NOCASE,t.turn_number DESC,b.seq'
  groups={}
  for row in c.execute(sql,params):
@@ -367,7 +373,7 @@ def parse_advanced(query):
   negate=False
  return [g for g in groups if g and any(not n for _,n in g)]
 
-def search_turns_advanced(c,query,character_id=None,sample_limit=3):
+def search_turns_advanced(c,query,character_id=None,sample_limit=3,turn_range=None):
  groups=parse_advanced(query)
  if not groups:return []
  # One DB scan for all expressions; each block is normalized only once.
@@ -375,6 +381,8 @@ def search_turns_advanced(c,query,character_id=None,sample_limit=3):
  params=[]
  if character_id is not None:
   sql+=' WHERE t.character_id=?';params.append(character_id)
+ if turn_range is not None:
+  sql+=(' AND ' if params else ' WHERE ')+'t.id BETWEEN ? AND ?';params.extend(turn_range)
  sql+=' ORDER BY t.character COLLATE NOCASE,t.turn_number DESC,b.seq'
  positives=list(dict.fromkeys(x for g in groups for x,n in g if not n))
  negatives=list(dict.fromkeys(x for g in groups for x,n in g if n))
@@ -406,3 +414,28 @@ def search_turns_advanced(c,query,character_id=None,sample_limit=3):
   if any(all((x not in found if neg else x in found) for x,neg in group) for group in groups):
    output.append(item)
  return output
+
+
+# Optional multiprocess turn search. Each process opens its own read connection;
+# independent turn-id intervals ensure results cannot be double counted.
+def _search_partition(args):
+ advanced,query,character_id,sample_limit,turn_range=args
+ c=conn()
+ try:
+  fn=search_turns_advanced if advanced else search_turns
+  return fn(c,query,character_id,sample_limit,turn_range)
+ finally:c.close()
+
+def search_text_parallel(c,query,character_id=None,advanced=False,workers=1):
+ fn=search_turns_advanced if advanced else search_turns
+ if workers<=1:return fn(c,query,character_id)
+ bounds=c.execute('SELECT min(id),max(id),count(*) FROM turns').fetchone()
+ low,high,n=bounds
+ if not n or n<max(80,workers*20):return fn(c,query,character_id)
+ workers=min(workers,8,n)
+ step=max(1,(high-low+workers)//workers)
+ parts=[(low+i*step,min(high,low+(i+1)*step-1)) for i in range(workers) if low+i*step<=high]
+ args=[(advanced,query,character_id,3,r) for r in parts]
+ with ProcessPoolExecutor(max_workers=len(args)) as pool:
+  chunks=list(pool.map(_search_partition,args))
+ return [row for chunk in chunks for row in chunk]

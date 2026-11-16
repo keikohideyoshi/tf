@@ -4,6 +4,7 @@ import unicodedata
 from core import fold_hu, read_html
 from pathlib import Path
 from html import unescape
+from search_diagnostics import Stage, count
 
 KINDS={'item':'Tárgy','monster':'Szörny','spell':'Varázslat'}
 
@@ -58,7 +59,10 @@ def _linked_occurrences(source,kind,entity_id,event=None):
  inventory references and mere mentions are not acquisitions.
  """
  if not Path(source).is_file():return []
- html=read_html(source)
+ with Stage("html_read_decode"):
+  html=read_html(source)
+ count("html_files_read")
+ count("html_bytes_approx",len(html))
  target_type='0' if kind=='item' else '1'
  target_n=entity_id-(1 if kind=='item' else 10)
  results=[]
@@ -139,6 +143,30 @@ EVENT_PATTERNS={
 }
 NEGATION=re.compile(r'\b(?:nem|sikertelen|nincs|hi[aá]nyzik|megpr[oó]b[aá]lod|szeretn[eé]d|kellene|lehetne)\b',re.I)
 
+def _item_candidate_turns(c, name, entity_id, character_id):
+ """FTS5 shortlist. Return None when FTS cannot safely be used.
+
+ A name's first token is searched as a prefix, covering common Hungarian
+ suffixes on later words; numeric typed references are searched separately.
+ All matches still pass through the original precise event recognizer.
+ """
+ tokens=re.findall(r'[^\W_]+',fold_hu(name),flags=re.UNICODE)
+ if not tokens or len(tokens[0])<3:return None
+ # Use a short prefix to accommodate inflection of a single-word name.
+ prefix=tokens[0][:max(3,len(tokens[0])-3)]
+ query='"'+prefix.replace('"','')+'"* OR "'+str(int(entity_id))+'"'
+ try:
+  sql=('SELECT DISTINCT b.turn_id FROM block_fts f '
+       'JOIN blocks b ON b.id=f.rowid '
+       'WHERE block_fts MATCH ?')
+  args=[query]
+  if character_id is not None:
+   sql+=' AND EXISTS (SELECT 1 FROM turns t WHERE t.id=b.turn_id AND t.character_id=?)'
+   args.append(character_id)
+  return {r[0] for r in c.execute(sql,args)}
+ except Exception:
+  return None
+
 def search_item_events(c,entity_id,event_mode,character_id=None,sample_limit=3):
  """High-precision item events, not every possible grammatical form.
 
@@ -150,6 +178,9 @@ def search_item_events(c,entity_id,event_mode,character_id=None,sample_limit=3):
  row=c.execute("SELECT name FROM entities WHERE kind='item' AND entity_id=?",(entity_id,)).fetchone()
  if row is None:raise ValueError('A tárgy nem található az enciklopédiában.')
  name_re=_name_pattern(row['name']);id_re=_id_pattern('item',entity_id)
+ with Stage("fts_candidate_lookup"):
+  candidates=_item_candidate_turns(c,row['name'],entity_id,character_id)
+ count("candidate_turns",len(candidates) if candidates is not None else -1)
  verb_re=EVENT_PATTERNS[event_mode]
  # Explicit loot introductions in TF monster rewards. These are not generic mentions.
  loot_re=re.compile(r'(?:\bszerzem[eé]nyed\s*:|\bl[aá]ssuk\s*,?\s*mire\s+bukkant[aá]l\s*:)',re.I)
@@ -158,43 +189,88 @@ def search_item_events(c,entity_id,event_mode,character_id=None,sample_limit=3):
  if character_id is not None:sql+=' WHERE t.character_id=?';params.append(character_id)
  sql+=' ORDER BY t.character COLLATE NOCASE,t.turn_number DESC,b.seq'
  groups={}
- for r in c.execute(sql,params):
-  content=r['content'];normalized=fold_hu(content)
-  # Treat sentences and semicolon-separated commands as independent clauses.
-  # Do not allow a verb from an unrelated sentence to qualify an object.
-  for clause in re.finditer(r'[^!?;]+(?:[!?;]|$)',content):
-   raw=clause.group();norm=fold_hu(raw)
-   names=list(name_re.finditer(norm));ids=list(id_re.finditer(raw))
-   if not names and not ids:continue
-   verbs=list(verb_re.finditer(raw))
-   cues=list(loot_re.finditer(raw)) if event_mode=='Megszereztem' else []
-   if not verbs and not cues:continue
-   for match,kind in [(m,'Név') for m in names]+[(m,'Azonosító') for m in ids if not any(n.start()<m.end() and m.start()<n.end() for n in names)]:
-    # The action must precede the object, with a short distance.
-    before=[v for v in verbs if v.end()<=match.start() and match.start()-v.end()<=95]
-    # A named loot-introduction may precede a quantity and linked item name.
-    # Do not let a cue from a previous sentence or a different item qualify it.
-    loot_before=[v for v in cues if v.end()<=match.start() and match.start()-v.end()<=65]
-    if loot_before:
-     cue=loot_before[-1]
-     between=raw[cue.end():match.start()]
-     if not re.fullmatch(r'\s*(?:\d+[\s\xa0]*)?',between):continue
-    else:
-     if not before:continue
-     verb=before[-1]
-     if NEGATION.search(raw[max(0,verb.start()-22):match.start()]):continue
-    tid=r['id']
-    if tid not in groups:
-     groups[tid]={'turn_id':tid,'character_id':r['character_id'],'character':r['character'],'turn_number':r['turn_number'],'source_path':r['source_path'],'count':0,'snippets':[],'match_types':EVENT_LABELS[event_mode],'name_count':0,'id_count':0}
-    result=groups[tid];result['count']+=1;result['name_count' if kind=='Név' else 'id_count']+=1
-    if len(result['snippets'])<sample_limit:
-     result['snippets'].append({'text':(raw[max(0,cue.start()-45):min(len(raw),match.end()+100)].strip() if loot_before else raw[max(0,match.start()-130):min(len(raw),match.end()+130)].strip()),'seq':r['seq'],'type':kind})
+ if candidates is not None:
+  # Materialize candidate IDs once, avoiding SQLite's parameter-count limit.
+  with Stage('candidate_temp_table'):
+   c.execute('CREATE TEMP TABLE IF NOT EXISTS tf_item_candidates(turn_id INTEGER PRIMARY KEY)')
+  with Stage('candidate_temp_table'):
+   c.execute('DELETE FROM tf_item_candidates')
+   c.executemany('INSERT INTO tf_item_candidates VALUES(?)',((tid,) for tid in candidates))
+  sql=sql.replace(' FROM turns t JOIN blocks b ON b.turn_id=t.id',
+                  ' FROM turns t JOIN blocks b ON b.turn_id=t.id JOIN tf_item_candidates tc ON tc.turn_id=t.id')
+ # Push the *exact same* action/loot regex predicate into SQLite so that
+ # millions of irrelevant rows are never transferred to Python. The SQLite
+ # user function is connection-local and does not change the database schema.
+ # Keep the Python guard below as a defensive consistency check.
+ scanned=[0]
+ def has_item_action(content):
+  scanned[0]+=1
+  return int(bool(content and (verb_re.search(content) or
+    (event_mode=='Megszereztem' and loot_re.search(content)))))
+ c.create_function('tf_item_has_action',1,has_item_action)
+ sql=sql.replace(' ORDER BY t.character COLLATE NOCASE,t.turn_number DESC,b.seq',
+                 (' AND ' if ' WHERE ' in sql else ' WHERE ')+
+                 'tf_item_has_action(b.content)=1 ORDER BY t.character COLLATE NOCASE,t.turn_number DESC,b.seq')
+ with Stage("blocks_sqlite_execute"):
+  cursor=c.execute(sql,params)
+ with Stage("blocks_sqlite_fetch"):
+  records=cursor.fetchall()
+ count("blocks_scanned_in_sql",scanned[0])
+ count("blocks_filtered_in_sql",scanned[0]-len(records))
+ count("blocks_read",len(records))
+ with Stage("item_event_recognition"):
+  for r in records:
+   content=r['content']
+   # Fast reject: the original recognizer cannot accept a block without an
+   # action verb or an explicit loot cue. This preserves its exact semantics
+   # while avoiding Unicode normalization and clause scanning for most blocks.
+   if not verb_re.search(content) and (event_mode!='Megszereztem' or not loot_re.search(content)):
+    count("blocks_skipped_no_action")
+    continue
+   count("blocks_with_action")
+   # Treat sentences and semicolon-separated commands as independent clauses.
+   # Do not allow a verb from an unrelated sentence to qualify an object.
+   for clause in re.finditer(r'[^!?;]+(?:[!?;]|$)',content):
+    raw=clause.group()
+    verbs=list(verb_re.finditer(raw))
+    cues=list(loot_re.finditer(raw)) if event_mode=='Megszereztem' else []
+    if not verbs and not cues:continue
+    # Only normalize clauses that contain a qualifying action phrase.
+    norm=fold_hu(raw)
+    names=list(name_re.finditer(norm));ids=list(id_re.finditer(raw))
+    if not names and not ids:continue
+    for match,kind in [(m,'Név') for m in names]+[(m,'Azonosító') for m in ids if not any(n.start()<m.end() and m.start()<n.end() for n in names)]:
+     # The action must precede the object, with a short distance.
+     before=[v for v in verbs if v.end()<=match.start() and match.start()-v.end()<=95]
+     # A named loot-introduction may precede a quantity and linked item name.
+     # Do not let a cue from a previous sentence or a different item qualify it.
+     loot_before=[v for v in cues if v.end()<=match.start() and match.start()-v.end()<=65]
+     if loot_before:
+      cue=loot_before[-1]
+      between=raw[cue.end():match.start()]
+      if not re.fullmatch(r'\s*(?:\d+[\s\xa0]*)?',between):continue
+     else:
+      if not before:continue
+      verb=before[-1]
+      if NEGATION.search(raw[max(0,verb.start()-22):match.start()]):continue
+     tid=r['id']
+     if tid not in groups:
+      groups[tid]={'turn_id':tid,'character_id':r['character_id'],'character':r['character'],'turn_number':r['turn_number'],'source_path':r['source_path'],'count':0,'snippets':[],'match_types':EVENT_LABELS[event_mode],'name_count':0,'id_count':0}
+     result=groups[tid];result['count']+=1;result['name_count' if kind=='Név' else 'id_count']+=1
+     if len(result['snippets'])<sample_limit:
+      result['snippets'].append({'text':(raw[max(0,cue.start()-45):min(len(raw),match.end()+100)].strip() if loot_before else raw[max(0,match.start()-130):min(len(raw),match.end()+130)].strip()),'seq':r['seq'],'type':kind})
  # For each turn, use exact linked events when available, preventing duplicates.
  sql_turns='SELECT id,character_id,character,turn_number,source_path FROM turns'
  args=[]
  if character_id is not None:sql_turns+=' WHERE character_id=?';args=[character_id]
- for t in c.execute(sql_turns,args):
-  hits=_linked_occurrences(t['source_path'],'item',entity_id,event_mode)
+ if candidates is not None:
+  sql_turns+=' AND id IN (SELECT turn_id FROM tf_item_candidates)' if ' WHERE ' in sql_turns else ' WHERE id IN (SELECT turn_id FROM tf_item_candidates)'
+ with Stage("turns_sqlite_fetch"):
+  turns=c.execute(sql_turns,args).fetchall()
+ count("turns_checked_for_links",len(turns))
+ for t in turns:
+  with Stage("html_link_recognition"):
+   hits=_linked_occurrences(t['source_path'],'item',entity_id,event_mode)
   if not hits:continue
   groups[t['id']]={'turn_id':t['id'],'character_id':t['character_id'],'character':t['character'],
    'turn_number':t['turn_number'],'source_path':t['source_path'],'count':len(hits),

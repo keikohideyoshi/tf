@@ -1,18 +1,19 @@
 import tkinter as tk
 from tkinter import ttk, filedialog, messagebox
 from pathlib import Path
-import threading, webbrowser, re, csv, sqlite3, os, subprocess, shutil, sys
-from core import conn, import_folder, reindex_all, list_turn_files, search_turns, search_turns_advanced, stats
+import threading, webbrowser, re, csv, sqlite3, os, subprocess, shutil, sys, time
+from core import conn, import_folder, reindex_all, list_turn_files, search_turns, search_turns_advanced, search_text_parallel, stats
 from object_search import catalog, search_objects, search_item_events, KINDS
 from rounded_button import RoundedButton
 from battle_search import search_battles
 from natural_search import fallback, online_plan, run, validate, _entity_from_question, apply_selected_object, reconcile_ai_plan
 import local_ai
+from search_diagnostics import SearchTrace, LOG
 
 BG='#151a24'; PANEL='#202838'; FG='#edf1f8'; MUTED='#a6b2c6'; ACC='#65c8b3'
 class GUI:
  def __init__(self):
-  self.root=tk.Tk();self.root.title('TF Fordulókereső 1.9.6');self.root.geometry('1200x800');self.root.minsize(850,550);self.root.configure(bg=BG)
+  self.root=tk.Tk();self.root.title('TF Fordulókereső 1.9.7.6');self.root.geometry('1200x800');self.root.minsize(850,550);self.root.configure(bg=BG)
   self.c=conn();self.busy=False;self.rows=[];self.timer=None;self.column_sort=None;self.column_desc=False;self.selected_object=None;self.search_generation=0;self.searching=False;self.imported_since_search=False
   style=ttk.Style();style.theme_use('clam')
   style.configure('Treeview',background=PANEL,foreground=FG,fieldbackground=PANEL,rowheight=34,borderwidth=0)
@@ -29,6 +30,9 @@ class GUI:
   self.set_menu_values(ui_menu,self.search_ui_mode,['Kulcsszavas keresés','Szabad kérdés'],callback=self.switch_search_mode)
   RoundedButton(nav,text='Adatbázis-kezelő',command=self.open_database_manager).pack(side='left',padx=10)
   RoundedButton(nav,text='AI beállítások',command=self.configure_ai).pack(side='left')
+  self.diagnostics_enabled=tk.BooleanVar(value=False)
+  tk.Checkbutton(nav,text='Keresési diagnosztika',variable=self.diagnostics_enabled,bg=BG,fg=FG,selectcolor=PANEL,activebackground=BG,activeforeground=FG).pack(side='left',padx=12)
+  RoundedButton(nav,text='Naplómappa',command=self.open_diagnostics_folder).pack(side='left')
   bar=tk.Frame(self.root,bg=BG);bar.pack(fill='x',padx=20,pady=9)
   self.keyword_frames=[bar]
 
@@ -72,6 +76,9 @@ class GUI:
   self.review_controls=tk.Frame(self.review,bg=PANEL);self.review_controls.pack(fill='x',padx=8)
   self.runbtn=RoundedButton(self.review,text='2. Keresés indítása',tone='search',command=self.execute_question);self.runbtn.pack(anchor='e',padx=8,pady=6)
   self.runbtn.configure(state='disabled')
+  question_actions=tk.Frame(self.root,bg=BG);question_actions.pack(fill='x',padx=20,pady=(0,6));self.question_frames.append(question_actions)
+  RoundedButton(question_actions,text='Találatok exportálása',tone='export',command=self.export_results).pack(side='left',padx=(0,8))
+  RoundedButton(question_actions,text='Alaphelyzet',tone='reset',command=self.reset_filters).pack(side='left')
   actions=tk.Frame(self.root,bg=BG);actions.pack(fill='x',padx=20,pady=(3,8));self.keyword_frames.append(actions);self.buttons=[]
   for icon,name,fn in [('book','Objektum kiválasztása',self.choose_object),('external','Forduló megnyitása',self.open_source),('download','Találatok exportálása',self.export_results)]:
    b=RoundedButton(actions,text=name,command=fn,tone='export' if name=='Találatok exportálása' else 'neutral')
@@ -99,6 +106,7 @@ class GUI:
   importbar=tk.Frame(self.root,bg=BG);self.importbar=importbar
   tk.Label(importbar,text='Importálás feldolgozófolyamatai:',bg=BG,fg=MUTED).pack(side='left',padx=(0,8))
   self.import_workers=tk.StringVar(value='Automatikus')
+  self.search_workers=tk.StringVar(value='Automatikus')
   _,workers_menu=self.make_dropdown(importbar,self.import_workers,17)
   self.set_menu_values(workers_menu,self.import_workers,['Automatikus','1','2','4','6','12'])
   tk.Label(importbar,text='Több mag • kötegelt adatbázis-írás • változatlan fájlok kihagyása',bg=BG,fg=MUTED).pack(side='left',padx=12)
@@ -189,6 +197,9 @@ class GUI:
   for title,action in [('Állapot ellenőrzése',check),('Ollama telepítése',install),('Modell letöltése',pull),('Mentés és bezárás',save)]:
    RoundedButton(buttons,text=title,command=action,tone='search' if title=='Mentés és bezárás' else 'neutral').pack(side='left',padx=(0,7))
   check()
+ def open_diagnostics_folder(self):
+  LOG.parent.mkdir(parents=True,exist_ok=True)
+  subprocess.Popen(['xdg-open',str(LOG.parent)])
  def ask_question(self):
   if self.busy:return
   question=self.question.get().strip()
@@ -290,10 +301,16 @@ class GUI:
   m=re.search(r'#(\d+)',self.char.get());cid=int(m.group(1)) if m else None
   self.ask_generation+=1;generation=self.ask_generation
   self.runbtn.configure(state='disabled');self.status.configure(text='Jóváhagyott keresés folyamatban…')
+  diagnostics=self.diagnostics_enabled.get()
   def worker():
    c=conn()
+   started=time.perf_counter()
    try:
-    rows,answer=run(c,p,cid)
+    with SearchTrace('Szabad kérdés',p.get('intent',''),p.get('item_id') or p.get('entity_id'),p.get('event',''),diagnostics) as trace:
+     rows,answer=run(c,p,cid)
+     trace.record['counts']['result_turns']=len(rows)
+     trace.record['counts']['result_events']=sum(r['count'] for r in rows)
+    answer+=f'  [Keresési idő: {time.perf_counter()-started:.2f} s]'
     self.root.after(0,lambda:self.finish_question(generation,rows,answer,self.plan_method,self.plan_warning,p))
    except Exception as exc:
     msg=str(exc);self.root.after(0,lambda:self.finish_question(generation,None,msg,'',''))
@@ -322,6 +339,10 @@ class GUI:
   tk.Label(workers,text='Importálási feldolgozók:',bg=BG,fg=MUTED).pack(side='left')
   _,worker_menu=self.make_dropdown(workers,self.import_workers,18)
   self.set_menu_values(worker_menu,self.import_workers,['Automatikus','1','2','4','6','12'],callback=lambda:None)
+  searchbar=tk.Frame(win,bg=BG);searchbar.pack(fill='x',padx=20,pady=5)
+  tk.Label(searchbar,text='Keresési feldolgozók:',bg=BG,fg=MUTED).pack(side='left')
+  _,smenu=self.make_dropdown(searchbar,self.search_workers,18)
+  self.set_menu_values(smenu,self.search_workers,['Automatikus','1','2','4','6','8'],callback=lambda:None)
   tk.Label(win,text='A feldolgozás százaléka a főablak állapotsorában látható.',bg=BG,fg=MUTED).pack(anchor='w',padx=20)
   tk.Label(win,text='Az importálás az eredeti HTML-eket használja. A folyamat a főablak állapotsorában is követhető.',bg=BG,fg=MUTED,wraplength=780).pack(anchor='w',padx=20,pady=10)
  def finish_question(self,generation,rows,answer,method,warning,plan=None):
@@ -369,7 +390,7 @@ class GUI:
   self.render_rows();self.apply_column_sort()
   self.status.configure(text='Keresési feltételek alaphelyzetbe állítva.')
   self.setinfo('A keresési feltételek törölve. Az importált fordulók és az adatbázis változatlanok.')
-  self.entry.focus_set()
+  (self.askentry if self.search_ui_mode.get()=='Szabad kérdés' else self.entry).focus_set()
  def clear_question_object(self):
   self.question_object=None;self.question_object_label.set('Nincs kiválasztva')
  def choose_question_object(self):
@@ -485,23 +506,31 @@ class GUI:
   self.searching=True
   self.status.configure(text='Keresés folyamatban… Dolgozom…')
   self.root.update_idletasks()
+  diagnostics=self.diagnostics_enabled.get()
   def worker():
-   c=conn()
+   c=conn();started=time.perf_counter()
    try:
-    if mode=='Harci események':
-     period=self.battle_period.get();last_n=None if period.startswith('Összes') else int(re.search(r'\d+',period).group())
-     rows,warnings=search_battles(c,self.battle_outcome.get(),cid,last_n,chosen['entity_id'] if chosen and chosen['kind']=='monster' else None)
-    elif mode=='Objektumkeresés':
-     rows=(search_item_events(c,chosen['entity_id'],event_mode,cid) if chosen['kind']=='item' and event_mode!='Összes említés' else search_objects(c,chosen['kind'],chosen['entity_id'],cid,include_ids=True)) if chosen else []
-    else:rows=search_turns_advanced(c,query,cid) if mode=='Intelligens keresés' else search_turns(c,query,cid)
+    with SearchTrace(mode,'item' if mode=='Objektumkeresés' and chosen and chosen['kind']=='item' else mode,chosen['entity_id'] if chosen else None,event_mode,diagnostics) as trace:
+     warnings=0
+     if mode=='Harci események':
+      period=self.battle_period.get();last_n=None if period.startswith('Összes') else int(re.search(r'\d+',period).group())
+      rows,warnings=search_battles(c,self.battle_outcome.get(),cid,last_n,chosen['entity_id'] if chosen and chosen['kind']=='monster' else None)
+     elif mode=='Objektumkeresés':
+      rows=(search_item_events(c,chosen['entity_id'],event_mode,cid) if chosen['kind']=='item' and event_mode!='Összes említés' else search_objects(c,chosen['kind'],chosen['entity_id'],cid,include_ids=True)) if chosen else []
+     else:
+      n=int(c.execute('SELECT COUNT(*) FROM turns').fetchone()[0]);workers=int(self.search_workers.get()) if self.search_workers.get().isdigit() else (4 if n>=500 else 1)
+      rows=search_text_parallel(c,query,cid,advanced=mode=='Intelligens keresés',workers=workers)
+     trace.record['counts']['result_turns']=len(rows)
+     trace.record['counts']['result_events']=sum(r['count'] for r in rows)
     total_turns=c.execute('SELECT COUNT(*) FROM turns').fetchone()[0]
     if mode=='Harci események' and warnings:total_turns=f'{total_turns} (hiányzó/hibás forrás: {warnings})'
-    self.root.after(0,lambda:self.finish_search(generation,rows,None,query,mode,total_turns))
+    elapsed=time.perf_counter()-started
+    self.root.after(0,lambda:self.finish_search(generation,rows,None,query,mode,total_turns,elapsed))
    except Exception as e:
     msg=str(e);self.root.after(0,lambda:self.finish_search(generation,[],msg,query,mode,0))
    finally:c.close()
   threading.Thread(target=worker,daemon=True).start()
- def finish_search(self,generation,rows,error,query,mode,total_turns):
+ def finish_search(self,generation,rows,error,query,mode,total_turns,elapsed=None):
   if generation!=self.search_generation or self.busy:return
   self.searching=False
   if error:
@@ -513,7 +542,7 @@ class GUI:
   else:self.rows.sort(key=lambda r:(r['character'].casefold(),-r['turn_number']))
   self.apply_column_sort();self.render_rows()
   total=sum(r['count'] for r in self.rows);characters=len(set(r['character_id'] for r in self.rows))
-  self.status.configure(text=f'{characters} karakter • {len(self.rows)} forduló • {total} előfordulás   |   {total_turns} importált forduló')
+  self.status.configure(text=f'{characters} karakter • {len(self.rows)} forduló • {total} előfordulás   |   {total_turns} importált forduló'+(f' | {elapsed:.2f} s' if elapsed is not None else ''))
   if mode=='Objektumkeresés' and not self.rows:self.setinfo(self.object_hint+'\n\nNincs találat a kiválasztott objektumra az importált fordulókban.')
   elif mode=='Harci események':self.setinfo('Harci események: '+self.battle_outcome.get()+' — '+self.battle_period.get()+'.\nA találatok a csatastatisztikákhoz kapcsolódnak. Az eredeti HTML-fájloknak elérhetőnek kell lenniük.\nA szörny megadásához válaszd ki a szörnyet, majd állítsd a keresési módot Harci eseményekre.\nA lista fordulónként csoportosít; az Előfordulás oszlop az adott forduló csatáinak számát mutatja.')
   elif not query:self.setinfo('Írj be egy keresett kifejezést. Intelligens keresésben: ÉS / VAGY / NEM, idézőjeles kifejezések, ékezetfüggetlen keresés.')

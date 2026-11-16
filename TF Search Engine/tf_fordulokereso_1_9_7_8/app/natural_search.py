@@ -14,7 +14,31 @@ OUTCOMES={'Halál','Menekülés','Győzelem','Összes harc'}
 EVENTS={'Megszereztem','Használtam','Összes említés'}
 
 def _has(q,key):
- return any(re.search(r'(?<!\w)'+re.escape(w)+r'(?!\w)',q) for w in DICTIONARY[key])
+ """Use the actual dictionary entries, accent-insensitively and at word boundaries."""
+ q=fold_hu(q)
+ return any(re.search(r'(?<!\w)'+re.escape(fold_hu(w))+r'(?!\w)',q) for w in DICTIONARY.get(key,()))
+
+def _has_action(q,key):
+ """Recognize dictionary forms, including common person/tense variations."""
+ if _has(q,key):return True
+ q=fold_hu(q)
+ stems={
+  'spell_use':('varazsol','mormol','elsutott','elsut','elmondtam'),
+  'item_acquire':('szerez','talal','kapta','kaptam','zsakmanyol'),
+  'item_use':('hasznal','alkalmaz','elhasznal','felhasznal'),
+  'npc_speech':('beszel','kozolt','mondott','megbiz','feladatot kapt'),
+ }
+ return any(re.search(r'(?<!\w)'+re.escape(stem)+r'\w*',q) for stem in stems.get(key,()))
+
+def _remove_actions(q,keys):
+ """Remove known question framing and recognized action tokens before object lookup."""
+ q=fold_hu(q)
+ for key in keys:
+  for phrase in sorted(DICTIONARY.get(key,()),key=len,reverse=True):
+   q=re.sub(r'(?<!\w)'+re.escape(fold_hu(phrase))+r'(?!\w)',' ',q)
+ q=re.sub(r'\b(?:mikor|melyik|mely|hol|hanyszor|hanyadik|forduloban|fordulokban|fordulomban|utoljara|legutobb|eloszor|legelso|a|az|egy|en|eddig|targyat|targy|varazslatot|varazslat)\b',' ',q)
+ q=re.sub(r'\b(?:utolso|elmult|legutobbi)\s+(?:\d+|husz|tiz|otven|szaz|ot)\s+fordulo\w*',' ',q)
+ return ' '.join(re.sub(r'[?!.,„”"“]',' ',q).split())
 
 def _inflected_entity_match(question, name):
  """Conservative Hungarian -val/-vel assimilation on final word.
@@ -56,16 +80,27 @@ def fallback(question,c=None):
  n=int(last.group(1)) if last else next((v for w,v in words.items() if re.search(r'(?:utolsó|elmúlt|legutóbbi)\s+'+w+r'\s+fordul',low)),None)
  latest=bool(re.search(r'utoljára|legutóbb|legutolsó|legelső|először',low));first=bool(re.search(r'legelső|először',low))
  base={'last_n':n,'latest':latest,'first':first,'rank':bool(re.search(r'legtöbbször|leggyakrabban|melyik három|top\s*\d+',low))}
- # Recognize spells before generic "használtam" item search.
+ # Resolve typed encyclopedia objects first; shared verbs such as "használtam"
+ # must be interpreted using the object type, not the verb alone.
  spell=_entity_from_question(c,low,'spell') if c else None
- if spell and (re.search(r'varázsl|mormol|ellen|használ|alkalmaz|elsüt',low)):
+ item=_entity_from_question(c,low,'item') if c else None
+ spell_action=_has_action(low,'spell_use')
+ item_acquire=_has_action(low,'item_acquire')
+ item_use=_has_action(low,'item_use')
+ if spell and (spell_action or (item_use and not item)):
   return dict(base,intent='spell',term=spell['name'],entity_id=spell['id'])
+ if item and (item_acquire or item_use):
+  return dict(base,intent='item',term=item['name'],item_id=item['id'],event='Megszereztem' if item_acquire else 'Használtam')
+ # Explicit spell action with an unrecognized object must not silently become
+ # a full-question text search. Shared generic verbs alone are not enough.
+ if spell_action and not item and not spell and not item_use:
+  raise ValueError('Varázslást ismertem fel, de a varázslat neve nem azonosítható az enciklopédiában.')
  # Explicit NPC/building/quest requests.
  command=re.search(r'\b(kld|be)\s*#?\s*(\d+)\b',low)
- npc=bool(re.search(r'\b(npc|küldetés|feladat|épület|főraktár|menazséria|prrankkh|prrantrox|ewgbert|chrrrox|beszéltem|mondott|megbízott)\w*',low))
+ npc=bool(re.search(r'\b(npc|küldetés|feladat|épület|főraktár|menazséria|prrankkh|prrantrox|ewgbert|chrrrox)\w*',low)) or (_has_action(low,'npc_speech') and not (spell or item) and not re.search(r'\b(talalkoztam|harc|csata|szorny)\w*',fold_hu(low)))
  if npc or command:
   name=next((w for w in ('prrankkh','prrantrox','ewgbert','chrrrox') if w in low),'')
-  mode='complete' if re.search(r'teljesítettem|sikeresen teljesít',low) else 'speech' if re.search(r'beszéltem|mondott|közölte',low) else ''
+  mode='complete' if re.search(r'teljesítettem|sikeresen teljesít',low) else 'speech' if _has_action(low,'npc_speech') else ''
   return dict(base,intent='npc',term=name,command_id=int(command.group(2)) if command else None,mode=mode)
  battle=bool(re.search(r'\b(harc|csata|csatában|szörny|ellenfél|megölt|öltek|ölt|meghalt|haltam|halál|menekül|győz|legyőz|vesztett|káosznanda)\w*',low)) or any(_has(low,k) for k in ('battle_death','battle_victory','battle_escape','battle_generic'))
  monster=_entity_from_question(c,low,'monster') if c else None
@@ -78,11 +113,12 @@ def fallback(question,c=None):
   # "nem vámpír őrszem" excludes this enemy; no filter for indefinite.
   exclude=bool(monster and re.search(r'\bnem\s+(?:a\s+|az\s+|egy\s+)?'+re.escape(monster['name'].casefold()),low))
   return dict(base,intent='battle',outcome=outcome,term=monster['name'] if monster and not indefinite else '',monster_id=monster['id'] if monster and not indefinite else None,exclude_monster=exclude)
- if re.search(r'\b(szerez|megszerez|találtam|kaptam|használtam|használ|tárgy)\w*',low):
-  action='Megszereztem' if re.search(r'szerez|találtam|kaptam',low) else 'Használtam' if 'használ' in low else 'Összes említés'
-  cleaned=re.sub(r'\b(mikor|melyik|hányadik|fordulóban|fordulókban|utoljára|legutóbb|először|legelső|szereztem|megszereztem|találtam|kaptam|használtam|használtad|használt|a|az|egy|tárgyat|tárgyból|tárgy|én)\b',' ',low)
-  cleaned=re.sub(r'\b(?:az\s+)?(?:elmúlt|utolsó|legutóbbi)\s+(?:\d+|húsz|tíz|ötven|száz|öt)\s+forduló(?:ban|mban|kban)?\b',' ',cleaned)
-  cleaned=' '.join(re.sub(r'[?!.]',' ',cleaned).split())
+ if item_acquire or item_use or re.search(r'\btargy\w*',fold_hu(low)):
+  action='Megszereztem' if item_acquire else 'Használtam' if item_use else 'Összes említés'
+  cleaned=_remove_actions(low,('item_acquire','item_use'))
+  # Strip inflected action variants not explicitly listed in the JSON.
+  cleaned=re.sub(r'\b(?:megszerez\w*|szerez\w*|talal\w*|kapta\w*|zsakmanyol\w*|hasznal\w*|alkalmaz\w*|elhasznal\w*|felhasznal\w*)\b',' ',cleaned)
+  cleaned=' '.join(cleaned.split())
   if not cleaned:raise ValueError('Nem tudtam egyértelműen felismerni a tárgy nevét.')
   return dict(base,intent='item',term=cleaned,event=action)
  m=re.search(r'(?:szerepel|találkoztam|említik|említés|keresd|keress|fordulóban|fordulókban)\s+(?:a|az|egy)?\s*[„"]?(.+?)[”"]?\s*\??$',low)

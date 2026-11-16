@@ -3,7 +3,7 @@ import json,zlib
 from bs4 import BeautifulSoup
 from battle_search import extract_battles
 
-VERSION=3
+VERSION=4
 
 def ensure(c):
  c.execute('''CREATE TABLE IF NOT EXISTS tf_event_index(
@@ -20,6 +20,9 @@ def index_turn(c,turn_id,html):
  battles=extract_battles(html)
  commands=[(cmd,num,body) for cmd,num,body in _commands(BeautifulSoup(html,'lxml')) if cmd in ('kld','be','vv','v')]
  c.execute('INSERT OR REPLACE INTO tf_event_index VALUES(?,?,?,?)',(turn_id,VERSION,pack(battles),pack(commands)))
+ from spell_index import ensure as ensure_spells,store as store_spells
+ ensure_spells(c)
+ store_spells(c,turn_id,commands,VERSION)
 
 def get(c,turn_id,field):
  try:
