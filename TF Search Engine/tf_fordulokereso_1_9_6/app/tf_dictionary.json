@@ -1,0 +1,11 @@
+{
+  "battle_death": ["meghaltam", "megöltek", "megölt", "kinyírt", "kinyírtak", "elestem", "halálomat", "vesztettem"],
+  "battle_victory": ["legyőztem", "győztem", "megöltem", "leterítettem", "kivégeztem", "elintéztem", "agyonvertem"],
+  "battle_escape": ["elmenekültem", "elfutottam", "megfutamodtam", "menekültem"],
+  "battle_generic": ["harcoltam", "csatáztam", "megküzdöttem", "találkoztam"],
+  "indefinite": ["bármilyen", "valamilyen", "akármilyen", "bármelyik", "bármely", "összes", "minden"],
+  "item_acquire": ["szereztem", "megszereztem", "találtam", "kaptam", "zsákmányoltam"],
+  "item_use": ["használtam", "alkalmaztam", "elhasználtam"],
+  "spell_use": ["varázsoltam", "elvarázsoltam", "elmormoltam", "elsütöttem", "alkalmaztam", "használtam"],
+  "npc_speech": ["beszéltem", "mondott", "közölte", "találkoztam", "feladatot kaptam", "megbízott"]
+}
