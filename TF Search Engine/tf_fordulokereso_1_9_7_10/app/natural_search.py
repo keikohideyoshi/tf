@@ -11,7 +11,7 @@ from battle_search import search_battles
 ALLOWED={'battle','item','text','spell','npc'}
 DICTIONARY=json.loads((Path(__file__).with_name('tf_dictionary.json')).read_text(encoding='utf-8'))
 OUTCOMES={'Halál','Menekülés','Győzelem','Összes harc'}
-EVENTS={'Megszereztem','Használtam','Összes említés'}
+EVENTS={'Megszereztem','Használtam','Alkímiáztam','Összes említés'}
 
 def _has(q,key):
  """Use the actual dictionary entries, accent-insensitively and at word boundaries."""
@@ -79,7 +79,7 @@ def fallback(question,c=None):
  words={'húsz':20,'tíz':10,'ötven':50,'száz':100,'öt':5}
  n=int(last.group(1)) if last else next((v for w,v in words.items() if re.search(r'(?:utolsó|elmúlt|legutóbbi)\s+'+w+r'\s+fordul',low)),None)
  latest=bool(re.search(r'utoljára|legutóbb|legutolsó|legelső|először',low));first=bool(re.search(r'legelső|először',low))
- base={'last_n':n,'latest':latest,'first':first,'rank':bool(re.search(r'legtöbbször|leggyakrabban|melyik három|top\s*\d+',low))}
+ base={'last_n':n,'latest':latest,'first':first,'rank':bool(re.search(r'legtöbbször|leggyakrabban|melyik három|top\s*\d+',low)), 'aggregate':bool(re.search(r'\b(?:hányszor|hány alkalommal|hány darab|hány db|mennyi|összesen)\b',low)), 'quantity_request':bool(re.search(r'\b(?:hány darab|hány db|mennyi darab|mennyi db)\b',low))}
  # Resolve typed encyclopedia objects first; shared verbs such as "használtam"
  # must be interpreted using the object type, not the verb alone.
  spell=_entity_from_question(c,low,'spell') if c else None
@@ -87,10 +87,11 @@ def fallback(question,c=None):
  spell_action=_has_action(low,'spell_use')
  item_acquire=_has_action(low,'item_acquire')
  item_use=_has_action(low,'item_use')
+ item_alchemy=bool(re.search(r'alkímiáz|alkimiz|ládikóba|üstbe dob',low))
  if spell and (spell_action or (item_use and not item)):
   return dict(base,intent='spell',term=spell['name'],entity_id=spell['id'])
- if item and (item_acquire or item_use):
-  return dict(base,intent='item',term=item['name'],item_id=item['id'],event='Megszereztem' if item_acquire else 'Használtam')
+ if item and (item_acquire or item_use or item_alchemy):
+  return dict(base,intent='item',term=item['name'],item_id=item['id'],event='Alkímiáztam' if item_alchemy else 'Megszereztem' if item_acquire else 'Használtam')
  # Explicit spell action with an unrecognized object must not silently become
  # a full-question text search. Shared generic verbs alone are not enough.
  if spell_action and not item and not spell and not item_use:
@@ -113,9 +114,10 @@ def fallback(question,c=None):
   # "nem vámpír őrszem" excludes this enemy; no filter for indefinite.
   exclude=bool(monster and re.search(r'\bnem\s+(?:a\s+|az\s+|egy\s+)?'+re.escape(monster['name'].casefold()),low))
   return dict(base,intent='battle',outcome=outcome,term=monster['name'] if monster and not indefinite else '',monster_id=monster['id'] if monster and not indefinite else None,exclude_monster=exclude)
- if item_acquire or item_use or re.search(r'\btargy\w*',fold_hu(low)):
-  action='Megszereztem' if item_acquire else 'Használtam' if item_use else 'Összes említés'
+ if item_acquire or item_use or item_alchemy or re.search(r'\btargy\w*',fold_hu(low)):
+  action='Alkímiáztam' if item_alchemy else 'Megszereztem' if item_acquire else 'Használtam' if item_use else 'Összes említés'
   cleaned=_remove_actions(low,('item_acquire','item_use'))
+  cleaned=re.sub(r'\balk[ií]mi[aá]z\w*\b|\balkimiz\w*\b|\bl[aá]dik[oó]ba\b|\b[uü]stbe\s+dob\w*\b',' ',cleaned)
   # Strip inflected action variants not explicitly listed in the JSON.
   cleaned=re.sub(r'\b(?:megszerez\w*|szerez\w*|talal\w*|kapta\w*|zsakmanyol\w*|hasznal\w*|alkalmaz\w*|elhasznal\w*|felhasznal\w*)\b',' ',cleaned)
   cleaned=' '.join(cleaned.split())
@@ -128,7 +130,7 @@ def fallback(question,c=None):
 
 def validate(p):
  if not isinstance(p,dict) or p.get('intent') not in ALLOWED:raise ValueError('Ismeretlen AI-keresési terv.')
- result={'intent':p['intent'],'term':str(p.get('term') or '').strip()[:160], 'latest':p.get('latest') is True,'first':p.get('first') is True,'rank':p.get('rank') is True}
+ result={'intent':p['intent'],'term':str(p.get('term') or '').strip()[:160], 'latest':p.get('latest') is True,'first':p.get('first') is True,'rank':p.get('rank') is True,'aggregate':p.get('aggregate') is True,'quantity_request':p.get('quantity_request') is True}
  if result['first']:result['latest']=True
  n=p.get('last_n');result['last_n']=int(n) if isinstance(n,int) and not isinstance(n,bool) and 1<=n<=100000 else None
  if result['intent']=='battle':
@@ -158,7 +160,7 @@ def reconcile_ai_plan(question, ai_plan, c=None):
  low=fold_hu(question)
  # Deterministic grammar is the only authority for time/ranking directives.
  explicit=fallback(question,c)
- for key in ('last_n','latest','first','rank'):
+ for key in ('last_n','latest','first','rank','aggregate','quantity_request'):
   ai[key]=explicit.get(key) if key=='last_n' else bool(explicit.get(key))
  if ai['first']:
   ai['latest']=True
@@ -182,7 +184,7 @@ def online_plan(question,key,model):
  prompt=('A Túlélők Földje fordulókereső kérdését alakítsd át kizárólag JSON objektummá. '
          'Ne válaszolj a kérdésre, ne találj ki adatokat. Mezők: intent (battle/item/text/spell/npc), '
          'outcome (Halál/Menekülés/Győzelem/Összes harc) csak battle esetén, '
-         'event (Megszereztem/Használtam/Összes említés) csak item esetén, '
+         'event (Megszereztem/Használtam/Alkímiáztam/Összes említés) csak item esetén, '
          'term (item: pontos tárgynév ragozás nélkül; text: keresett szöveg), '
          'monster_id (egész szám vagy null, csak biztos enciklopédiai azonosító esetén), exclude_monster (boolean), '
          'last_n (egész szám vagy null, csak ha konkrétan szerepel a kérdésben), '
@@ -250,7 +252,11 @@ def run(c,plan,character_id=None):
    names=', '.join(x['name'] for x in found[:8]);raise ValueError('A tárgy nem azonosítható egyértelműen: '+term+'. '+('Lehetséges találatok: '+names if names else 'Nincs ilyen tárgy az enciklopédiában.'))
   obj=exact[0]
   rows=search_item_events(c,obj['entity_id'],p['event'],character_id) if p['event']!='Összes említés' else search_objects(c,'item',obj['entity_id'],character_id,include_ids=True)
-  answer=f'{obj["name"]} (#{obj["entity_id"]}), {p["event"].lower()}: {sum(r["count"] for r in rows)} találat, {len(rows)} fordulóban.'
+  answer=f'{obj["name"]} (#{obj["entity_id"]}), {p["event"].lower()}: {sum(r["count"] for r in rows)} esemény, {len(rows)} fordulóban.'
+  if p['quantity_request']:
+   if p['event']=='Alkímiáztam' and rows and all(r.get('quantity_known',False) for r in rows):
+    answer+=f' Összesen {sum(r["quantity_total"] for r in rows)} db alkímiázott tárgy.'
+   else:answer+=' A teljes darabszám nem állapítható meg megbízhatóan a jelenlegi eseményadatokból.'
  else:
   rows=search_turns_advanced(c,p['term'],character_id)
   answer=f'„{p["term"]}”: {sum(r["count"] for r in rows)} előfordulás, {len(rows)} fordulóban.'
@@ -258,7 +264,10 @@ def run(c,plan,character_id=None):
   maxima={}
   for r in c.execute('SELECT character_id,MAX(turn_number) mx FROM turns GROUP BY character_id'):maxima[r['character_id']]=r['mx']
   rows=[r for r in rows if r['turn_number']>=maxima[r['character_id']]-p['last_n']+1]
-  answer=f'Az utolsó {p["last_n"]} fordulóban: {sum(r["count"] for r in rows)} találat, {len(rows)} fordulóban.'
+  answer=f'Az utolsó {p["last_n"]} fordulóban: {sum(r["count"] for r in rows)} esemény, {len(rows)} fordulóban.'
+  if p['quantity_request'] and intent=='item':
+   if p['event']=='Alkímiáztam' and rows and all(r.get('quantity_known',False) for r in rows):answer+=f' Összesen {sum(r["quantity_total"] for r in rows)} db.'
+   else:answer+=' A teljes darabszám nem állapítható meg megbízhatóan.'
  if p['latest'] or p['first']:
   if rows:
    rows=sorted(rows,key=lambda r:r['turn_number'],reverse=not p['first'])

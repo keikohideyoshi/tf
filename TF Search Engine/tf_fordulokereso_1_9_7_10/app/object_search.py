@@ -174,6 +174,9 @@ def search_item_events(c,entity_id,event_mode,character_id=None,sample_limit=3):
  a player-action verb. Negated and hypothetical clauses are excluded. Each
  explicit event is counted once; false negatives are preferable to inventions.
  """
+ if event_mode=='Alkímiáztam':
+  from alchemy_search import search_alchemy
+  return search_alchemy(c,entity_id,character_id,sample_limit)
  if event_mode not in EVENT_PATTERNS:raise ValueError('Ismeretlen tárgyesemény.')
  row=c.execute("SELECT name FROM entities WHERE kind='item' AND entity_id=?",(entity_id,)).fetchone()
  if row is None:raise ValueError('A tárgy nem található az enciklopédiában.')

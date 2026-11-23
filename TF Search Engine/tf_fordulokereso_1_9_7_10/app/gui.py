@@ -8,12 +8,13 @@ from rounded_button import RoundedButton
 from battle_search import search_battles
 from natural_search import fallback, online_plan, run, validate, _entity_from_question, apply_selected_object, reconcile_ai_plan
 import local_ai
+import ollama_service
 from search_diagnostics import SearchTrace, LOG
 
 BG='#151a24'; PANEL='#202838'; FG='#edf1f8'; MUTED='#a6b2c6'; ACC='#65c8b3'
 class GUI:
  def __init__(self):
-  self.root=tk.Tk();self.root.title('TF Fordulókereső 1.9.7.6');self.root.geometry('1200x800');self.root.minsize(850,550);self.root.configure(bg=BG)
+  self.root=tk.Tk();self.root.title('TF Fordulókereső 1.9.7.10');self.root.geometry('1200x800');self.root.minsize(850,550);self.root.configure(bg=BG)
   self.c=conn();self.busy=False;self.rows=[];self.timer=None;self.column_sort=None;self.column_desc=False;self.selected_object=None;self.search_generation=0;self.searching=False;self.imported_since_search=False
   style=ttk.Style();style.theme_use('clam')
   style.configure('Treeview',background=PANEL,foreground=FG,fieldbackground=PANEL,rowheight=34,borderwidth=0)
@@ -89,7 +90,7 @@ class GUI:
   tk.Label(eventbar,text='Tárgyesemény:',bg=BG,fg=MUTED).pack(side='left',padx=(0,9))
   self.event_mode=tk.StringVar(value='Összes említés')
   self.event_dropdown,self.event_menu=self.make_dropdown(eventbar,self.event_mode,25)
-  self.set_menu_values(self.event_menu,self.event_mode,['Összes említés','Megszereztem','Használtam'])
+  self.set_menu_values(self.event_menu,self.event_mode,['Összes említés','Megszereztem','Használtam','Alkímiáztam'])
   tk.Label(eventbar,text='Csak tárgyaknál; kizárólag egyértelmű szövegminták',bg=BG,fg=MUTED).pack(side='left',padx=12)
 
   battlebar=tk.Frame(self.root,bg=BG);battlebar.pack(fill='x',padx=20,pady=(0,8));self.keyword_frames.append(battlebar)
@@ -147,12 +148,33 @@ class GUI:
   def append(line):
    if not win.winfo_exists():return
    log.insert('end',line+'\n');log.see('end')
+  start_button=None
   def check():
    def worker():
     try:
      names=local_ai.models();msg='Ollama működik. Telepített modellek: '+(', '.join(names) if names else '(nincs)')
     except Exception:msg='Ollama nem érhető el a 127.0.0.1:11434 címen.'
-    self.root.after(0,lambda:state.set(msg))
+    def update():
+     if not win.winfo_exists():return
+     state.set(msg)
+     if start_button is not None:start_button.configure(state='disabled' if msg.startswith('Ollama működik.') else 'normal')
+    self.root.after(0,update)
+   threading.Thread(target=worker,daemon=True).start()
+  def start_ollama():
+   if start_button is not None:start_button.configure(state='disabled')
+   state.set('Ollama indítása folyamatban…')
+   append('Ollama indítása…')
+   def worker():
+    result, detail=ollama_service.start()
+    def finish():
+     if not win.winfo_exists():return
+     append(detail)
+     if result=='missing':
+      messagebox.showwarning('Ollama',detail+'\nHasználd az „Ollama telepítése” gombot.',parent=win)
+     elif result=='failed':messagebox.showwarning('Ollama indítása',detail,parent=win)
+     check()
+     self.refresh_ai_status()
+    self.root.after(0,finish)
    threading.Thread(target=worker,daemon=True).start()
   def run_command(command):
    def worker():
@@ -194,8 +216,12 @@ class GUI:
    if not re.fullmatch(r'[a-zA-Z0-9][a-zA-Z0-9._:/-]{0,100}',name):messagebox.showwarning('Modell','Érvénytelen modellazonosító.',parent=win);return
    self.local_model=name;self.local_ai_enabled=enabled.get();self.refresh_ai_status();win.destroy()
   buttons=tk.Frame(win,bg=BG);buttons.pack(fill='x',padx=18,pady=8)
-  for title,action in [('Állapot ellenőrzése',check),('Ollama telepítése',install),('Modell letöltése',pull),('Mentés és bezárás',save)]:
-   RoundedButton(buttons,text=title,command=action,tone='search' if title=='Mentés és bezárás' else 'neutral').pack(side='left',padx=(0,7))
+  first_row=tk.Frame(buttons,bg=BG);first_row.pack(anchor='w')
+  second_row=tk.Frame(buttons,bg=BG);second_row.pack(anchor='w',pady=(5,0))
+  for title,action in [('Állapot ellenőrzése',check),('Ollama indítása',start_ollama),('Ollama telepítése',install),('Modell letöltése',pull),('Mentés és bezárás',save)]:
+   btn=RoundedButton(first_row if title in ('Állapot ellenőrzése','Ollama indítása','Ollama telepítése') else second_row,text=title,command=action,tone='search' if title=='Mentés és bezárás' else 'neutral')
+   btn.pack(side='left',padx=(0,7))
+   if title=='Ollama indítása':start_button=btn
   check()
  def open_diagnostics_folder(self):
   LOG.parent.mkdir(parents=True,exist_ok=True)
@@ -274,7 +300,7 @@ class GUI:
    tk.Entry(row,textvariable=v,width=20,bg='#33445a',fg=FG,insertbackground=FG,relief='flat').pack(ipady=6)
   dropdown('intent','Típus',['battle','item','text','spell','npc'])
   if plan['intent']=='battle':dropdown('outcome','Harci eredmény',['Összes harc','Győzelem','Menekülés','Halál'])
-  if plan['intent']=='item':dropdown('event','Tárgyesemény',['Összes említés','Megszereztem','Használtam'])
+  if plan['intent']=='item':dropdown('event','Tárgyesemény',['Összes említés','Megszereztem','Használtam','Alkímiáztam'])
   if plan['intent']!='battle':entry('term','Keresett kifejezés')
   entry('last_n','Utolsó N forduló (üres = mind)')
   dropdown('selection','Találatok',['Összes','Legutóbbi','Legelső'] )
