@@ -1,0 +1,74 @@
+{
+  "theme": "Federation",
+  "fantasy": true,
+  "size": [
+    1900,
+    1035
+  ],
+  "applications": [
+    {
+      "id": "download",
+      "name": "TF Fordulóletöltő",
+      "description": "Fordulók letöltése",
+      "category": "Adatkezelés",
+      "color": "#60b9dd",
+      "icon": "download",
+      "script": "",
+      "enabled": true
+    },
+    {
+      "id": "file",
+      "name": "Utasítás Lap konvertáló",
+      "description": "UL fájlok konvertálása",
+      "category": "Segédprogramok",
+      "color": "#d9b16b",
+      "icon": "file",
+      "script": "",
+      "enabled": true
+    },
+    {
+      "id": "search",
+      "name": "TF Fordulókereső",
+      "description": "Keresés és Hyper-integráció",
+      "category": "Adatkezelés",
+      "color": "#a398e8",
+      "icon": "search",
+      "script": "",
+      "enabled": true
+    },
+    {
+      "id": "chart",
+      "name": "TF Analyzer",
+      "description": "Harci statisztikák",
+      "category": "Elemzés",
+      "color": "#59c9a6",
+      "icon": "chart",
+      "script": "",
+      "enabled": true
+    },
+    {
+      "id": "user",
+      "name": "TF Karakterlap-elemző",
+      "description": "Karakterfejlődés",
+      "category": "Elemzés",
+      "color": "#80a5e0",
+      "icon": "user",
+      "script": "",
+      "enabled": true
+    },
+    {
+      "id": "coins",
+      "name": "TF Vagyonanalizátor",
+      "description": "Vagyonfelmérés",
+      "category": "Elemzés",
+      "color": "#dfbb64",
+      "icon": "coins",
+      "script": "",
+      "enabled": true
+    }
+  ],
+  "position": [
+    9,
+    34
+  ]
+}

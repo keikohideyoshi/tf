@@ -1,0 +1,2964 @@
+﻿id;name;price;EA/VE
+1;deus ex machina;25;25/50
+2;kaja;1;1/2
+3;vizestömlő;7;7/14
+4;bot;0;0/0
+5;bunkó;0;0/0
+6;kőkés;0;0/0
+7;kőhegyű lándzsa;0;0/1
+8;szöges bunkó;10;10/20
+9;bunkósbot;1;1/2
+10;dárda;0;0/1
+11;csontkés;2;2/4
+12;csontszurony;2;2/4
+13;kőkalapács;0;0/0
+14;sünmedve tüske;1;1/2
+15;vadász tatu bőr;1;1/2
+16;bordacsont;2;2/4
+17;szögletes kő;0;0/0
+18;parittya;0;0/0
+19;kerek kő;0;0/0
+20;fúvócső;4;4/8
+21;ormánygőte csont;3;3/6
+22;tüske;0;0/0
+23;mérgezett tüske;1;1/2
+24;kavadu lebeny;2;2/4
+25;kavadu iszák;2;2/4
+26;gyenge méreg;1;1/2
+27;víz;0;0/0
+28;ököl;0;0/0
+29;smirglilevél;0;0/0
+30;varányszem;1;1/2
+31;smirglibokor;0;0/0
+32;szeksztáns;20;20/40
+33;lapockacsont;4;4/8
+34;ásó;5;5/10
+35;tűzbokor;0;0/0
+36;fáklya;0;0/1
+37;drótszőr;2;2/4
+38;gumifa;0;0/0
+39;zárnyitó készlet;16;16/0
+40;kis vaskulcs;3;3/6
+41;grákóbőr;3;3/6
+42;távcső;16;16/32
+43;tükör;0;0/0
+44;királygyík bőr;3;3/6
+45;kis bőrpajzs;5;5/10
+46;krómkaktusz;0;0/0
+47;surranó kígyó bőr;2;2/4
+48;antilopbőr;3;3/6
+49;kígyóbőr kesztyű;5;5/10
+50;arany;1;1/0
+51;bőrpáncél;5;5/10
+52;patak;0;0/0
+53;tavacska;0;0/0
+54;szökőkút;0;0/0
+55;mákrózsa bokor;0;0/0
+56;mákrózsa virág;0;0/0
+57;bőrsisak;5;5/10
+58;ködmangócserje;0;0/0
+59;ködmangó;0;0/0
+60;ködkapu;0;0/0
+61;árnyéksár;0;0/0
+62;ködcsillag;0;0/0
+63;tigroszlán fog;1;1/2
+64;csontszablya;2;2/4
+65;szöges páncél;24;24/48
+66;szöges bőrpajzs;16;16/32
+67;kék orchideacserje;0;0/0
+68;kék orchidea;4;4/8
+69;szárnyas hernyó;2;2/4
+70;rézdarab;1;1/2
+71;rézpáncél;24;24/48
+72;rézsisak;7;7/14
+73;rézpajzs;14;14/28
+74;csontkulcs;4;4/8
+75;rézkulcs;6;6/12
+76;bronzkulcs;9;9/18
+77;rát-fa;0;0/0
+78;mászókarom;10;10/20
+79;korongfa;0;0/0
+80;lapkorong;2;2/4
+81;mérleg;8;8/16
+82;zöld üveg;3;3/6
+83;ragasztó;1;1/2
+84;díszes rézpajzs;15;15/30
+85;óndarab;2;2/4
+86;olvasztókemence;0;0/0
+87;bronzhegyű lándzsa;10;10/20
+88;bronzsisak;9;9/18
+89;bronzpajzs;16;16/32
+90;bronzpáncél;32;32/64
+91;manilla-fa;0;0/0
+92;kötél;1;1/2
+93;mély kút;0;0/0
+94;bronzhegyű nyíl;5;5/10
+95;bakkura bőr;2;2/4
+96;bakkura csizma;11;11/22
+97;rákpáncél;4;4/8
+98;rákpajzs;10;10/20
+99;fekete gyöngy;6;6/12
+100;aranyló ugarhéj;4;4/8
+101;tinta;1;1/2
+102;vízionár szem;3;3/6
+103;magszim bél;5;5/10
+104;fémrúd;8;8/16
+105;evaporőr háj;5;5/7
+106;fabontó;5;5/10
+107;rövid íj;8;8/16
+108;nyílvessző;1;1/2
+109;vapár cserje;0;0/0
+110;vapár ág;10;10/20
+111;hosszú íj;20;20/40
+112;madártoll;1;1/2
+113;xantusz-kaktusz;0;0/0
+114;kaktusztüske;0;0/0
+115;móricserje;0;0/0
+116;móri gyümölcs;0;0/0
+117;ezüst nyaklánc;10;10/20
+118;púderszikla;0;0/0
+119;púderkő;0;0/1
+120;tábla;10;10/20
+121;jellempróba;0;0/0
+122;dözmöng szív;3;3/6
+123;göcsörtös bunkó;8;8/16
+124;rókafarok;3;3/6
+125;mandibulapenge;3;3/6
+126;bronzpenge;12;12/24
+127;mandibulakasza;25;25/50
+128;sallank karom;2;2/4
+129;sallank nyíl;4;4/8
+130;hebrencs állkapocs;4;4/8
+131;ubuk tüske;1;1/2
+132;hóhérbimbó;0;0/0
+133;csuklyavirág;1;1/2
+134;gyöngymangó bokor;0;0/0
+135;gyöngymangó;2;2/4
+136;rúnakő;0;0/0
+137;mérgezett ubuktüske;2;2/4
+138;ubuk dobónyíl;5;5/10
+139;koponya szimbólum;10;10/20
+140;denevér szimbólum;10;10/20
+141;nap szimbólum;10;10/20
+142;szem szimbólum;10;10/20
+143;virág szimbólum;10;10/20
+144;két kard szimbólum;10;10/20
+145;villám szimbólum;10;10/20
+146;oltár;0;0/0
+147;hebrencs csapda;15;15/30
+148;mocsári penke;1;1/2
+149;grok-képződmény;0;0/0
+150;szent jogar;50;50/100
+151;szvó-ektoplazma;10;10/20
+152;vasérc;2;2/4
+153;pirkit;2;2/4
+154;mély szakadék;0;0/0
+155;vaskohó;0;0/0
+156;világítótorony;0;0/0
+157;nyu-shuriken;12;12/24
+158;ezüst karkötő;14;14/28
+159;kis vaspajzs;23;23/46
+160;vassisak;22;22/44
+161;nagy vaspajzs;36;36/72
+162;borostyán függő;6;6/12
+163;karócsapda;12;12/24
+164;vasvért;82;82/164
+165;mászókampó;15;15/30
+166;ugh méreg;2;2/4
+167;sziklafészek;0;0/0
+168;sullár hólyag;7;7/14
+169;uzbány csőr;6;6/12
+170;spiritusz;1;1/2
+171;rövid kard;23;23/46
+172;téfea-agy;8;8/16
+173;nekrofun;0;0/0
+174;harci kalapács;36;36/72
+175;márványtorony;0;0/0
+176;vashegyű nyíl;6;6/12
+177;szopógödör;0;0/0
+178;mínosz-kúp;0;0/0
+179;grifftojás;10;10/20
+180;ezüst gyűrű;6;6/12
+181;vasalt bunkó;55;55/110
+182;vashegyű lándzsa;20;20/40
+183;vaskulcs;10;10/20
+184;ezüst kulcs;12;12/24
+185;nagy bronzkulcs;14;14/28
+186;nagy vaskulcs;16;16/32
+187;mérgezett vashegyű nyíl;8;8/16
+188;mérgezett ubuk dobónyíl;7;7/14
+189;vas dobónyíl;10;10/20
+190;mérgezett vas dobónyíl;10;10/20
+191;aranylánc;20;20/40
+192;gyöngysor;48;48/96
+193;aranygyűrű;12;12/24
+194;arany karperec;26;26/52
+195;obszidián függő;10;10/20
+196;trófea nyaklánc;30;30/60
+197;igazgyöngy fülbevaló;20;20/40
+198;trikornis szarv;12;12/24
+199;karbin plazma;10;10/20
+200;gyíkfű csomó;0;0/0
+201;gyíkfű;1;1/2
+202;amniosz-fa;0;0/0
+203;amniosz;1;1/2
+204;kazmár;0;0/0
+205;kazmár gyökér;4;4/8
+206;ovimon-bokor;0;0/0
+207;ovimon-bogyó;0;0/1
+208;óriás lián;0;0/0
+209;szuperkötél;2;2/4
+210;fűszertartó;6;6/12
+211;sáfránypor;20;20/0
+212;dorony tüdő;8;8/16
+213;xirnox szív;10;10/20
+214;manifesztátor nyúlvány;10;10/20
+215;praglonc hártya;200;200/400
+216;ketrec;76;76/152
+217;hurokcsapda;2;2/0
+218;ketrec csapda;0;0/0
+219;fedett verem;3;3/0
+220;háló-csapda;4;4/0
+221;dobóháló;8;8/16
+222;láncing;50;50/400
+223;smaragd védőgyűrű;100;100/600
+224;varkaudar lándzsa;5;5/10
+225;orgyilkos tőr;8;8/16
+226;ramit kő;3;3/6
+227;varázstekercs;0;0/0
+228;helytartói jogar;35;35/70
+229;obszidián karkötő;30;30/60
+230;lánckesztyű;15;15/300
+231;acélpengőke;3;3/6
+232;ilkin érc;3;3/6
+233;furulya;7;7/14
+234;tatu dob;4;4/8
+235;dorony duda;28;28/56
+236;lajhár csont;3;3/6
+237;tankány karom;10;10/20
+238;lant;18;18/36
+239;pular kristály;8;8/16
+240;kis aranykulcs;16;16/32
+241;smaragd kulcs;24;24/48
+242;tüskecsapda;8;8/16
+243;nyílcsapda;22;22/44
+244;kvazár;11;11/22
+245;márványkulcs;16;16/32
+246;nagy aranykulcs;24;24/48
+247;fekete bőrcsizma;16;16/32
+248;pszi kő;100;100/1000
+249;bumeráng;4;4/8
+250;ZAN;0;0/0
+251;kvazár páncél;250;250/500
+252;smaragd koszorú;60;60/0
+253;nekrofun medál;200;200/0
+254;regeneráló gyűrű;80;80/1600
+255;tatuködmön;4;4/8
+256;templom;0;0/0
+257;szent kehely;50;50/0
+258;nehezék;0;0/1
+259;szopókő;0;0/0
+260;isteni könnycsepp;0;0/0
+261;bájital;5;5/10
+262;friss csatamező;0;0/0
+263;ősi csatamező;0;0/0
+264;remák szív;12;12/24
+265;kristálygömb;10;10/20
+266;kvazár sisak;70;70/140
+267;fülemüle agyar;5;5/10
+268;gromak bőr;8;8/16
+269;purifikátor háj;18;18/36
+270;gromak páncél;30;30/60
+271;szürke bőrkesztyű;31;31/0
+272;aranytű;4;4/8
+273;szuper dobóháló;8;8/16
+274;szuper hálócsapda;8;8/0
+275;ametiszt medál;28;28/56
+276;sárga erőöv;40;40/0
+277;rejtőköpeny;14;14/28
+278;umbatari karkötő;40;40/200
+279;Mágikus Koponya;100;100/800
+280;tyrex csont;30;30/60
+281;raptor karom;12;12/24
+282;jégszív;15;15/30
+283;Fekete Kehely;110;110/1100
+284;sötét ital;50;50/100
+285;Szent Kulacs;100;100/1000
+286;Sheran főzete;14;14/28
+287;Tharr keresztje;100;100/1000
+288;zan indukátor;0;0/0
+289;sárkányölő kard;300;300/9000
+290;energiapajzs;800;800/12000
+291;bíbor erőöv;60;60/600
+292;sárkánypikkely;20;20/40
+293;drako pikkelyvért;800;800/0
+294;varkaudar páncél;10;10/20
+295;elit csatavért;30;30/60
+296;kvazár pajzs;100;100/200
+297;kvazár kard;140;140/280
+298;arx formázó minta;25;25/50
+299;bev formázó minta;25;25/50
+300;cru formázó minta;25;25/50
+301;din formázó minta;25;25/50
+302;?;0;0/0
+303;Fairlight köpenye;80;80/800
+304;kőszem;5;5/10
+305;varázskő;30;30/150
+306;adamantit kesztyű;130;130/0
+307;réz papi karkötő;20;20/200
+308;ezüst papi karkötő;30;30/300
+309;arany papi karkötő;80;80/800
+310;galachmit;30;30/300
+311;borkonyó cserje;0;0/0
+312;borkonyó bibe;5;5/10
+313;gyógykenőcs;5;5/10
+314;roxati zárfaló;100;100/800
+315;optiri agysisak;50;50/250
+316;Pusztítás Botja;180;180/2700
+317;varkaudar csizma;20;20/40
+318;taposó tappancs;300;300/0
+319;ködkard;0;0/0
+320;kregon zuzmó;0;0/0
+321;plazmacsillag;0;0/0
+322;ezüsttőr;8;8/16
+323;ezüsthegyű nyíl;4;4/8
+324;ezüsthegyű lándzsa;15;15/30
+325;ezüst kard;22;22/44
+326;ezüstdarab;4;4/8
+327;ezüstshuriken;8;8/16
+328;Thargodan esszencia;20;20/60
+329;csontpálca;15;15/75
+330;mirtuszkoszorú;30;30/60
+331;mutáns csont;4;4/8
+332;huhogó bibe;8;8/16
+333;rákfatty váladék;1;1/2
+334;acéltű;1;1/2
+335;olló;10;10/0
+336;pukkanó tűcsapda;6;6/12
+337;piranha zsákvédő;8;8/0
+338;királyi korona;150;150/0
+339;szuperpszi kő;44;44/0
+340;hadilobogó;35;35/0
+341;alkímiázó üst;80;80/800
+342;fagyöngy fűzér;25;25/0
+343;rézgolyó;1;1/2
+344;kincs;20;20/0
+345;viharfelhő;0;0/0
+346;rózsaszín bugyogó;30;30/0
+347;súlyzó;9;9/18
+348;shinai gömb;40;40/240
+349;lovagi tabard;30;30/0
+350;esszenciakristály;106;106/0
+351;tolmokov koktél;8;8/16
+352;mithril;8;8/16
+353;molluszk ház;2;2/4
+354;degradátor váladék;2;2/4
+355;szockó hólyag;3;3/6
+356;Tguarkhan csapda;0;0/0
+357;Baghar korbácsa;200;200/2000
+358;vámpírkard;250;250/5000
+359;quwarg boly;0;0/0
+360;quwarg tojás;2;2/4
+361;káosz szimbólum;10;10/20
+362;árnyékköpeny;250;250/0
+363;ezüsttollú nyíl;60;60/300
+364;vámpírtőr;80;80/1600
+365;tyrkiai mászógép;100;100/600
+366;szerencsetalizmán;80;80/400
+367;Trákin csákánya;80;80/400
+368;kinemfogyó tegez;70;70/700
+369;gránit őrszobor;50;50/500
+370;vascarai csizma;100;100/1000
+371;Raia papi palástja;30;30/0
+372;phua-kúp;0;0/0
+373;Eldaran karkötője;50;50/500
+374;fekete tű;5;5/0
+375;fekete csuha;12;12/0
+376;fény szentélye;0;0/0
+377;moa smaragd;25;25/50
+378;moa gyöngy;20;20/40
+379;moa rubin;30;30/60
+380;moa obszidián;12;12/24
+381;moa zafír;40;40/80
+382;moa jádekő;16;16/32
+383;moa üveggömb;5;5/10
+384;moa burát;12;12/24
+385;moa gyémánt;80;80/160
+386;moa katalizátor;40;40/80
+387;ónix piramis;0;0/0
+388;natali kő;0;0/0
+389;szigony;14;14/28
+390;halcsont;2;2/4
+391;polip szívóka;2;2/4
+392;mászó-karperec;93;93/0
+393;szent tölgyfa;0;0/0
+394;Kőtorony;0;0/0
+395;álomvirág;0;0/0
+396;álompor;1;1/2
+397;zafír erőöv;100;100/15000
+398;városépítkezés;0;0/0
+399;főutca;0;0/0
+400;ház;0;0/0
+401;kristálypalota;0;0/0
+402;morgud hagymatő;0;0/0
+403;fokhagyma;4;4/8
+404;rájabőr;3;3/6
+405;rájabőr úszógatya;15;15/30
+406;réz fejpánt;7;7/14
+407;bronz fejpánt;9;9/18
+408;vas fejpánt;15;15/30
+409;árnyékharcos gyűrű;30;30/0
+410;kígyóbőr öv;12;12/0
+411;királyi emlékmű;0;0/0
+412;vérvörös köpeny;4;4/8
+413;moa stuki;10;10/20
+414;stukilövedék;1;1/2
+415;aranypikkely;0;0/0
+416;teknőcteknő;12;12/24
+417;teknőcpajzs;15;15/30
+418;era formázó minta;25;25/50
+419;fpi formázó minta;25;25/50
+420;agyartőr;100;100/1500
+421;tyrex bunkó;200;200/4000
+422;mágusölő;180;180/3600
+423;szívkereső;250;250/3500
+424;csontpozdorja;200;200/5000
+425;pengepajzs;150;150/1800
+426;Raia pallosa;300;300/6000
+427;őstroll agyaló;250;250/6250
+428;gránátkaktusz;0;0/0
+429;kaktuszbogyó;4;4/12
+430;bogyógránát;4;4/8
+431;gránátcsapda;46;46/0
+432;Thargodan csatamező;0;0/0
+433;Vlagyimir szobra;0;0/0
+434;bányászcsákány;23;23/0
+435;törpe bánya;0;0/0
+436;réz masszariasztó;8;8/16
+437;arany masszariasztó;14;14/28
+438;ónix masszavadító;12;12/24
+439;szent liget;0;0/0
+440;?;0;0/0
+441;láthatatlanság köpenye;80;80/1600
+442;Muezli aranykeze;35;35/1750
+443;roxati üvegszem;18;18/540
+444;gór formázó minta;25;25/50
+445;kvazár kesztyű;60;60/120
+446;fekete lótusz;0;0/0
+447;lótuszvirág;4;4/8
+448;lótuszfőzet;5;5/10
+449;kristályfolyadék;4;4/8
+450;feketekard nyaklánc;500;500/0
+451;zangrozi csizma;25;25/250
+452;térkapu;0;0/0
+453;mágusköpeny;200;200/3200
+454;krapixlon fürdőruha;40;40/80
+455;kampós acélszigony;45;45/90
+456;arany pikkelyvért;500;500/8000
+457;mithril láncing;370;370/5920
+458;Rhatt páncélja;550;550/8800
+459;Tharr pajzsa;420;420/6720
+460;mithril pajzs;280;280/4200
+461;szellempajzs;500;500/8000
+462;Urgod kesztyűje;550;550/8800
+463;mithril kesztyű;250;250/4000
+464;nehéz harci kesztyű;370;370/5550
+465;mithril sisak;290;290/4640
+466;Morgan sipkája;550;550/8800
+467;gyémántsisak;520;520/8320
+468;Dantor amulettje;50;50/100
+469;Dantor vértje;30;30/0
+470;kholden kulcs;20;20/40
+471;norgat kulcs;24;24/48
+472;dizen kulcs;35;35/70
+473;fiatalság itala;80;80/400
+474;Tilnetor kardja;150;150/2250
+475;törpe bakancs;399;399/5985
+476;Fairlight botja;1000;1000/0
+477;zafír fülbevaló;50;50/750
+478;drakolder szem;300;300/0
+479;áspis védőköpeny;30;30/0
+480;cápaölő tőr;24;24/48
+481;obszidián tüske;12;12/120
+482;raptor szablya;25;25/50
+483;egykezes súlyzó;4;4/8
+484;barátság szent tüze;0;0/0
+485;Szent Pöröly;40;40/0
+486;Sörsátor;0;0/0
+487;Rothadás Szentélye;0;0/0
+488;erődítmény;0;0/0
+489;pusztulás sírjai;0;0/0
+490;elefántcsont torony;0;0/0
+491;obszidián erőd;0;0/0
+492;sárkánytanya;0;0/0
+493;rejtett kolostor;0;0/0
+494;császári erőd;0;0/0
+495;Emléktorony;0;0/0
+496;Hősök csarnoka;0;0/0
+497;Arénagödör;0;0/0
+498;?;0;0/0
+499;Techiulan amulettje;500;500/0
+500;manakristály;100;100/0
+501;kdole;64;64/0
+502;a kihívás tornya;0;0/0
+503;Morgan pálcája;300;300/4500
+504;aranytermő ládikó;400;400/0
+505;totemoszlop;0;0/0
+506;a bolondok aranya;0;0/0
+507;Krugrog mama terítője;50;50/0
+508;Morgan szilánkja;250;250/0
+509;bűvös lant;70;70/0
+510;ostromlétra;5;5/10
+511;Eldereth kristály;1000;1000/0
+512;Eldereth szilánk;100;100/0
+513;pásztorbot;120;120/1200
+514;zafír medalion;25;25/50
+515;városi kút;0;0/0
+516;varkaudar szablya;20;20/40
+517;Chara-din ékköve;5;5/10
+518;Rughar gyűrűje;150;150/3000
+519;tükörpáncél;800;800/11200
+520;Tharr kalapácsa;400;400/0
+521;mágusbot;250;250/0
+522;tudás gyöngye;150;150/0
+523;Mjölborg kalapácsa;600;600/7200
+524;drakolder kulcs;100;100/200
+525;moa töltő;100;100/200
+526;gránátlövedék;4;4/8
+527;Luthius karkötője;500;500/0
+528;óriásölő;500;500/6000
+529;angyalok gyűrűje;150;150/450
+530;lordok öve;700;700/0
+531;lidérckorona;800;800/12000
+532;zafír védőgyűrű;200;200/0
+533;tűzúr csizmája;555;555/8880
+534;Chara-din monolitja;0;0/0
+535;sötét tekercs;0;0/0
+536;Thargodan amulett;600;600/0
+537;Zu'lit tarsolya;70;70/700
+538;Bufa páncélja;550;550/8800
+539;mihlanil;25;25/0
+540;eknozol;60;60/0
+541;iknegurin;60;60/0
+542;mágikus pulzáns;150;150/0
+543;Thargodan korona;150;150/750
+544;kisebb zan;0;0/0
+545;kristályrend;120;120/0
+546;gnóm nyílpuska;35;35/70
+547;nyílpuska lövedék;4;4/8
+548;mérgezett nyílpuska lövedék;6;6/12
+549;szent nyílpuska lövedék;10;10/20
+550;troll dorong;50;50/100
+551;dentor bőr;35;35/70
+552;troll klopfoló;120;120/240
+553;tünde íj;30;30/60
+554;tünde nyíl;6;6/12
+555;csatabárd;31;31/62
+556;jing-jang fejpánt;20;20/40
+557;árnyéktőr;44;44/0
+558;szélkorona;60;60/0
+559;Fairlight öve;800;800/0
+560;őselemek köpenye;700;700/28000
+561;Urgod fétise;600;600/18000
+562;bűvös shuriken;22;22/0
+563;főnixtoll;0;0/0
+564;dalebgad kristályvért;800;800/0
+565;amul kulcs;50;50/100
+566;árnyékkulcs;60;60/120
+567;Tudás Könyve;500;500/0
+568;biami kvazárlándzsa;280;280/0
+569;Martian tekercse;1000;1000/0
+570;feneketlen bugyor;300;300/0
+571;quwarg gödör;0;0/0
+572;aranytoll;40;40/80
+573;dentor vért;500;500/0
+574;koponyalékelő;200;200/0
+575;mithril kard;300;300/0
+576;gejzír;0;0/0
+577;fekete kaktusz;0;0/0
+578;ében toboz;5;5/10
+579;kátránygödör;0;0/0
+580;kátrány;1;1/2
+581;gyilkos csalán;0;0/0
+582;csalánvirág;8;8/16
+583;mópat boly;0;0/0
+584;mópat tetem;4;4/8
+585;mópat token;15;15/30
+586;áldozati oltár;0;0/0
+587;ősvortex;0;0/0
+588;Thargodan tábor;0;0/0
+589;ében sziklatorony;0;0/0
+590;dentor szüttyő;38;38/76
+591;toxyl;8;8/16
+592;toxyl üvegcse;25;25/50
+593;jégkristály;20;20/40
+594;gravia öve;60;60/0
+595;lávató;0;0/0
+596;mihlanil sisak;60;60/0
+597;mihlanil nyíl;12;12/0
+598;mérgezett mihlanil nyíl;14;14/0
+599;mihlanil dobótőr;12;12/0
+600;mérgezett mihlanil dobótőr;14;14/0
+601;hro formázó minta;25;25/50
+602;mihlanil csizma;70;70/0
+603;mihlanil kesztyű;60;60/0
+604;mihlanil öv;100;100/0
+605;csalánkoktél;15;15/0
+606;vörös zyel;70;70/0
+607;vortex amulettje;50;50/0
+608;ősmágus fülbevalója;400;400/0
+609;angyalok kesztyűje;70;70/140
+610;pszi katalizátor;300;300/0
+611;viharamulett;40;40/80
+612;viharóriás barlang;0;0/0
+613;óriások öve;200;200/0
+614;óriás fülbevaló;200;200/0
+615;Ovgun nyaklánca;400;400/6000
+616;rémplazma;50;50/100
+617;sárkányfog;20;20/40
+618;pszi kristály;30;30/60
+619;lélekesszencia;45;45/90
+620;sárkánybarlang;0;0/0
+621;életszikla;0;0/0
+622;bíborcserje;0;0/0
+623;tűzbimbó;5;5/10
+624;lovagi tábor;0;0/0
+625;Démonölő;300;300/0
+626;sárkánytőr;200;200/3000
+627;adamantit;25;25/0
+628;adamantit páncél;400;400/0
+629;adamantit sisak;130;130/0
+630;adamantit pajzs;280;280/0
+631;adamantit csizma;200;200/0
+632;arkog kő;1;1/2
+633;törpe őskő;100;100/1000
+634;univerzum nektárja;40;40/0
+635;Halálpöröly;500;500/17500
+636;Végítélet;600;600/12000
+637;Fényhozó;600;600/12000
+638;Káoszkígyó;500;500/20000
+639;Fókuszpenge;300;300/12000
+640;Thór pörölye;500;500/10000
+641;bronz taider;500;500/10000
+642;áldott kő;20;20/40
+643;küklopsz szem;30;30/60
+644;gyémántkoponya;60;60/0
+645;Fortuna szentélye;0;0/0
+646;légiós nadrág;30;30/0
+647;Eldaran ékköve;30;30/0
+648;kulcskarika;90;90/0
+649;Huddens kesztyűje;1000;1000/15000
+650;sámán erszény;10;10/0
+651;rinóbőr;5;5/10
+652;darázsszárny;4;4/8
+653;varkaudar tekercs;12;12/0
+654;darázsfarok;14;14/28
+655;liumbe hajtás;4;4/8
+656;liumbe bimbó;15;15/0
+657;aurach fog;1;1/2
+658;aurach bőr;14;14/28
+659;Morgan kristálya;20;20/0
+660;Tiume batyuja;15;15/0
+661;alligátor bőr;10;10/20
+662;alligátorbőr cipő;40;40/0
+663;alligátorfog;10;10/0
+664;elf csont;4;4/8
+665;elkarog szőr;1;1/2
+666;démonesszencia;50;50/0
+667;nektoraf faggyú;3;3/6
+668;sáska amulett;15;15/30
+669;rakolits por;7;7/14
+670;lápi hajlék;0;0/0
+671;nyomkereső talizmán;150;150/600
+672;kiválasztottak éke;30;30/0
+673;rubin fülbevaló;1500;1500/22500
+674;dalebgad kristálycsizma;800;800/0
+675;sáfránykristály;20;20/40
+676;szulfin;20;20/40
+677;szulfagor agyar;4;4/8
+678;smaragdkő;50;50/100
+679;rubinkő;150;150/0
+680;hibátlan gyémánt;200;200/0
+681;elf kósza háza;0;0/0
+682;orvosságos zacskó;150;150/600
+683;elf tekercs;200;200/0
+684;tímárkunyhó;0;0/0
+685;rinóbőr öv;150;150/600
+686;tűzfény;200;200/0
+687;ryuku karvédő;85;85/0
+688;ryuku sisak;85;85/170
+689;ryuku mellvért;120;120/240
+690;ryuku kesztyű;85;85/170
+691;ryuku nadrág;85;85/270
+692;ryuku csizma;85;85/270
+693;ryuku köpeny;85;85/270
+694;ryuku kopja;70;70/140
+695;ryuku szablya;70;70/140
+696;ryuku buzogány;70;70/140
+697;Ezüstmágusok kürtje;1000;1000/0
+698;manóodú;0;0/0
+699;sötét kámzsa;120;120/480
+700;tubarkő;200;200/800
+701;Rahn ékkő;700;700/0
+702;teknősesszencia;45;45/90
+703;medúzacsáp;5;5/10
+704;troll csont;4;4/8
+705;kobudera csont;4;4/8
+706;gnóm csont;4;4/8
+707;smaragd karkötő;500;500/0
+708;ritualista amulett;50;50/100
+709;ritualista öv;100;100/0
+710;yeti mokasszin;300;300/3000
+711;csontamulett;300;300/1200
+712;etra hályog;25;25/50
+713;berzerker tüske;12;12/24
+714;rőtmanó kacagány;5;5/10
+715;csillagrubin;80;80/0
+716;Zinthurg pallos;15;15/30
+717;kij formázó minta;25;25/50
+718;lélekkulcs;56;56/112
+719;Harcosok Könyve;500;500/0
+720;művészi porolit;0;0/0
+721;Zombilapító;100;100/1500
+722;háború gyűrűje;200;200/1200
+723;császári kesztyű;200;200/400
+724;ryuku kalapács;40;40/80
+725;otagi csáp;250;250/2500
+726;gyémánt védőgyűrű;200;200/0
+727;Zu'lit fülkarikája;300;300/7500
+728;gyémánt karperec;120;120/240
+729;rubin fejék;140;140/280
+730;smaragd orrkarika;100;100/200
+731;topáz erényöv;110;110/220
+732;gyöngyberakásos öv;130;130/260
+733;bunthar bőr;5;5/10
+734;bunthar zsák;50;50/0
+735;mágikus hátizsák;100;100/0
+736;jegygyűrű;50;50/100
+737;rémbőr tarkóvédő;300;300/600
+738;Natharion karkötő;370;370/1110
+739;Batharak vértje;500;500/1000
+740;Zarknod szeme;940;940/9400
+741;kyorg köpeny;960;960/4800
+742;Natharion amulett;390;390/1170
+743;bo'adhun gyűrű;350;350/1050
+744;bo'adhun tiara;800;800/4000
+745;bo'adhun idol;400;400/1200
+746;bársony övsál;1000;1000/0
+747;natharion opál;50;50/100
+748;esthari rubin;50;50/100
+749;jáde rakshallion;50;50/100
+750;türkiz karika;50;50/100
+751;rítusónix;50;50/100
+752;nyers zafír;50;50/100
+753;jácint díszkő;50;50/100
+754;csavart smaragd;50;50/100
+755;malachit füzér;50;50/100
+756;obszidián kereszt;50;50/100
+757;bo'adhun aranygömb;50;50/100
+758;gyémánt fétisrúd;50;50/100
+759;ezüstlevél;50;50/100
+760;to'aghan orrkarika;50;50/100
+761;bronz nyakörv;50;50/100
+762;adamantit érme;100;100/200
+763;ro'galhal lánc;50;50/100
+764;mihlanil érme;80;80/160
+765;káosztiara;70;70/140
+766;aranyfétis;50;50/100
+767;kyorg rúnakorong;50;50/0
+768;raskhiir bozaka;50;50/0
+769;trakuun napkorong;50;50/0
+770;kyorg lepel;50;50/0
+771;idézőszőnyeg;50;50/0
+772;nagymesteri pálca;50;50/0
+773;drakolder póráz;50;50/0
+774;raskhiir talizmán;50;50/0
+775;bűvölt kristály;50;50/0
+776;arany foggyűrű;50;50/0
+777;arx tekercs;100;100/0
+778;bev tekercs;100;100/0
+779;cru tekercs;100;100/0
+780;gór tekercs;100;100/0
+781;hro tekercs;100;100/0
+782;iti tekercs;100;100/0
+783;jen tekercs;100;100/0
+784;kij tekercs;100;100/0
+785;lad tekercs;100;100/0
+786;mul tekercs;100;100/0
+787;quwarg korona;400;400/0
+788;tl'urlang fiola;50;50/100
+789;gh'raiton származék;250;250/0
+790;rd'alv származék;250;250/0
+791;kr'uagon származék;250;250/0
+792;ml'othag származék;250;250/0
+793;vg'axtol származék;250;250/0
+794;vg'axtol gyűrű;1000;1000/0
+795;gh'raiton fókusz;1000;1000/0
+796;rd'alv amulett;1000;1000/0
+797;ml'othag abroncs;1000;1000/0
+798;gh'raiton esszencia;250;250/0
+799;rd'alv esszencia;250;250/0
+800;kr'uagon esszencia;250;250/0
+801;ml'othag esszencia;250;250/0
+802;vg'axtol esszencia;250;250/0
+803;ősi karkötő;1000;1000/0
+804;ősi csizma;1000;1000/0
+805;ősi vállvédő;1000;1000/0
+806;ősi nyaklánc;1000;1000/0
+807;ősi sisak;1000;1000/0
+808;Dl'orkhaugruk esszenciája;250;250/0
+809;ősi páncél;1000;1000/0
+810;ősi kard;1000;1000/0
+811;gólem talizmán;50;50/0
+812;vortex talizmán;50;50/0
+813;halálhozó talizmán;50;50/0
+814;korinthai talizmán;50;50/0
+815;rothasztó talizmán;50;50/0
+816;halálhozó karkötője;500;500/0
+817;hatalom fülbevalója;200;200/0
+818;teremtés zsákja;200;200/0
+819;aranytermő erszény;200;200/0
+820;szirén köpenye;80;80/0
+821;Zu'lit koronája;150;150/0
+822;Vlagyimir gyűrűje;150;150/0
+823;mihlanil medál;200;200/0
+824;játékmesteri palást;600;600/0
+825;tl'urlang erőkő;100;100/200
+826;Urgol káoszpajzsa;3000;3000/0
+827;Techiulan oszlopa;0;0/0
+828;varázsfiola;100;100/0
+829;dlathog kőzet;50;50/100
+830;Huddens elixírje;80;80/160
+831;Batharak vállemeze;410;410/1230
+832;cápabőr csizma;360;360/1080
+833;cápafog;760;760/3800
+834;ogre öv;380;380/1140
+835;Emma köténye;760;760/0
+836;Sshreakza amulettje;1000;1000/5000
+837;nitmák penge;800;800/4000
+838;Iszonyat csápja;320;320/0
+839;ősplazma;900;900/4500
+840;Din cséphadarója;1000;1000/0
+841;varkaudar csésze;850;850/4250
+842;hótarantula köpeny;900;900/0
+843;hókereszt;400;400/0
+844;teriadan karkötő;1000;1000/5000
+845;Mindabala pikkelye;800;800/2400
+846;sárhajító kesztyű;950;950/4750
+847;Éjvadász karma;100;100/300
+848;ében nyílvessző;100;100/300
+849;ében dobónyíl;100;100/0
+850;Éjvadász bundája;1000;1000/5000
+851;Éjvadász ruha;1500;1500/7500
+852;ősi rúnatorony;0;0/0
+853;kreiton fókusz;80;80/160
+854;krathan szablya;50;50/100
+855;krathan pallos;150;150/300
+856;nitmák kard;20;20/40
+857;sziklazúzó;250;250/750
+858;sziklozug comb;4;4/0
+859;rasáth orrkarika;700;700/1400
+860;memóriaelixír;45;45/0
+861;energiamembrán;5;5/0
+862;vörös zselé;5;5/10
+863;yetifog;4;4/8
+864;rakshallion jogar;60;60/0
+865;natharion gömb;35;35/0
+866;gólemgyűrű;200;200/0
+867;natharion talizmán;200;200/0
+868;kyorgölő kés;200;200/0
+869;drag'kór varázskönyv;200;200/0
+870;drag'kór lábvédő;200;200/0
+871;drag'kór fülkarika;200;200/0
+872;drag'kór vért;200;200/0
+873;drag'kór bökő;20;20/40
+874;ünnepi övsál;700;700/1400
+875;kyorgölő penge;200;200/0
+876;Krossan párnája;200;200/0
+877;halgar kulcs;50;50/100
+878;hernyópete;4;4/0
+879;kitintüske;4;4/8
+880;Tokan esszenciája;500;500/0
+881;kyorgölő buzogány;200;200/0
+882;regeneráló öv;500;500/0
+883;ősi esszencia;300;300/0
+884;káoszkulcs;50;50/0
+885;tükörtorony;0;0/0
+886;pókkarmok;300;300/0
+887;tarantulakarom;20;20/0
+888;kreiton palást;250;250/0
+889;kreiton ősgömb;200;200/0
+890;agvari manafókusz;300;300/1500
+891;ro'galhal csuklópánt;400;400/8000
+892;kreiton esszencia;60;60/0
+893;tleikan kesztyű;200;200/0
+894;gyakorlónadrág;200;200/0
+895;tleikan karkötő;200;200/0
+896;zyel katalizátor;500;500/1000
+897;törp sisak;450;450/1350
+898;bűzölgő csizma;500;500/0
+899;Buqqe karma;1050;1050/8400
+900;örökkévalóság rubinja;300;300/0
+901;kyorg vállpánt;480;480/1440
+902;kyorg tőr;980;980/7840
+903;Kabol irhája;520;520/1560
+904;Kabol gyűrűje;920;920/7360
+905;troglodita fúvócső;450;450/1350
+906;troglodita tüske;15;15/0
+907;troglodita gyűrű;1000;1000/8000
+908;szürke briliáns;30;30/60
+909;parduanhályog;6;6/0
+910;gyémántplazma;4;4/0
+911;skorpiókarom;4;4/8
+912;quwarg igazgyöngy;4;4/8
+913;kyorg karkötő;220;220/0
+914;kockagyémánt;600;600/0
+915;enkala deréköv;12;12/0
+916;drachmor kristály;1000;1000/0
+917;kyorg hosszúpenge;30;30/60
+918;Teremtő koronája;366;366/0
+919;regeneráló totem;300;300/0
+920;Bropxat vállvédője;500;500/0
+921;Alkotó kalapács;300;300/0
+922;nothar cserje;0;0/0
+923;nothar bogyó;4;4/8
+924;kreommat-liliom;0;0/0
+925;kreommat szirom;4;4/8
+926;kreommat varázsital;20;20/0
+927;artikula bélhólyag;4;4/8
+928;csillagbozótos;0;0/0
+929;csillagbot;4;4/0
+930;bo'adhun nyílpuska;35;35/0
+931;csillaglövedék;10;10/0
+932;cápazsír;4;4/8
+933;pézsmatök;0;0/0
+934;pézsmatökmag;0;0/0
+935;raaba-fa;0;0/0
+936;raaba-gumó;4;4/8
+937;raaba-főzet;20;20/40
+938;bahrot bőr;5;5/10
+939;hajító csillag;30;30/0
+940;rakshallion háló;36;36/0
+941;keselyűmirigy;5;5/10
+942;kulcsszilánk;7;7/0
+943;brill azttar kulcs;50;50/0
+944;ében talizmán;990;990/9900
+945;dalebgad kristálylándzsa;600;600/0
+946;tl'urlang méreg;99;99/396
+947;tl'urlang termelő;1100;1100/11000
+948;sziréngyűrű;510;510/2040
+949;Ma'yia furulyája;1020;1020/10200
+950;Daramoula pálcája;600;600/2400
+951;vámpírölő;1400;1400/14000
+952;Salamon esszenciája;470;470/1880
+953;Ssszissszenő bőre;450;450/0
+954;Ssszissszenő csizma;450;450/0
+955;kígyópenge;920;920/9200
+956;Xanathal karkötője;550;550/2200
+957;sötét kasza;100;100/0
+958;éjkristály;30;30/60
+959;tlopedmuk paróka;100;100/0
+960;Rettegés Köpenye;600;600/0
+961;Holtak Könyve;500;500/0
+962;átkozott karkötő;100;100/0
+963;tleikan törvénykönyv;500;500/0
+964;tleikan nyárs;200;200/0
+965;ytterium kőzet;30;30/0
+966;drakolder csatamező;0;0/0
+967;dramoan kő;30;30/150
+968;dramoan talizmán;100;100/0
+969;drakolder gyűrű;1000;1000/15000
+970;ytterium katalizátor;50;50/0
+971;angyali sisak;700;700/14000
+972;drakolder kesztyű;1600;1600/0
+973;Olimpikon;1000;1000/20000
+974;Olimposz;1000;1000/20000
+975;tapasztalatkő;500;500/0
+976;barna immunitáskő;200;200/0
+977;kék immunitáskő;200;200/0
+978;vörös immunitáskő;200;200/0
+979;sáfránykő;300;300/0
+980;dalebgad kristálykulcs;500;500/0
+981;dramoan főzet;5;5/0
+982;mahagóni vért;5000;5000/0
+983;mahagóni korona;5000;5000/0
+984;mahagóni pajzs;5000;5000/0
+985;mahagóni kesztyű;5000;5000/0
+986;mahagóni csizma;5000;5000/0
+987;mahagóni köpeny;5000;5000/0
+988;mahagóni vállvédő;5000;5000/0
+989;mahagóni karvédő;5000;5000/0
+990;mahagóni lábszárvédő;5000;5000/0
+991;ezüsttölgy mellény;5000;5000/0
+992;ezüsttölgy sapka;5000;5000/0
+993;ezüsttölgy pajzs;5000;5000/0
+994;ezüsttölgy kesztyű;5000;5000/0
+995;ezüsttölgy surranó;5000;5000/0
+996;ezüsttölgy köpeny;5000;5000/0
+997;ezüsttölgy vállvédő;5000;5000/0
+998;ezüsttölgy karkötő;5000;5000/0
+999;ezüsttölgy nadrág;5000;5000/0
+1000;drakolit páncél;5000;5000/0
+1001;drakolit sisak;5000;5000/0
+1002;drakolit pajzs;5000;5000/0
+1003;drakolit kesztyű;5000;5000/0
+1004;drakolit csizma;5000;5000/0
+1005;drakolit köpeny;5000;5000/0
+1006;drakolit vállvédő;5000;5000/0
+1007;drakolit karvédő;5000;5000/0
+1008;drakolit lábszárvédő;5000;5000/0
+1009;mordaith mellény;5000;5000/0
+1010;mordaith álarc;5000;5000/0
+1011;mordaith pajzs;5000;5000/0
+1012;mordaith kesztyű;5000;5000/0
+1013;mordaith cipő;5000;5000/0
+1014;mordaith köpeny;5000;5000/0
+1015;mordaith vállvédő;5000;5000/0
+1016;mordaith karkötő;5000;5000/0
+1017;mordaith nadrág;5000;5000/0
+1018;uglaok páncél;5000;5000/0
+1019;uglaok harci maszk;5000;5000/0
+1020;uglaok nehéz pajzs;5000;5000/0
+1021;uglaok lánckesztyű;5000;5000/0
+1022;uglaok szöges csizma;5000;5000/0
+1023;uglaok láncköpeny;5000;5000/0
+1024;uglaok vállvédő;5000;5000/0
+1025;uglaok karvédő;5000;5000/0
+1026;uglaok lábszárvédő;5000;5000/0
+1027;moa védőmellény;5000;5000/0
+1028;moa sisak;5000;5000/0
+1029;moa hárítópajzs;5000;5000/0
+1030;moa védőkesztyű;5000;5000/0
+1031;moa cipő;5000;5000/0
+1032;moa köntös;5000;5000/0
+1033;moa vállap;5000;5000/0
+1034;moa karkötő;5000;5000/0
+1035;moa nadrág;5000;5000/0
+1036;arany sárkányvért;5000;5000/0
+1037;arany sárkánysisak;5000;5000/0
+1038;arany sárkánypajzs;5000;5000/0
+1039;arany sárkánykesztyű;5000;5000/0
+1040;arany sárkánycsizma;5000;5000/0
+1041;arany sárkányköpeny;5000;5000/0
+1042;arany sárkányvállap;5000;5000/0
+1043;arany sárkánykarperec;5000;5000/0
+1044;arany sárkánynadrág;5000;5000/0
+1045;yiang mellény;5000;5000/0
+1046;yiang sapka;5000;5000/0
+1047;yiang hárítópajzs;5000;5000/0
+1048;yiang kesztyű;5000;5000/0
+1049;yiang surranó;5000;5000/0
+1050;yiang köpeny;5000;5000/0
+1051;yiang vállvédő;5000;5000/0
+1052;yiang csuklópánt;5000;5000/0
+1053;yiang nadrág;5000;5000/0
+1054;mélybíbor páncél;5000;5000/0
+1055;mélybíbor álarc;5000;5000/0
+1056;mélybíbor pajzs;5000;5000/0
+1057;mélybíbor kesztyű;5000;5000/0
+1058;mélybíbor csizma;5000;5000/0
+1059;mélybíbor köpeny;5000;5000/0
+1060;mélybíbor vállpánt;5000;5000/0
+1061;mélybíbor karvédő;5000;5000/0
+1062;mélybíbor lábszárvédő;5000;5000/0
+1063;Síkok Kulcsa;5000;5000/0
+1064;tl'urlang konverter;1000;1000/0
+1065;örökkévalóság gyémántja;400;400/0
+1066;párducbőr;10;10/20
+1067;jegesmedve bunda;10;10/20
+1068;bundás kabát;45;45/0
+1069;rozmárfog;3;3/6
+1070;yetiszív;8;8/16
+1071;féregbél;4;4/8
+1072;ulkor gyöngy;15;15/30
+1073;párducszem;2;2/4
+1074;lidércesszencia;7;7/14
+1075;cetuszony;10;10/20
+1076;mágusszelence;25;25/50
+1077;hókutya nyakörv;10;10/20
+1078;mammutbőr;6;6/12
+1079;jégtörő korong;8;8/16
+1080;szélgömb;30;30/60
+1081;behemótköröm;10;10/20
+1082;hósárkány szív;20;20/40
+1083;eszkimó sátor;0;0/0
+1084;Természet Szentélye;0;0/0
+1085;térutazó szerkezet;100;100/0
+1086;jégöltözet;100;100/0
+1087;jégisten amulett;1000;1000/10000
+1088;hósárkánybőr csizma;700;700/10500
+1089;ulkor kötény;200;200/400
+1090;hibátlan cetbőr;300;300/600
+1091;cetbőr válltömés;350;350/700
+1092;királyi borosüveg;50;50/0
+1093;tolvaj klánjelvény;500;500/0
+1094;kramenta varázskő;0;0/0
+1095;bíborarany tolvajtőr;500;500/1000
+1096;csodák kútja;0;0/0
+1097;Augur varázskönyve;500;500/3000
+1098;Baghar fétise;500;500/3000
+1099;brakkara;500;500/3000
+1100;Éjmágus tükre;500;500/3000
+1101;Niagren pálcája;500;500/3000
+1102;hollókristály;200;200/1000
+1103;üllő;50;50/0
+1104;törpe védőgyűrű;180;180/1440
+1105;törpe szekerce;200;200/400
+1106;Az ősök könyve;500;500/0
+1107;varkaudar látógömb;100;100/600
+1108;csorba csatabárd;50;50/100
+1109;varkaudar falu;0;0/0
+1110;kis ónixkulcs;95;95/0
+1111;nagy ónixkulcs;95;95/0
+1112;varkaudar che-kard;150;150/1500
+1113;varkaudar csont;4;4/8
+1114;che-vállszalag;160;160/1600
+1115;örökkévalóság smaragdja;400;400/0
+1116;örökkévalóság zafírja;400;400/0
+1117;párducbőr övtáska;35;35/0
+1118;párducbőr pénztárca;25;25/100
+1119;derit sodronynadrág;1000;1000/0
+1120;csillogó nyakék;100;100/200
+1121;csillogó karkötő;120;120/0
+1122;csillogó fülbevaló;120;120/0
+1123;sikamlós búvárruha;40;40/0
+1124;csontzúzó diszkosz;12;12/24
+1125;bőrkantár;30;30/60
+1126;acéltűz nyílvessző;15;15/0
+1127;acéltűz dobónyíl;15;15/0
+1128;jégszilánk;3;3/0
+1129;derit láncszem;6;6/12
+1130;fenékkavics;24;24/0
+1131;csigakagyló;25;25/50
+1132;acéltűz nyílhegy;5;5/0
+1133;moa varázsdoboz;410;410/1230
+1134;varkaudar korbács;30;30/60
+1135;inváziós amulett;185;185/0
+1136;tűzhaj diadém;900;900/0
+1137;varkaudar pálinka;22;22/44
+1138;Khór maszkja;500;500/0
+1139;sámán gyógykenőcs;50;50/300
+1140;királysági őrsánc;0;0/0
+1141;hűségérme;40;40/4800
+1142;kreiton agy;100;100/0
+1143;tleikan életkő;800;800/0
+1144;tleikan manakő;600;600/0
+1145;kreiton főzet;200;200/0
+1146;árnyszőttes;400;400/0
+1147;árnykarkötő;300;300/0
+1148;torz fülkarika;250;250/750
+1149;Mutáns korona;500;500/0
+1150;isteni fétis;1500;1500/3000
+1151;tudati fétis;1500;1500/0
+1152;ryuku evező;30;30/60
+1153;ryuku amfora;20;20/0
+1154;ryuku védőkenőcs;24;24/0
+1155;tenger gyümölcse;16;16/32
+1156;ryuku ökölgyolcs;400;400/1200
+1157;ryuku kalózkendő;420;420/0
+1158;ryuku vadászing;400;400/800
+1159;ryuku harmatgyűjtő;100;100/0
+1160;korallföveny;0;0/0
+1161;azúrharmat;2;2/4
+1162;ryuku rúnatekercs;50;50/0
+1163;ryuku hajóroncs;0;0/0
+1164;őscápafog;80;80/0
+1165;kráken gyűrű;800;800/0
+1166;Élet gyűrűje;5000;5000/25000
+1167;Rodger üstje kezdőknek;40;40/0
+1168;Rodger üstje profiknak;80;80/0
+1169;tűzrakó hely;0;0/0
+1170;fűszerkeverék;10;10/20
+1171;varkaudar pecsétgyűrű;200;200/1600
+1172;oldalzsák;600;600/0
+1173;Leah szentélye;0;0/0
+1174;Dornodon szentélye;0;0/0
+1175;Raia szentélye;0;0/0
+1176;Elenios szentélye;0;0/0
+1177;Sheran szentélye;0;0/0
+1178;Tharr szentélye;0;0/0
+1179;Fairlight szentélye;0;0/0
+1180;Chara-din szentélye;0;0/0
+1181;Thargodan csont;10;10/30
+1182;Thargodan koponya;15;15/60
+1183;Notermanthi amulett;800;800/0
+1184;negatív esszencia;96;96/0
+1185;ektoplazma;31;31/93
+1186;nt'lagod esszencia;300;300/0
+1187;dr'thanox esszencia;300;300/0
+1188;bn'oxrad esszencia;300;300/0
+1189;zg'umrad esszencia;300;300/0
+1190;Urgol lángpallosa;10000;10000/0
+1191;Urgol lángdárdája;10000;10000/0
+1192;Urgol lángbuzogánya;10000;10000/0
+1193;dr'thanox gyűrű;700;700/0
+1194;nt'lagod karkötő;700;700/0
+1195;Zt'tuzzarxn végzete;500;500/0
+1196;og'lhobn fülbevaló;900;900/0
+1197;ud'mroag kulcs;400;400/0
+1198;at'htlab esszencia;350;350/0
+1199;en'trauk esszencia;350;350/0
+1200;Istenek Talizmánja;15000;15000/0
+1201;ud'mroag esszencia;350;350/0
+1202;og'lhobn esszencia;350;350/0
+1203;éjtündér szív;410;410/0
+1204;malom;0;0/0
+1205;malomkő;5;5/10
+1206;derit láncvért;1500;1500/0
+1207;örökkévalóság kristálya;400;400/0
+1208;régészeti lelőhely;0;0/0
+1209;beholderfej medál;420;420/0
+1210;Hatalom Karkötője;7000;7000/28000
+1211;csodálatos nyaklánc;4000;4000/20000
+1212;moa nyaklánc;5000;5000/0
+1213;moa tértorzító;2500;2500/0
+1214;dalebgad kristálykesztyű;800;800/0
+1215;szekérkaraván;0;0/0
+1216;Urgol lángkesztyűje;10000;10000/0
+1217;ztrax kulcs;1500;1500/0
+1218;megbűvölt utazóláda;60;60/0
+1219;káoszpulzáns;50;50/0
+1220;királyi érdemes művész kitűző;0;0/0
+1221;vámpírfog;3;3/6
+1222;hattyútoll;1;1/0
+1223;sólyomcsőr;5;5/10
+1224;ryuku tájoló;300;300/900
+1225;íjászkence;16;16/48
+1226;hattyútoll vánkos;70;70/140
+1227;energialándzsa;320;320/1280
+1228;ork csodaszer;18;18/54
+1229;mösze hátpáncél;11;11/22
+1230;bruhatagnyelv;7;7/14
+1231;möszehát pajzs;162;162/1620
+1232;pondróvér;4;4/8
+1233;cirkuszi pergamen;80;80/0
+1234;cirkuszi surranó;500;500/0
+1235;cirkuszi kitűző;400;400/0
+1236;holdbőr;14;14/28
+1237;Hantas karperece;900;900/0
+1238;Yuin gyöngysora;1000;1000/0
+1239;bohócsipka;400;400/0
+1240;fejsze;22;22/0
+1241;vaspánt;10;10/20
+1242;tutaj;3;3/0
+1243;csónak;3;3/0
+1244;ladik;3;3/0
+1245;vitorlás hajó;1200;1200/0
+1246;gerdraban fa;0;0/0
+1247;örökkévalóság topáza;400;400/0
+1248;Fairlight nyaklánca;8000;8000/24000
+1249;Thargodan karkötő;3500;3500/17500
+1250;Dornodon talizmánja;9000;9000/27000
+1251;aranyrög;12;12/24
+1252;csillezsálya;0;0/0
+1253;csillezsályalevél;10;10/0
+1254;ősmatéria;5;5/0
+1255;isteni gyöngysor;10000;10000/0
+1256;őselemi gyűrű;10000;10000/0
+1257;Gorhud gyűrűje;600;600/0
+1258;Leah titkos tekercse;30;30/0
+1259;homokóra;120;120/0
+1260;viharmadár totem;200;200/600
+1261;Ramirez feszítővasa;16;16/0
+1262;Halatir kalapja;25;25/75
+1263;tünde tegez;25;25/0
+1264;vadászkés;12;12/24
+1265;gyilkos méreg;40;40/120
+1266;kis mágneses bigyó;65;65/0
+1267;Emberiség Ékköve;20;20/0
+1268;hollókristály prizma;2100;2100/0
+1269;kaleidoszkóp;150;150/0
+1270;gyémánt okuláré;340;340/1020
+1271;Sheran cserepe;50;50/150
+1272;Kaldor varázspora;1;1/3
+1273;ryuku őrtorony;0;0/0
+1274;Utazók Gyűrűje;10000;10000/0
+1275;destabilizátor;250;250/750
+1276;teriád féreg;0;0/0
+1277;teriád tőr;50;50/200
+1278;teriád edény;70;70/140
+1279;teriád ékszer;1000;1000/2000
+1280;teriád háló-csapda;40;40/0
+1281;teriád dobóháló;40;40/80
+1282;teriád lándzsa;200;200/600
+1283;teriád pöröly;200;200/600
+1284;teriád kard;200;200/600
+1285;mágikus bizsu;500;500/0
+1286;teriád település;0;0/0
+1287;teriád nyílvessző;35;35/140
+1288;teriád íj;600;600/1800
+1289;Kyeli maszkja;3000;3000/0
+1290;biethlan lándzsa;4500;4500/13500
+1291;biethlan kard;4500;4500/13500
+1292;biethlan pöröly;4500;4500/13500
+1293;Kyeli kulcsa;1000;1000/0
+1294;Kyeli jegyzetfüzete;1000;1000/0
+1295;szaké;17;17/51
+1296;teriád fétis;100;100/300
+1297;teriádbőr karkötő;1300;1300/3900
+1298;jáde ékszer;1400;1400/0
+1299;fagyott kalapács;1400;1400/4200
+1300;draklen relikvia;400;400/0
+1301;draklen csizma;1220;1220/3660
+1302;draklen köpeny;1300;1300/0
+1303;draklen talizmán;4000;4000/0
+1304;Zarknod fülbevalója;15000;15000/0
+1305;bíbor drakpikkely;40;40/120
+1306;jáde drakpikkely;40;40/120
+1307;topáz drakpikkely;40;40/120
+1308;fekete drakpikkely;40;40/120
+1309;zöld drakpikkely;40;40/120
+1310;aszott drakpikkely;40;40/120
+1311;Durghal pörölye;3300;3300/9900
+1312;Méniach kardja;3300;3300/9900
+1313;Fagyor övsálja;2900;2900/0
+1314;Aurgir lándzsája;3300;3300/9900
+1315;Goachan pipája;3200;3200/9600
+1316;draklen citadella;0;0/0
+1317;ryuku remetelak;0;0/0
+1318;ryuku harci dárda;35;35/70
+1319;ryuku csataszoknya;250;250/750
+1320;ryuku menetpajzs;125;125/375
+1321;ryuku hüvelykgyűrű;140;140/420
+1322;ryuku függő;225;225/675
+1323;ryuku vállvédő;110;110/330
+1324;ryuku derékszíj;65;65/195
+1325;ryuku nyaklánc;120;120/360
+1326;draklen buborék;50;50/0
+1327;molitár dob;190;190/570
+1328;moa ravatalozó;490;490/1470
+1329;moa munkáskesztyű;320;320/960
+1330;moa csiptető;54;54/162
+1331;moa szemlencse;12;12/36
+1332;moa kulcsmásoló;350;350/1050
+1333;moa kémlelő;95;95/285
+1334;draklen jogi kódex;300;300/0
+1335;hoarián béklyó;1000;1000/0
+1336;hoarián nyereg;220;220/660
+1337;Horsa hagyatéka;800;800/2400
+1338;Horsa lámpása;1900;1900/5700
+1339;hoarián szentírás;500;500/0
+1340;immunitáskristály;3500;3500/0
+1341;hoarián bőröv;10;10/20
+1342;hoarián bőrzeke;16;16/32
+1343;vékony ryuku kulcs;9;9/27
+1344;vastag ryuku kulcs;12;12/36
+1345;hoarián bőrnadrág;12;12/24
+1346;hoarián saru;15;15/30
+1347;hoarián ujjkarika;60;60/180
+1348;moa fogaskerék;14;14/42
+1349;moa kártya;65;65/195
+1350;ezüsttöltény;15;15/0
+1351;hűbéresi gyűrű;1000;1000/0
+1352;szamurájkard;3000;3000/0
+1353;szamurájvért;3500;3500/0
+1354;Toyaki csuklópántja;5000;5000/0
+1355;moa távcső;280;280/840
+1356;lótakaró;110;110/330
+1357;Sárkány Amulettje;4000;4000/0
+1358;Toyaki kristálya;10000;10000/0
+1359;császári parancs;1000;1000/0
+1360;extra takarmány;12;12/36
+1361;fehér immunitáskő;200;200/0
+1362;fekete immunitáskő;200;200/0
+1363;rizsföld;0;0/0
+1364;rizs;1;1/2
+1365;ryuku tál;5;5/10
+1366;rizspapír-vért;400;400/1200
+1367;haramaki;400;400/1200
+1368;tradicionális öv;400;400/1200
+1369;hakama;400;400/1200
+1370;wakizashi;500;500/1500
+1371;naginata;500;500/1500
+1372;nunchaku;500;500/1500
+1373;kabuto;400;400/1200
+1374;sode;400;400/1200
+1375;kote;400;400/1200
+1376;ogwawa kulcs;80;80/240
+1377;draklen kulcs;40;40/120
+1378;pókláb;1;1/2
+1379;teriád méreg;12;12/24
+1380;mérgezett teriád nyílvessző;65;65/260
+1381;mérgezett teriád tőr;65;65/260
+1382;anguaxin váladék;14;14/28
+1383;aranycsináló csáp;30;30/60
+1384;ent pásztorbot;990;990/2970
+1385;dinó szaru;11;11/22
+1386;pöfeteg tojás;13;13/26
+1387;titkos teleportkő;800;800/4000
+1388;teriád klipsz;1000;1000/0
+1389;teriád vadászöv;2500;2500/5000
+1390;Gonemutlan tőre;1930;1930/5790
+1391;a szerencse gyűrűje;514;514/1542
+1392;sárga gyöngy;2500;2500/5000
+1393;Ting Ro Ce pajzsa;1900;1900/5700
+1394;hósárkány pajzs;860;860/2580
+1395;védőtalizmán;840;840/0
+1396;teknős mágiapáncél;1620;1620/4860
+1397;Mg'thorath feje;3000;3000/6000
+1398;Zafórion esszenciája;1330;1330/3990
+1399;Mg'thorath köve;2100;2100/6300
+1400;tűzsárkány ital;160;160/480
+1401;quwarg nyakpánt;1700;1700/5100
+1402;teknős csapda;360;360/0
+1403;hajóács készlet;600;600/0
+1404;csodabazár;0;0/0
+1405;erőserkentő kenőcs;400;400/0
+1406;agyértágító kenőcs;400;400/0
+1407;reflexélesítő kenőcs;400;400/0
+1408;sejtfiatalító kenőcs;400;400/0
+1409;esélynövelő kenőcs;400;400/0
+1410;nagyobb phua-kúp;0;0/0
+1411;kulcsoskönyv;500;500/0
+1412;titanit;35;35/0
+1413;kincses térkép;1000;1000/5000
+1414;kampós kéz;200;200/0
+1415;papagájsíp;22;22/44
+1416;halálfejes zászló;2000;2000/4000
+1417;halálfej szimbólum;42;42/126
+1418;ryuku rövidkard;21;21/42
+1419;rum;17;17/34
+1420;titanit nyílvessző;40;40/0
+1421;titanit dobópálca;40;40/0
+1422;Rhoi sisakja;400;400/0
+1423;titanit vállvédő;400;400/0
+1424;titanit szigony;400;400/0
+1425;Dhouga kalapácsa;400;400/0
+1426;Dhouga-féle szablya;400;400/0
+1427;kitámasztólándzsa;400;400/0
+1428;titanit vért;400;400/0
+1429;titanit karvédő;400;400/0
+1430;titanit lábvédő;400;400/0
+1431;titanit pajzs;400;400/0
+1432;halálfejes köpeny;200;200/0
+1433;ryuku kalózkalap;200;200/0
+1434;elhagyott kalózhajó;0;0/0
+1435;draklen koponya;455;455/1365
+1436;stabil mágiakő;3000;3000/0
+1437;ryuku kereskedőhajó;0;0/0
+1438;litu-puka páfrány;0;0/0
+1439;zsizsikcsapda;25;25/75
+1440;térdeplő tülök;8;8/24
+1441;magányos zsizsik;0;0/0
+1442;húsos terrathua;0;0/0
+1443;terrathua levél;2;2/6
+1444;harmatos zergenye;0;0/0
+1445;zergenye tölcsér;8;8/24
+1446;fényfaló galóca;0;0/0
+1447;galóca kalap;7;7/14
+1448;hoarián vállkendő;10;10/20
+1449;hoarián drágakő;65;65/195
+1450;kórócsapda;0;0/0
+1451;titánkóró;0;0/0
+1452;láprózsa;0;0/0
+1453;rózsatüske;0;0/0
+1454;gourry fészek;0;0/0
+1455;gourry tojás;3;3/6
+1456;kyorg övcsat;300;300/1200
+1457;kajmánhús;0;0/0
+1458;dzsumbujharcos bóla;33;33/0
+1459;őskő;500;500/0
+1460;hegymélyi varázskő;500;500/0
+1461;teriád kobak;13;13/39
+1462;azuka vese;9;9/18
+1463;garling kristály;500;500/0
+1464;nyeldeklő fűz;0;0/0
+1465;angolna szálka;31;31/155
+1466;Hulcarhud öve;1700;1700/5100
+1467;ősi kígyóbőr öv;696;696/2088
+1468;rémbőr kesztyű;740;740/2220
+1469;ősi teknőcpajzs;715;715/2145
+1470;Doemon kőkarkötője;1550;1550/4650
+1471;Ghudd'zilla kesztyű;1750;1750/5250
+1472;triton szigony;96;96/288
+1473;kígyónyelv;6;6/12
+1474;galócapálinka;4;4/8
+1475;hajóács szerszám;36;36/108
+1476;jokonbia fa;0;0/0
+1477;jokonbia ág;7;7/0
+1478;édesmoha;0;0/0
+1479;édesmoha csomó;0;0/0
+1480;titanitdukát;60;60/0
+1481;rúnakristály;900;900/0
+1482;értépő sarkantyú;100;100/200
+1483;kalóz bőrcsizma;20;20/60
+1484;finom keszkenő;12;12/36
+1485;Kjotoannam plazmája;280;280/560
+1486;pavhalka gumó;500;500/0
+1487;Szakamó fülgyűrűje;4500;4500/0
+1488;díszes tunika;300;300/1500
+1489;nemesi vívópalást;200;200/0
+1490;vívónadrág;200;200/0
+1491;nemesi ruhadísz;400;400/0
+1492;elhagyatott ház;0;0/0
+1493;fűzött kagylósor;62;62/310
+1494;füstölő;12;12/24
+1495;yuong tűzpikkely;25;25/75
+1496;cseng hópikkely;25;25/75
+1497;esszenciamágnes;3500;3500/0
+1498;reverziós prizma;1100;1100/0
+1499;Xhe-po-khai gyűrűje;850;850/3400
+1500;életvíz;100;100/0
+1501;rechelonicitor;1800;1800/0
+1502;robbanó golyóbis;35;35/105
+1503;Radelf csizmája;1430;1430/4290
+1504;teknősbőr nadrág;420;420/1260
+1505;gyöngykagyló;32;32/96
+1506;ryuku talizmán;115;115/345
+1507;Tsutomu amulettje;950;950/2850
+1508;ryuku katonai kötszer;36;36/108
+1509;Időjósok Könyve;500;500/0
+1510;rozsomákszőr;1;1/2
+1511;ryuku akadálypálya;0;0/0
+1512;ryuku aranybánya;0;0/0
+1513;teknős territórium;0;0/0
+1514;teknőstojás;15;15/30
+1515;misztikus tojás;30;30/60
+1516;draklentojás;80;80/160
+1517;nyerskulcs;30;30/60
+1518;örökkévalóság tűzopálja;400;400/0
+1519;Vlagyimir-díj;1500;1500/0
+1520;Shengoroth karma;420;420/1260
+1521;ryuku tűvető;460;460/2300
+1522;precíziós vetőtű;23;23/46
+1523;angyali medál;720;720/3600
+1524;angyali fétis;360;360/1080
+1525;őskristály-szilánk;33;33/99
+1526;Mallon botja;180;180/900
+1527;Jerome köpenye;180;180/900
+1528;varkaudar szimbólum;70;70/210
+1529;szivárványszív;110;110/0
+1530;ryuku futárcsizma;300;300/0
+1531;méregtagadó;240;240/1200
+1532;féregnyereg;200;200/1000
+1533;Nodonrod kitűző;90;90/270
+1534;quwarg teleportgömb;500;500/0
+1535;quwarg katalizátor;660;660/3300
+1536;trikornis nyereg;240;240/0
+1537;Raia csataszoknyája;480;480/2400
+1538;Amélia nyaklánca;420;420/2100
+1539;térhajlító kavics;230;230/690
+1540;megsemmisítő;50;50/150
+1541;Arsa potrohgyűrűje;360;360/1080
+1542;Amélia köpenye;210;210/630
+1543;kígyótoll;20;20/60
+1544;éjfekete kígyótoll;200;200/0
+1545;Korrum pálcája;540;540/0
+1546;varázskorsó;270;270/1350
+1547;szörnygenerátor;600;600/0
+1548;Blounther gyűrűje;600;600/3000
+1549;balkezes gyűrű;200;200/600
+1550;Huddens alkarvédője;170;170/510
+1551;mentát karkötő;90;90/270
+1552;saválló fülbevaló;140;140/420
+1553;méregfog;240;240/1200
+1554;aenouth ködkürt;460;460/2300
+1555;holdezüst fejpánt;180;180/540
+1556;Ek'Hor pajzsa;500;500/2500
+1557;ekharion dárda;40;40/80
+1558;hősiesítő medál;180;180/540
+1559;mentát korona;500;500/2500
+1560;légiós hátizsák;300;300/0
+1561;Krogan buzogánya;230;230/690
+1562;Métely páncélja;120;120/360
+1563;bozontfonat;330;330/1650
+1564;fattylord deréköv;320;320/960
+1565;Dühöngő nadrágja;660;660/3300
+1566;jégpasztilla;30;30/90
+1567;napmedál;440;440/2200
+1568;kentaurusz íj;630;630/3150
+1569;Napsörény szarva;440;440/1320
+1570;Krough fejdísze;270;270/1350
+1571;tanulmánytekercs;60;60/0
+1572;életköves gyűrű;370;370/1110
+1573;démoni palást;680;680/3400
+1574;jégcsákány;350;350/1750
+1575;jégrúna-tekercs;400;400/0
+1576;fülemüle síp;90;90/270
+1577;monstrum vállvédő;120;120/360
+1578;grifftoll kesztyű;165;165/825
+1579;griff nyakék;80;80/240
+1580;ryuku pecsétgyűrű;300;300/900
+1581;lényegformázó gyűrű;500;500/0
+1582;gyógyerejű talizmán;600;600/0
+1583;álcaruha;600;600/0
+1584;manókés;0;0/0
+1585;különleges varkaudar tekercs;200;200/0
+1586;fojtóhurok;50;50/0
+1587;Elenios tündöklő szobra;0;0/0
+1588;manóétek;20;20/80
+1589;kalmárok kémgömbje;80;80/0
+1590;kábító nyilacska;15;15/75
+1591;Inkvizítori Keresztszalag;0;0/0
+1592;kamikáze fejfedő;250;250/750
+1593;?;0;0/0
+1594;lovagi sisakforgó;300;300/600
+1595;illatos rózsaszál;10;10/20
+1596;Tharr koronája;3000;3000/0
+1597;Elenios fülbevalója;3000;3000/0
+1598;csonka fülbevaló;1500;1500/0
+1599;rubin koszorú;500;500/0
+1600;mágikus gyertya;60;60/180
+1601;féregíz nyakpánt;90;90/270
+1602;ezüstszelence;600;600/0
+1603;elmevédő kristály;150;150/0
+1604;Holtak Akarata;500;500/0
+1605;Aritma ostora;130;130/520
+1606;Ouitmlen esszenciája;190;190/570
+1607;lélekharang;800;800/3200
+1608;tl'urlang kereső;800;800/2400
+1609;isteni esszencia;7000;7000/0
+1610;mágusok itala;150;150/0
+1611;régészásó;110;110/440
+1612;aranymosó serpenyő;110;110/440
+1613;vámpírkesztyű;500;500/2000
+1614;vámpírvért;400;400/800
+1615;keg gomba;350;350/0
+1616;óriás kagylógyöngy;220;220/660
+1617;árnygyűrű;220;220/0
+1618;fenőkő;100;100/200
+1619;Thargodan varázskönyv;300;300/0
+1620;ragyogó övcsat;300;300/600
+1621;nekromanta övcsat;300;300/600
+1622;vérvörös rózsa;1;1/0
+1623;aranyozott klipsz;32;32/96
+1624;Mamajaga kőpálcája;340;340/1020
+1625;druida övcsat;300;300/0
+1626;druida köntös;400;400/0
+1627;ragyogó pelerin;400;400/0
+1628;nekromanta csuha;400;400/0
+1629;koboldkorona;300;300/900
+1630;Mamajaga kőcipője;420;420/1260
+1631;lovagi övcsat;300;300/600
+1632;sárkány ékkő;500;500/0
+1633;kisebb teleportkő;200;200/600
+1634;kiképzői érdemérem;250;250/0
+1635;A hajózás krónikája;250;250/0
+1636;kronokristály;900;900/0
+1637;hajóláda;500;500/0
+1638;díszes fegyvertok;500;500/2000
+1639;bűvészpálca;110;110/440
+1640;fejlődéskő;150;150/0
+1641;kentaurusz szőttes;220;220/660
+1642;hibátlan tűzopál;600;600/0
+1643;kentaurusz kürt;300;300/900
+1644;alakformáló főzet;60;60/180
+1645;díszes nyereg;140;140/420
+1646;ködíj;600;600/0
+1647;ködvessző;50;50/100
+1648;wughee dárda;120;120/360
+1649;díszes fakanál;60;60/300
+1650;lélekkő;200;200/0
+1651;bálnaölő szigony;550;550/0
+1652;bálnavadász tájoló;800;800/2400
+1653;a bátorság medálja;100;100/300
+1654;szithon vízfókusz;200;200/600
+1655;gyöngyhalász maszk;200;200/0
+1656;szithon vérfókusz;90;90/0
+1657;muzsikus füles;35;35/105
+1658;Korrissh sisakja;450;450/1350
+1659;vérpettyes gyűrű;40;40/120
+1660;hópelyhes kupa;600;600/1800
+1661;telerótt rúnalap;250;250/0
+1662;tünde gyűrű;250;250/0
+1663;bajnoki öv;200;200/600
+1664;próbakő;135;135/0
+1665;kulcsgenerátor;250;250/750
+1666;méregtermő iszák;60;60/0
+1667;úri lábbeli;90;90/0
+1668;bélelt vállemez;210;210/0
+1669;ezüstveretes pajzs;600;600/3000
+1670;zúzókesztyű;120;120/600
+1671;csodakarkötő;3500;3500/0
+1672;taumaturgikus öv;3500;3500/0
+1673;kristályszilánk;200;200/0
+1674;genrath vérmedvefog;18;18/0
+1675;medvebőr öv;200;200/1000
+1676;agori szegecscsizma;300;300/1500
+1677;díjnyertes nyereg;400;400/2000
+1678;páncélfényező;90;90/0
+1679;medvefog nyaklánc;300;300/0
+1680;vadásznyakörv;45;45/0
+1681;A versengés tornya;0;0/0
+1682;oázis;0;0/0
+1683;ork kunyhó;0;0/0
+1684;különös vadászház;0;0/0
+1685;elhagyott bánya;0;0/150
+1686;extra fűszerkeverék;100;100/0
+1687;bányászlámpa;50;50/150
+1688;legendás talizmán;500;500/0
+1689;égig érő pálma;0;0/0
+1690;Földanya Gyümölcse;10;10/0
+1691;holdbokor;0;0/0
+1692;holdsarló;4;4/0
+1693;szerencsekocka;160;160/0
+1694;apró zsákocska;60;60/0
+1695;mágusgyűrű;600;600/0
+1696;Numenathi laboratóriuma;0;0/0
+1697;boszorkánykendő;40;40/120
+1698;fénytelen gyöngy;6;6/12
+1699;mélysötét rubinkő;11;11/0
+1700;tengerszín smaragd;14;14/28
+1701;ork sör;16;16/32
+1702;feneketlen tó;0;0/0
+1703;trix harci totem;50;50/0
+1704;trix gyógypálca;10;10/20
+1705;trix fiola;40;40/0
+1706;avenir;800;800/4000
+1707;trix amulett;300;300/600
+1708;kisebb napkorong;300;300/0
+1709;esthar gyémántfétis;200;200/0
+1710;esthari gyöngykulcs;70;70/560
+1711;trix mágiafókusz;600;600/0
+1712;Numerinor karkötője;1500;1500/7500
+1713;Dendeitren gyűrűje;300;300/1500
+1714;Manó örvénylő övcsatja;10000;10000/0
+1715;jégkulcs;100;100/200
+1716;Snafall jeges öve;550;550/1650
+1717;Katrac káoszkönyve;700;700/0
+1718;Arutac mithrilöve;700;700/3500
+1719;Virotac gyűrűje;700;700/3500
+1720;Lordac kesztyűje;700;700/3500
+1721;Gotac kősisakja;700;700/3500
+1722;Zortac méregfoga;2500;2500/12500
+1723;Iniac nyaklánca;700;700/3500
+1724;Baurtac kristálya;700;700/0
+1725;krónika;400;400/0
+1726;Erdauin gyűrű;5000;5000/0
+1727;a gátlástalanság öve;400;400/1600
+1728;merénylő köpenye;100;100/0
+1729;gárdista övcsat;400;400/800
+1730;tolvajkesztyű;550;550/1650
+1731;T'vadar tőre;2500;2500/7500
+1732;vérkristály;300;300/0
+1733;koponya gyűrű;150;150/0
+1734;fejvadász medál;200;200/0
+1735;Brod buzogánya;50;50/100
+1736;Kudral ostora;1500;1500/4500
+1737;árnyékpáncél;420;420/0
+1738;Kudral feje;50;50/100
+1739;harci maszk;50;50/100
+1740;quwarg ikerboly;0;0/0
+1741;rubin dragnit;600;600/0
+1742;quwarg dragnit;600;600/0
+1743;smaragd dragnit;600;600/0
+1744;vörös dragnit;600;600/0
+1745;jég dragnit;550;550/0
+1746;Khór kesztyűje;1000;1000/0
+1747;?;0;0/0
+1748;topáz dragnit;450;450/0
+1749;az örökkévalóság igazgyöngye;400;400/0
+1750;fekete karvédő;800;800/0
+1751;füst öv;800;800/0
+1752;Beansidhe dragnitja;600;600/0
+1753;lajstrom medál;150;150/0
+1754;kétfejű csatabárd;48;48/96
+1755;aranyfaló ládikó;2000;2000/8000
+1756;lebegő erőd;0;0/0
+1757;leviatán gumó;200;200/400
+1758;mocsárivércszem;5;5/10
+1759;Lucius szerencsepénze;120;120/360
+1760;isteni kehely;400;400/0
+1761;szent kézigránát;1000;1000/2000
+1762;og'khor esszencia;300;300/0
+1763;iz'gribbor esszencia;300;300/0
+1764;krg'humán esszencia;300;300/0
+1765;pr'queztoor esszencia;300;300/0
+1766;gl'gtremp esszencia;300;300/0
+1767;zg'vzung esszencia;300;300/0
+1768;hentelő bőr;220;220/0
+1769;iz'gribbor karom;200;200/400
+1770;krg'humán fullánk;140;140/280
+1771;karomkesztyű;500;500/1000
+1772;Thargodan agyfókusz;400;400/0
+1773;dimenziórés;0;0/0
+1774;manakút;0;0/0
+1775;tl'urlang határozó;1000;1000/0
+1776;tl'urlang tájoló;1000;1000/0
+1777;éjkulcs;45;45/90
+1778;kristálykard;3500;3500/0
+1779;kristálypajzs;3000;3000/6000
+1780;kristálypáncél;4200;4200/0
+1781;ganüid masszakaptár;0;0/0
+1782;fekete nyílpuska;1500;1500/0
+1783;tl'urlang gömb;150;150/300
+1784;kristálynyíl;40;40/0
+1785;az örökkévalóság ametisztje;400;400/0
+1786;olimpiai vasmedál;1500;1500/0
+1787;olimpiai rézmedál;1500;1500/0
+1788;olimpiai ezüstmedál;1500;1500/0
+1789;olimpiai aranymedál;1500;1500/0
+1790;olimpiai titanitmedál;1500;1500/0
+1791;olimpiai rubinmedál;1500;1500/0
+1792;olimpiai gyémántmedál;1500;1500/0
+1793;olimpiai smaragdmedál;1500;1500/0
+1794;Mesterek érme;1500;1500/0
+1795;Harcosok érme;1500;1500/0
+1796;Tökéletesség érme;1500;1500/0
+1797;tűzopál érem;1500;1500/0
+1798;Félisteni érem;1500;1500/0
+1799;zg'vzung csatoló;500;500/0
+1800;Vetrox vérpörölye;120;120/0
+1801;Bufa dragnitja;600;600/0
+1802;kék golyó;600;600/0
+1803;kristály dragnit;800;800/0
+1804;Romboló kalapácsa;3400;3400/10200
+1805;pusztító lándzsa;3400;3400/10200
+1806;Romboló kesztyűje;1100;1100/5500
+1807;hatalmasok nyaklánca;800;800/0
+1808;mágikus hentesbárd;2500;2500/5000
+1809;lovagi kard;2500;2500/10000
+1810;manadefilátor;1000;1000/2000
+1811;titanit kulcs;50;50/150
+1812;Khór kardja;4000;4000/0
+1813;kristály vállvédő;6000;6000/0
+1814;ganüid származék;400;400/0
+1815;ganüid pulzáns;7000;7000/0
+1816;ganüid gyilok;3400;3400/0
+1817;ganüid masszapáncél;1130;1130/0
+1818;kristály kulcs;55;55/110
+1819;ganüid tájológömb;1000;1000/2000
+1820;hősi övcsat;100;100/0
+1821;varkaudar fellegvár;0;0/0
+1822;varkaudar dragnit;500;500/0
+1823;olimpiai fáklya;0;0/0
+1824;Khór szobra;0;0/0
+1825;ganüidölő buzogány;2800;2800/0
+1826;varkaudar fétis;150;150/0
+1827;tektonikus gömb;200;200/0
+1828;kvatáns pikkely;30;30/60
+1829;kvatáns pajzs;400;400/800
+1830;az örökkévalóság holdköve;2700;2700/0
+1831;vámpír talizmán;1000;1000/0
+1832;lánghordozó gyűrű;100;100/0
+1833;entitás esszencia;250;250/0
+1834;Zekhartax köpenye;1500;1500/4500
+1835;Zekhartax gyűrűje;8000;8000/0
+1836;fekete vállvédő;800;800/0
+1837;?;0;0/0
+1838;kristálybuzogány;3500;3500/0
+1839;olimpiai mágusmedál;1500;1500/0
+1840;sárkánypenge;1400;1400/4200
+1841;éjsötét rémcsizma;2000;2000/0
+1842;törpe ékkő;100;100/200
+1843;gron vállvédő;200;200/0
+1844;Quinthyn szeme;20;20/0
+1845;Obarraan köpenye;200;200/0
+1846;névjegykártya;0;0/0
+1847;opál karkötő;1000;1000/0
+1848;szférikus pulzáns;1;1/0
+1849;őselemi pulzár;0;0/0
+1850;díszes nemesi ruha;2000;2000/4000
+1851;gyöngyfűzős szandál;1000;1000/2000
+1852;fűzött igazgyöngysor;2000;2000/4000
+1853;zafír gyűrű;2000;2000/4000
+1854;gyémánt gyűrű;100;100/900
+1855;opál karperec;1000;1000/0
+1856;díszkatana;500;500/0
+1857;díszbuzogány;500;500/1000
+1858;díszszai;500;500/0
+1859;császári kolostor;0;0/0
+1860;aprófaforgács;1;1/0
+1861;olimpiai kvazármedál;1500;1500/0
+1862;moa harci nadrág;10000;10000/20000
+1863;mentori gyűrű;150;150/0
+1864;tépett lobogó;1;1/2
+1865;berzerker rablánc;100;100/200
+1866;dögevő csőr;50;50/100
+1867;óelf csontjogar;1000;1000/0
+1868;sámándob;1800;1800/3600
+1869;nerub fúvócső;450;450/1350
+1870;csonttű;3;3/6
+1871;nerub szemfog;3;3/6
+1872;behemót amulett;150;150/300
+1873;nerub gyógyital;100;100/0
+1874;Hatabubu amulettje;900;900/0
+1875;bíbor orchidea;0;0/0
+1876;orchidea kehely;10;10/20
+1877;ragacsos mimóza;0;0/0
+1878;mimózabimbó;5;5/10
+1879;nerub hasító;1000;1000/2000
+1880;Fadabama hasítója;4000;4000/0
+1881;nerub csontszablya;150;150/300
+1882;varázsháló;1000;1000/0
+1883;nerub hálócsapda;1000;1000/0
+1884;Putakalu karkötője;4000;4000/0
+1885;szaggató szív;3;3/6
+1886;képlékeny dragnit;300;300/0
+1887;zuhanó lebernyeg;20;20/40
+1888;nerub méreg;5;5/10
+1889;mérgezett csonttű;6;6/12
+1890;félelmetes koponya;30;30/60
+1891;koponyapajzs;250;250/500
+1892;csigolyakorbács;350;350/0
+1893;rettegés ostora;1000;1000/0
+1894;gernim balzsam;20;20/0
+1895;groxmati tekercs;200;200/0
+1896;vihargyűrű;3500;3500/0
+1897;medvetalp mokasszin;300;300/0
+1898;Kabazuka gyűrűje;1000;1000/7000
+1899;sámánmaszk;2500;2500/0
+1900;robbanó pöfeteg;0;0/0
+1901;pöfeteg spóra;1;1/2
+1902;lila tulipán;0;0/0
+1903;tulipán gumó;10;10/20
+1904;lélegző tátika;0;0/0
+1905;tátika bibe;10;10/20
+1906;holdfű csomó;0;0/0
+1907;holdfű;1;1/0
+1908;árvalányhaj tő;0;0/0
+1909;árvalányhaj;10;10/20
+1910;Thargodan hűségérme;2000;2000/0
+1911;átokpulzáns;100;100/0
+1912;felleghajtó;500;500/0
+1913;felleggyűrű;500;500/0
+1914;őrjöngő agyar;200;200/400
+1915;jégisten kopjája;4000;4000/0
+1916;párduckirály karma;300;300/600
+1917;sziránusz buborék;20;20/40
+1918;homokvihar;0;0/0
+1919;viharhomok;3;3/6
+1920;dűneelf arckendő;10;10/20
+1921;hófehér nyílvessző;300;300/900
+1922;hófehér dobónyíl;300;300/900
+1923;kristály dobónyíl;40;40/0
+1924;szörnykatalizátor;1000;1000/0
+1925;baziliszkusz tojás;40;40/80
+1926;periszkóp csigaház;30;30/60
+1927;Lopez áldozótőre;3400;3400/0
+1928;tündöklő dragnit;800;800/0
+1929;hibátlan dragnit;800;800/0
+1930;vihardragnit;800;800/0
+1931;sáfránydragnit;800;800/0
+1932;borostyándragnit;800;800/0
+1933;haláldragnit;800;800/0
+1934;bajvívó kesztyű;5000;5000/0
+1935;időhasító kesztyű;5000;5000/0
+1936;sziránusz erszény;2000;2000/0
+1937;sziránusz szigony;500;500/2500
+1938;dimenziórekesz;201;201/0
+1939;quwarg halálgömb;2000;2000/0
+1940;sorsfordító;500;500/0
+1941;napfény karkötő;4000;4000/0
+1942;Uterenth csizmája;2000;2000/4000
+1943;tőrvető vállszíj;500;500/1500
+1944;éjfekete diszkosz;75;75/225
+1945;célzóvíz;32;32/64
+1946;árnypenge;2000;2000/0
+1947;negátortoll;20;20/40
+1948;Quttaqrua pörölye;4000;4000/0
+1949;öldöklő pikkely;50;50/100
+1950;öldöklő diszkosz;100;100/0
+1951;téridő stabilizátor;1000;1000/0
+1952;megmentett lélek;300;300/0
+1953;kronoplazma;150;150/300
+1954;téridő hasadék;0;0/0
+1955;kővirág;0;0/0
+1956;kővirág gyümölcs;5;5/10
+1957;óarany diadém;900;900/0
+1958;Vércsapoló;2000;2000/0
+1959;quwarg kitindarab;100;100/0
+1960;quwarg testpáncél;4500;4500/0
+1961;quwarg szuperboly;0;0/0
+1962;nerub település;0;0/0
+1963;sámángyökér;0;0/0
+1964;gyökérsarjadék;10;10/20
+1965;nerub tégely;50;50/0
+1966;nerub elixír;400;400/0
+1967;dzsudzsu medál;5000;5000/0
+1968;nerub totemfétis;100;100/0
+1969;sámántarisznya;200;200/0
+1970;nerub sámánöv;5000;5000/0
+1971;moa relikvia;100;100/0
+1972;moa csatapajzs;5000;5000/0
+1973;moa rohamsisak;5000;5000/0
+1974;moa romok;0;0/0
+1975;moa lábszárvédő;10000;10000/0
+1976;mogul szemgolyó;400;400/800
+1977;yeti barlang;0;0/0
+1978;jégkorona;1500;1500/22500
+1979;tűztagadó;500;500/1000
+1980;ősöreg yetibőr;250;250/500
+1981;yetibőr zsák;1000;1000/0
+1982;Agyzúzó;2000;2000/0
+1983;yeti nektár;500;500/0
+1984;ryuku rúnakulcs;100;100/200
+1985;tanítvány öv;800;800/1600
+1986;arénabajnoki medál;100;100/0
+1987;tátika főzet;10;10/0
+1988;barracuda szigony;250;250/500
+1989;varázskönyv;500;500/0
+1990;áldott fóliáns;500;500/0
+1991;xenomorf tojás;100;100/200
+1992;saválló üvegcse;10;10/20
+1993;királynő esszencia;500;500/0
+1994;xenomorf vér;20;20/40
+1995;quwarg iszák;200;200/400
+1996;kapuőr életnedv;5;5/10
+1997;quwarg védőkenőcs;100;100/0
+1998;Ballingár köpenye;2000;2000/0
+1999;quwarg serkentőpor;2;2/4
+2000;sziránusz mutagén;100;100/0
+2001;Dornodon palástja;1000;1000/0
+2002;óelf varázskő;600;600/0
+2003;óelf hatalomjel;1000;1000/0
+2004;Handastye karkötője;1000;1000/0
+2005;sziránusz érme;500;500/0
+2006;nyelvoldó;500;500/0
+2007;Loronden levele;0;0/0
+2008;sziránusz kristály;200;200/0
+2009;óriás phua-kúp;0;0/0
+2010;Mnhúmenisz gyűrűje;1500;1500/0
+2011;drakolder nyakörv;4500;4500/0
+2012;gyűrűfüzér;200;200/0
+2013;purifikátor öv;300;300/0
+2014;goblin bökő;500;500/1000
+2015;parázsdragnit;300;300/0
+2016;kígyószem;500;500/0
+2017;rúnacsiga;100;100/0
+2018;ősi embléma;1000;1000/0
+2019;quwarg térváltó;3000;3000/0
+2020;hatásnövelő;500;500/0
+2021;tómélyi barlang;0;0/0
+2022;gyógyító szimbólum;2000;2000/0
+2023;Phaltagore gyűrűje;1000;1000/0
+2024;Uterenth medálja;1000;1000/0
+2025;Uterenth térképe;200;200/1200
+2026;Az idő kódexe;2000;2000/0
+2027;kisebb reverziós prizma;200;200/0
+2028;Kaleq kesztyűje;2000;2000/0
+2029;Muezli érdemérme;2000;2000/0
+2030;mestertolvaj érem;500;500/0
+2031;Rasolphius kitűzője;2000;2000/0
+2032;hős lovag érdemérem;2000;2000/0
+2033;Rodger főzőkanala;2000;2000/0
+2034;mesterszakács kanál;500;500/0
+2035;Kragoru okuláréja;2000;2000/0
+2036;gnóm okuláré;500;500/0
+2037;Huddens öve;2000;2000/0
+2038;futóbajnok öv;500;500/0
+2039;Lucius érméje;2000;2000/0
+2040;szerencse érme;500;500/0
+2041;az örökkévalóság jádeköve;400;400/0
+2042;Krőzus kitűzője;5000;5000/0
+2043;gyémánt Vlagyimir-díj;4500;4500/0
+2044;Songard tekercse;1000;1000/0
+2045;Zhung gyűrűje;5000;5000/0
+2046;Pókisten nyakéke;5000;5000/0
+2047;ében manakő;500;500/2500
+2048;ében mágiafókusz;100;100/0
+2049;hatalom szilánk;25;25/0
+2050;Haarkon hatalma;2500;2500/0
+2051;moa refraktor;200;200/0
+2052;moa ostentum;400;400/0
+2053;neurokondenzátor;400;400/0
+2054;moa spektroszkóp;4000;4000/0
+2055;ezüst teleszkóp;800;800/0
+2056;exdimbiz;500;500/0
+2057;fekete lyuk;3000;3000/0
+2058;Kragoru iszákja;500;500/1500
+2059;bajnoktalizmán;5000;5000/0
+2060;nekromanta dragnit;1000;1000/0
+2061;Daxx igazgyöngy;1000;1000/0
+2062;Daxx kristály;1000;1000/0
+2063;Numenathi ládikája;500;500/0
+2064;quwarg ékkő;200;200/0
+2065;quwarg végbélnyúlvány;300;300/0
+2066;quwarg opáldragnit;400;400/0
+2067;quwarg demoralizátor;100;100/0
+2068;quwarg moralizátor;500;500/0
+2069;gnóm refrugátor;2000;2000/0
+2070;metazafír;50;50/0
+2071;metarubin;60;60/0
+2072;metasmaragd;70;70/0
+2073;metagyémánt;80;80/0
+2074;képlékeny metadragnit;1000;1000/0
+2075;tündöklő metadragnit;1000;1000/0
+2076;hibátlan metadragnit;1000;1000/0
+2077;viharos metadragnit;1000;1000/0
+2078;sáfrányos metadragnit;1000;1000/0
+2079;borostyán metadragnit;1000;1000/0
+2080;halálos metadragnit;1000;1000/0
+2081;parázsló metadragnit;1000;1000/0
+2082;obszidián penge;0;0/0
+2083;bronzkard;15;15/30
+2084;vaskard;36;36/72
+2085;quwargtaposó érem;500;500/0
+2086;quwargpusztító érem;500;500/0
+2087;quwargirtó érem;500;500/0
+2088;quwargölő érem;500;500/0
+2089;az örökkévalóság napköve;2700;2700/0
+2090;Dhl'molatzz tegeze;5000;5000/0
+2091;Niagren vállszíja;5000;5000/0
+2092;Erdauin metagyűrű;6000;6000/0
+2093;sziránusz maszk;1000;1000/0
+2094;óelf talizmán;2500;2500/5000
+2095;dűneelf kabala;2000;2000/0
+2096;beomlott quwarg gödör;0;0/0
+2097;lényegformázó metagyűrű;5000;5000/0
+2098;tervezői ötödrend;500;500/0
+2099;tervezői negyedrend;1000;1000/0
+2100;tervezői harmadrend;1500;1500/0
+2101;tervezői másodrend;2000;2000/0
+2102;tervezői elsőrend;2500;2500/0
+2103;arénamesteri medál;600;600/0
+2104;ősi térkapu;0;0/0
+2105;Acél Öklök gyűrűje;450;450/0
+2106;hálótábor;1900;1900/0
+2107;Beholder csapda;5000;5000/0
+2108;Fairlight szütyője;1000;1000/0
+2109;az örökkévalóság csillagköve;2700;2700/0
+2110;Beholder kitűző;420;420/0
+2111;Ezüstkoponya;500;500/0
+2112;Ónixdenevér;500;500/0
+2113;Arany napkorong;500;500/0
+2114;Azúrcsepp;500;500/0
+2115;Borostyánkő;500;500/0
+2116;Titanitkard lánc;500;500/0
+2117;Viharisten medál;500;500/0
+2118;Ódon sarlókő;500;500/0
+2119;sziránusz térváltó;500;500/0
+2120;lebernyeg köpeny;200;200/400
+2121;ezüst varázskristály;3500;3500/0
+2122;fényszarv;440;440/1320
+2123;Hantas karkötője;900;900/0
+2124;purifikátor páncél;500;500/0
+2125;uszony;10;10/0
+2126;Aritma varázsgömbje;300;300/900
+2127;ősi kolostor;0;0/0
+2128;Halálcsizma;10000;10000/0
+2129;Sztázisköpeny;10000;10000/0
+2130;Bíbor mágiagyűrű;10000;10000/0
+2131;Lordok karkötője;10000;10000/0
+2132;Pusztítók öve;10000;10000/0
+2133;zanszilánk;0;0/0
+2134;rakshallion ékszer;1000;1000/0
+2135;gyémánt sámánfétis;500;500/0
+2136;arany varázskristály;3500;3500/0
+2137;árnyékíj;5000;5000/0
+2138;kentaurvessző;15;15/75
+2139;moa fényvető;5000;5000/0
+2140;energiacella;100;100/0
+2141;molekuláris zselé;1000;1000/0
+2142;Nyársaló;4000;4000/0
+2143;Csapoló;2000;2000/0
+2144;Hasító;4000;4000/0
+2145;Szeletelő;2000;2000/0
+2146;Morzsoló;4000;4000/0
+2147;Zúzó;2000;2000/0
+2148;térhasító kesztyű;5000;5000/0
+2149;halálkúp;0;0/0
+2150;istenek nektárja;500;500/1000
+2151;isteni erőital;500;500/0
+2152;isteni védőital;500;500/0
+2153;szerencsezselé;200;200/0
+2154;szörnyvadító;200;200/0
+2155;feneketlen zsák;500;500/0
+2156;annihilátor plazma;500;500/0
+2157;aranytorony;500;500/0
+2158;ezüsttorony;500;500/0
+2159;bronztorony;500;500/0
+2160;réztorony;500;500/0
+2161;Vajákos piszkafája;4000;4000/0
+2162;elveszett kolostor;0;0/0
+2163;fürkészérzékelő;1000;1000/49000
+2164;istenek eledele;1000;1000/0
+2165;Angus nihillátora;2000;2000/0
+2166;inváziós trófea;100;100/0
+2167;mágikus térkép;500;500/0
+2168;varkaudar ékkő;50;50/0
+2169;trikornis fókusz;100;100/0
+2170;thargodan vérgömb;200;200/0
+2171;napdragnit;300;300/0
+2172;éjfókusz;400;400/0
+2173;ryuku mágiafókusz;500;500/0
+2174;thargodan dragnit;600;600/0
+2175;Arany Nyúl Díj;500;500/0
+2176;Zan kristály;1000;1000/0
+2177;Istenek palástja;6000;6000/0
+2178;Istenek sisakja;6000;6000/0
+2179;Istenek vállvédője;2000;2000/0
+2180;Istenek fülbevalója;2000;2000/0
+2181;az örökkévalóság éjköve;2700;2700/0
+2182;leviatán hólyag;1000;1000/0
+2183;platina varázskristály;3500;3500/0
+2184;Földanya nektárja;500;500/0
+2185;Esszenciacsapoló;2000;2000/0
+2186;tűzesszencia;200;200/0
+2187;vízesszencia;200;200/0
+2188;légesszencia;200;200/0
+2189;földesszencia;200;200/0
+2190;varázsrúna;500;500/0
+2191;Angus qalapácsa;4000;4000/0
+2192;taalrugyalázó érem;500;500/0
+2193;notermanthi pusztító érem;500;500/0
+2194;zinthurgirtó érem;500;500/0
+2195;varkaudarölő érem;500;500/0
+2196;arany taalru érem;500;500/0
+2197;ezüst notermanthi érem;500;500/0
+2198;bronz zinthurg érem;500;500/0
+2199;réz varkaudar érem;500;500/0
+2200;varkaudar barlang;0;0/0
+2201;Leah kisujja;2000;2000/0
+2202;Térítő kopjája;4000;4000/0
+2203;moa kristály;10;10/0
+2204;moa antigrav;500;500/0
+2205;moa antirad;500;500/0
+2206;moa molekulátor;2000;2000/0
+2207;mindenség ametisztje;400;400/0
+2208;Arany Beholderfej;1020;1020/0
+2209;Halálsikoly;4000;4000/0
+2210;lélekcsengő;800;800/0
+2211;A Tél Szíve;1;1/0
+2212;tirik hun medál;500;500/0
+2213;nefil rin medál;500;500/0
+2214;nozar thin medál;500;500/0
+2215;naso thin medál;500;500/0
+2216;Vizek gyűrűje;1500;1500/0
+2217;forrás;0;0/0
+2218;?;0;0/0
+2219;gyöngykorall;0;0/0
+2220;korallgyöngy;25;25/0
+2221;kristálytelep;0;0/0
+2222;azúrkristály;25;25/0
+2223;lebegő fűz;0;0/0
+2224;fűzgumó;5;5/0
+2225;lángtulipán;0;0/0
+2226;lángbimbó;25;25/0
+2227;Jégfattyú;4000;4000/0
+2228;Azúrkék kristálytőr;2000;2000/0
+2229;kempingtűzhely;800;800/0
+2230;nerub teleporter;1000;1000/0
+2231;nagyobb kulcskarika;300;300/0
+2232;márványszobor;500;500/0
+2233;rúnakavics;500;500/0
+2234;fekete könyv;500;500/0
+2235;plazmagömb;500;500/0
+2236;zeolitkristály;500;500/0
+2237;quwarg ikergömb;1000;1000/5000
+2238;quwarg kristály;10;10/0
+2239;relikviagyűjtő háza;0;0/0
+2240;védőkristály;1000;1000/0
+2241;homályzselé;500;500/0
+2242;földmélyi varázskő;500;500/0
+2243;triton pikkely;200;200/0
+2244;pezsgőkagyló;200;200/0
+2245;lánghordozó kitűző;500;500/0
+2246;akvamarin függő;4500;4500/0
+2247;szirén övcsat;2000;2000/0
+2248;Vízisten koronája;6000;6000/0
+2249;Vízisten vállvédője;4000;4000/0
+2250;szirén hajszál;200;200/0
+2251;hártyaköpeny;1000;1000/0
+2252;hártyakesztyű;1000;1000/0
+2253;hártyakarika;1000;1000/0
+2254;triton buborékváros;0;0/0
+2255;szirén gyöngypalota;0;0/0
+2256;bűvital;500;500/5000
+2257;kráken szigony;5000;5000/0
+2258;kristálypecsét;2500;2500/0
+2259;pecsétszilánk;25;25/0
+2260;memóriaserkentő;45;45/0
+2261;légbuborék;0;0/0
+2262;barna moszat;0;0/0
+2263;moszatcsomó;10;10/0
+2264;mindenség kristálya;400;400/0
+2265;Őrző;0;0/0
+2266;denzitás detektor;5000;5000/0
+2267;intarzit;50;50/0
+2268;quwarg kristályboly;0;0/0
+2269;intarzit kovács;0;0/0
+2270;nir formázó minta;200;200/400
+2271;quwargszilánk;200;200/0
+2272;óriásfétis;200;200/0
+2273;intarzit páncél;6000;6000/0
+2274;intarzit palást;6000;6000/0
+2275;intarzit pajzs;6000;6000/0
+2276;quwarg intradragnit;1000;1000/0
+2277;rubin intradragnit;1000;1000/0
+2278;smaragd intradragnit;1000;1000/0
+2279;vörös intradragnit;1000;1000/0
+2280;jég intradragnit;1000;1000/0
+2281;gyöngy intradragnit;1000;1000/0
+2282;elmefókusz;1000;1000/0
+2283;testfókusz;1000;1000/0
+2284;lélekfókusz;1000;1000/0
+2285;elementáris kristályformáció;0;0/0
+2286;elementáris kristály;500;500/1000
+2287;elementáris csákány;5;5/0
+2288;elemi szikla;20;20/0
+2289;ősminotaurusz szem;3000;3000/0
+2290;kryzanit por;200;200/0
+2291;kristálypikkely;200;200/400
+2292;kryzanit fókusz;1000;1000/0
+2293;sziklavár;0;0/0
+2294;kőliliom;200;200/0
+2295;mágianövelő;1000;1000/0
+2296;kincsvadász tájoló;2000;2000/0
+2297;féregesszencia;1000;1000/0
+2298;épülő piramis;0;0/0
+2299;quwarg taposó medál;500;500/0
+2300;quwarg pusztító medál;500;500/0
+2301;quwarg irtó medál;500;500/0
+2302;quwarg ölő medál;500;500/0
+2303;Védelmező;2000;2000/0
+2304;perpetuum;0;0/0
+2305;Kenon kaszabolója;2000;2000/0
+2306;A Végzet kristálya;400;400/0
+2307;A Végzet dragnitja;400;400/0
+2308;A Végzet erszénye;600;600/0
+2309;A Végzet gyűrűje;800;800/0
+2310;A Végzet kitűzője;1000;1000/0
+2311;A Végzet gyöngye;1200;1200/0
+2312;A Végzet karkötője;1400;1400/0
+2313;cirkonkristály;3500;3500/0
+2314;mágiaanalizátor;3500;3500/0
+2315;szfén pulzáns;2000;2000/0
+2316;kristály térváltó;5000;5000/0
+2317;kryzanit térváltó;5000;5000/0
+2318;triton térváltó;5000;5000/0
+2319;szirén térváltó;5000;5000/0
+2320;A Végzet kulcsa;400;400/0
+2321;kőkés szimbólum;10;10/0
+2322;khatiszon kristály;1;1/0
+2323;khatiszon kulcs;20;20/0
+2324;asztrális vortex;0;0/0
+2325;mindenség topáza;400;400/0
+2326;Rjuku végzete;4000;4000/0
+2327;sztázisszilánk;100;100/0
+2328;sztáziskristály;500;500/0
+2329;sztázisbuborék;500;500/0
+2330;sztázisrelikvia;1000;1000/0
+2331;vortexvessző;106;106/530
+2332;azúrtoll;20;20/40
+2333;azúrtalizmán;1000;1000/0
+2334;sztáziskocka;2000;2000/0
+2335;felhőpalota;0;0/0
+2336;térkristály;200;200/0
+2337;időkristály;200;200/0
+2338;fészektoll;200;200/0
+2339;fészekszikla;0;0/0
+2340;felhővessző;50;50/300
+2341;felhőnyíl;50;50/300
+2342;Elenios tekercse;1000;1000/0
+2343;Azúrnadrág;10000;10000/0
+2344;Azúrcsizma;10000;10000/0
+2345;Elenios érméje;10000;10000/0
+2346;Azúrkarkötő;10000;10000/0
+2347;időtorzító;1000;1000/0
+2348;parakristály;1000;1000/0
+2349;Az idő kulcsa;500;500/0
+2350;időkulcs;1000;1000/0
+2351;fél kristályrúna;500;500/0
+2352;smaragdtoll;5000;5000/0
+2353;Abdul bicskája;2000;2000/0
+2354;düh csillapító;45;45/0
+2355;villámfa;0;0/0
+2356;villámág;25;25/0
+2357;Ygan érméje;2000;2000/0
+2358;a pókkirálynő éke;1;1/0
+2359;Arzgul függője;3000;3000/0
+2360;Retro stilettója;2000;2000/0
+2361;Pókúrnő lándzsája;4000;4000/0
+2362;arany végzetmedál;500;500/0
+2363;ezüst végzetmedál;500;500/0
+2364;bronz végzetmedál;500;500/0
+2365;réz végzetmedál;500;500/0
+2366;védőprizma;500;500/0
+2367;bomló esszencia;5;5/0
+2368;éjurna;1000;1000/0
+2369;éjkő;100;100/0
+2370;halálbokor;0;0/0
+2371;halálvirág;5;5/0
+2372;halálkristály;500;500/0
+2373;esszenciafókusz;100;100/0
+2374;nekrofókusz;200;200/0
+2375;napfókusz;400;400/0
+2376;ősi csillagfókusz;800;800/0
+2377;ryuku védőfókusz;1200;1200/0
+2378;óelf teremtőfókusz;1600;1600/0
+2379;elemi fókusz;2000;2000/0
+2380;mindenség tűzopálja;400;400/0
+2381;halhatatlanok éke;30;30/0
+2382;zafírkristály;5000;5000/0
+2383;Gungir;4000;4000/0
+2384;Rubinnyakék;5000;5000/0
+2385;Dornodon rúnája;1000;1000/0
+2386;tűzváltó totem;200;200/0
+2387;bazaltgolyó;200;200/0
+2388;izzó mágiakő;5000;5000/0
+2389;tűzvirág;200;200/0
+2390;Tűzkopja;5000;5000/0
+2391;Villámkopja;5000;5000/0
+2392;Jégkopja;5000;5000/0
+2393;Méregkopja;5000;5000/0
+2394;Tűzhasító;5000;5000/0
+2395;Villámhasító;5000;5000/0
+2396;Jéghasító;5000;5000/0
+2397;Méreghasító;5000;5000/0
+2398;Tűzpöröly;5000;5000/0
+2399;Villámpöröly;5000;5000/0
+2400;Jégpöröly;5000;5000/0
+2401;Méregpöröly;5000;5000/0
+2402;Energiatőr;3000;3000/0
+2403;Porrasztőr;3000;3000/0
+2404;Haláltőr;3000;3000/0
+2405;Mentáltőr;3000;3000/0
+2406;Energiapenge;3000;3000/0
+2407;Porraszpenge;3000;3000/0
+2408;Halálpenge;3000;3000/0
+2409;Mentálpenge;3000;3000/0
+2410;Energiakalapács;3000;3000/0
+2411;Törő;3000;3000/0
+2412;Halálkalapács;3000;3000/0
+2413;Mentálkalapács;3000;3000/0
+2414;Rúnakesztyű;5000;5000/0
+2415;parázskör;0;0/0
+2416;tűzfészek;0;0/0
+2417;tűzlián;0;0/0
+2418;tűzinda;50;50/0
+2419;intarzit kampó;500;500/0
+2420;tűzkő;20;20/0
+2421;kiégett tűzkő;20;20/0
+2422;magmakamra;0;0/0
+2423;tűzkő fókusz;200;200/0
+2424;rubinszilánk;200;200/0
+2425;gyémántszilánk;200;200/0
+2426;tűznektár;400;400/0
+2427;Kadera pengéje;4000;4000/0
+2428;mámorító csáböv;0;0/0
+2429;Tűzgyűrű;5000;5000/0
+2430;Villámgyűrű;5000;5000/0
+2431;Jéggyűrű;5000;5000/0
+2432;Méreggyűrű;5000;5000/0
+2433;Energiagyűrű;3000;3000/0
+2434;Porraszgyűrű;3000;3000/0
+2435;Halálgyűrű;3000;3000/0
+2436;Mentálgyűrű;3000;3000/0
+2437;halálhasadék;0;0/0
+2438;arany éjmedál;500;500/0
+2439;ezüt éjmedál;0;0/0
+2440;bronz éjmedál;500;500/0
+2441;réz éjmedál;500;500/0
+2442;kék morfplazma;10;10/0
+2443;vörös morfplazma;10;10/0
+2444;zöld morfplazma;10;10/0
+2445;fehér morfplazma;10;10/0
+2446;fekete morfplazma;10;10/0
+2447;sárga morfplazma;10;10/0
+2448;lila morfplazma;10;10/0
+2449;narancs morfplazma;10;10/0
+2450;bíbor morfplazma;10;10/0
+2451;átlátszó morfplazma;10;10/0
+2452;morf esszencia;500;500/0
+2453;rubin térváltó;5000;5000/0
+2454;gyémánt térváltó;5000;5000/0
+2455;esszenciadarab;25;25/0
+2456;Toragh esszenciája;2500;2500/0
+2457;életforrás;0;0/0
+2458;lombos ősfa;0;0/0
+2459;élő faág;4;4/0
+2460;nárciszbokor;0;0/0
+2461;narancsnárcisz;4;4/0
+2462;csepegő méz;3;3/6
+2463;darázsfészek;0;0/0
+2464;fa mézcsupor;50;50/0
+2465;napos zsombékos;0;0/0
+2466;zöldellő gumó;200;200/0
+2467;pezsgő életital;400;400/0
+2468;Krőzus nyaklánca;5000;5000/0
+2469;mindenség holdköve;400;400/0
+2470;kőtojás;200;200/0
+2471;Rúnapöröly;4000;4000/0
+2472;Sephiroth tőre;2000;2000/0
+2473;gigagrok;0;0/0
+2474;hálólabirintus;0;0/0
+2475;isteni agyfókusz;1500;1500/0
+2476;grokgumó;200;200/0
+2477;pókgubó;200;200/0
+2478;Sheran ékköve;1000;1000/0
+2479;Élő öv;5000;5000/0
+2480;Sheran gyűrűje;5000;5000/0
+2481;Életkorona;6000;6000/0
+2482;életköpeny;2000;2000/0
+2483;élőkesztyű;2000;2000/0
+2484;életkarika;2000;2000/0
+2485;életlánc;2000;2000/0
+2486;térfókusz;1000;1000/0
+2487;a síkok gyémántja;5000;5000/10000
+2488;ködharmat;10;10/0
+2489;harmattartó;50;50/0
+2490;kortexvédő;100;100/0
+2491;teknős totem;5000;5000/0
+2492;toxylszilánk;25;25/0
+2493;toxylpajzs;2500;2500/0
+2494;entmedál;2000;2000/0
+2495;Gemina övcsatja;3000;3000/0
+2496;intarzitkarmok;300;300/0
+2497;parázs térváltó;5000;5000/0
+2498;magma térváltó;5000;5000/0
+2499;arany morfmedál;500;500/0
+2500;ezüst morfmedál;500;500/0
+2501;bronz morfmedál;500;500/0
+2502;réz morfmedál;500;500/0
+2503;argum szörnymágnes;1000;1000/0
+2504;gyémánt varázskristály;3500;3500/0
+2505;kvatáns préspajzs;3000;3000/0
+2506;Nyanya kötőtűje;4000;4000/0
+2507;Térítő lehelete;2000;2000/0
+2508;nerub dobónyíl;20;20/0
+2509;nerub haláltű;20;20/100
+2510;nerub halálcső;500;500/2500
+2511;klasszik rézmedál;1000;1000/0
+2512;klasszik bronzmedál;1500;1500/0
+2513;klasszik ezüstmedál;2000;2000/0
+2514;klasszikus kitűző;1000;1000/0
+2515;klasszik aranyérem;2000;2000/0
+2516;klasszik ezüstérem;1000;1000/0
+2517;klasszik bronzérem;1000;1000/0
+2518;klasszik aranymedál;2000;2000/0
+2519;klasszik gyémánt;2000;2000/0
+2520;ősi rúna;101;101/0
+2521;tirik rúna;101;101/0
+2522;nefil rúna;101;101/0
+2523;zilak rúna;101;101/0
+2524;?;0;0/0
+2525;lüktető esszencia;300;300/0
+2526;keleg rúna;101;101/0
+2527;kasug rúna;101;101/0
+2528;times rúna;101;101/0
+2529;nozar rúna;101;101/0
+2530;kharas rúna;101;101/0
+2531;romos villa;0;0/0
+2532;óelf medál;200;200/0
+2533;ébenkoponya;200;200/0
+2534;őstörpe ékkő;200;200/0
+2535;ébenzselé;200;200/0
+2536;ében varázsital;500;500/0
+2537;kastélyrom;0;0/0
+2538;arany végzetérem;500;500/0
+2539;ezüst végzetérem;500;500/0
+2540;bronz végzetérem;500;500/0
+2541;réz végzetérem;500;500/0
+2542;krioliliom;0;0/0
+2543;liliomszirom;10;10/0
+2544;jégszelence;100;100/0
+2545;éjmohatelep;0;0/0
+2546;éjmoha;10;10/0
+2547;jéghasadék;0;0/0
+2548;mesterkristály;1000;1000/0
+2549;éjpegazus nyereg;2000;2000/0
+2550;bíborkenőcs;500;500/0
+2551;halálesszencia;500;500/0
+2552;telhetetlen tegez;2000;2000/0
+2553;éjszilánk;50;50/0
+2554;bíborszilánk;50;50/0
+2555;csontszilánk;50;50/0
+2556;giorkristály;100;100/0
+2557;ugankristály;100;100/0
+2558;gordexkristály;100;100/0
+2559;Leah könnye;1000;1000/0
+2560;Leah vállvédője;5000;5000/0
+2561;Leah palástja;10000;10000/0
+2562;éjmedál;2000;2000/0
+2563;Leah halálvértje;6000;6000/0
+2564;Leah köntöse;6000;6000/0
+2565;mindenség jádeköve;0;0/0
+2566;Niol pecsétje;1000;1000/0
+2567;Vortex ősgömbje;5000;5000/0
+2568;?;0;0/0
+2569;?;0;0/0
+2570;narancs térváltó;5000;5000/0
+2571;ónix pentagramma;5000;5000/0
+2572;kristálytorony;0;0/0
+2573;termiktüske;20;20/0
+2574;termikbőr;250;250/0
+2575;termikkesztyű;700;700/0
+2576;yetibunda;500;500/0
+2577;T-rúna;3000;3000/0
+2578;void plazma;101;101/0
+2579;kék plakett;101;101/0
+2580;vörös plakett;101;101/0
+2581;résdetektor;1000;1000/0
+2582;termikernyő;400;400/0
+2583;arany vadászmedál;500;500/0
+2584;ezüst vadászmedál;500;500/0
+2585;bronz vadászmedál;500;500/0
+2586;réz vadászmedál;500;500/0
+2587;lebegő platform;0;0/0
+2588;termikgyöngy;1000;1000/0
+2589;instabil voidcsepp;0;0/0
+2590;voidfókusz;1000;1000/0
+2591;amorf biomassza;0;0/0
+2592;plazmacsepp;0;0/0
+2593;idézőkő;300;300/0
+2594;Tsalez bicskája;2000;2000/0
+2595;résmágnes;1000;1000/0
+2596;védőrúna;500;500/0
+2597;ősi védőrúna;2000;2000/0
+2598;void védőrúna;8000;8000/0
+2599;támadórúna;500;500/0
+2600;ősi támadórúna;2000;2000/0
+2601;void támadórúna;8000;8000/0
+2602;életrúna;500;500/0
+2603;ősi életrúna;2000;2000/0
+2604;void életrúna;8000;8000/0
+2605;mágusrúna;500;500/0
+2606;ősi mágusrúna;2000;2000/0
+2607;void mágusrúna;8000;8000/0
+2608;sebzőrúna;500;500/0
+2609;ősi sebzőrúna;2000;2000/0
+2610;void sebzőrúna;8000;8000/0
+2611;Braggath öve;5000;5000/0
+2612;Braggath dragnitja;1000;1000/0
+2613;résstabilizátor;500;500/0
+2614;Fényrend;1000;1000/0
+2615;berzerker ital;100;100/0
+2616;karbonkarkötő;3000;3000/0
+2617;jégamulett;3000;3000/0
+2618;yaurr rúna;1000;1000/0
+2619;királyi rúna;1000;1000/0
+2620;ryuku rúna;0;0/0
+2621;császári rúna;1000;1000/0
+2622;égigérő grok;0;0/0
+2623;alfa szilánk;100;100/0
+2624;béta szilánk;100;100/0
+2625;delta szilánk;100;100/0
+2626;gamma szilánk;100;100/0
+2627;epszilon szilánk;100;100/0
+2628;dzéta szilánk;100;100/0
+2629;éta szilánk;100;100/0
+2630;théta szilánk;100;100/0
+2631;omega kristály;1000;1000/0
+2632;argumérc;50;50/0
+2633;argumcsákány;100;100/0
+2634;kis argumrúna;500;500/0
+2635;nagy argumrúna;2000;2000/0
+2636;argum főrúna;4000;4000/0
+2637;mindenség napköve;1000;1000/0
+2638;A hatalom rúnája;5000;5000/0
+2639;TZ szívkeresője;2000;2000/0
+2640;energiafókusz;1000;1000/0
+2641;Szívfacsaró;4000;4000/0
+2642;ómatéria;101;101/0
+2643;kis káoszrelikvia;11;11/0
+2644;káoszrelikvia;101;101/0
+2645;nagy káoszrelikvia;202;202/0
+2646;energiaoázis;0;0/0
+2647;krizopráz;200;200/0
+2648;karneol;200;200/0
+2649;heliotrop;200;200/0
+2650;energiaszikra;200;200/0
+2651;energital;500;500/0
+2652;energiatorony;0;0/0
+2653;energomba-telep;0;0/0
+2654;energomba;4;4/0
+2655;vibráló tulipán;0;0/0
+2656;tulipánszirom;4;4/0
+2657;napszentély;0;0/0
+2658;energiaszentély;0;0/0
+2659;negalizátor;2000;2000/0
+2660;dimenzióötvöző;500;500/0
+2661;zsebdimenzió;10000;10000/0
+2662;Raia pecsétje;1000;1000/0
+2663;Aranynadrág;10000;10000/0
+2664;Aranycsizma;10000;10000/0
+2665;napfüggő;5000;5000/0
+2666;angyalszobor;5000;5000/0
+2667;energiakő;1000;1000/0
+2668;mágiaszilánk;100;100/0
+2669;mágikus inga;1000;1000/0
+2670;alaprúna;500;500/0
+2671;zafírrúna;1000;1000/0
+2672;manarúna;2000;2000/0
+2673;pulzánsrúna;3000;3000/0
+2674;immunrúna;4000;4000/0
+2675;draklenrúna;5000;5000/0
+2676;sorsrúna;6000;6000/0
+2677;szirénrúna;7000;7000/0
+2678;energiacsepp;200;200/0
+2679;Sephiroth lándzsája;4000;4000/0
+2680;koponya térváltó;5000;5000/0
+2681;ében térváltó;5000;5000/0
+2682;Fairlight érméje;1000;1000/0
+2683;30-as pecsét;5000;5000/0
+2684;30-asok kitűzője;5000;5000/0
+2685;termikfészek;0;0/0
+2686;manaszilánk;50;50/0
+2687;zöld manakő;2000;2000/0
+2688;türkiz manakő;3000;3000/0
+2689;azúr manakő;5000;5000/0
+2690;Istenek rúnája;10000;10000/0
+2691;Krőzus medálja;10000;10000/0
+2692;Tomarr függője;5000;5000/0
+2693;bölcsek köve;5000;5000/0
+2694;mindenség igazgyöngye;1000;1000/0
+2695;fattytelep;0;0/0
+2696;fattygubó;200;200/0
+2697;bíborgolyó;200;200/0
+2698;éjfatty plazma;200;200/0
+2699;káoszmatéria;200;200/0
+2700;entrópiaital;500;500/0
+2701;káoszrózsa bokor;0;0/0
+2702;káoszrózsa;3;3/0
+2703;káoszkristálytelep;0;0/0
+2704;káoszkristály;25;25/0
+2705;penketelep;0;0/0
+2706;ébenpenke;3;3/0
+2707;sivatagi tábor;0;0/0
+2708;arany morférem;500;500/0
+2709;ezüst morférem;500;500/0
+2710;bronz morférem;500;500/0
+2711;réz morférem;500;500/0
+2712;tl'urlang telep;0;0/0
+2713;káoszplazma;1000;1000/0
+2714;Káosznyakék;5000;5000/0
+2715;Káoszgyűrű;5000;5000/0
+2716;Káoszkarvédő;5000;5000/0
+2717;Prrankkh rúnája;5000;5000/0
+2718;moa ékkő;199;199/0
+2719;cserzett övtáska;500;500/0
+2720;Chrrrox érméje;200;200/0
+2721;káoszfókusz;1000;1000/0
+2722;téridő manipulátor;2000;2000/0
+2723;moa rúna;1000;1000/0
+2724;moa védőrúna;2500;2500/0
+2725;moa immunrúna;5000;5000/0
+2726;?;0;0/0
+2727;moa kódfejtő;2000;2000/0
+2728;edzőcentrum;0;0/0
+2729;gyakorlómedál;1000;1000/0
+2730;cirkon térváltó;5000;5000/0
+2731;nap térváltó;5000;5000/0
+2732;Gyémánt Beholderfej;1020;1020/0
+2733;Vlagyimir különdíj;4500;4500/0
+2734;vadító esszencia;0;0/0
+2735;arany emlékérem;500;500/0
+2736;ezüst emlékérem;500;500/0
+2737;bronz emlékérem;500;500/0
+2738;réz emlékérem;500;500/0
+2739;nagyobb lélekkő;200;200/0
+2740;roxati rúna;1000;1000/0
+2741;zangrozi rúna;1000;1000/0
+2742;sawaki rúna;1000;1000/0
+2743;mhufexi rúna;1000;1000/0
+2744;argumrúna;1000;1000/0
+2745;aranytallér;200;200/0
+2746;gólemgolyó;200;200/0
+2747;pragloncplazma;200;200/0
+2748;manaesszencia;1000;1000/0
+2749;manaital;500;500/0
+2750;mindenség smaragdja;1000;1000/0
+2751;óriásfalu;0;0/0
+2752;gólemgödör;0;0/0
+2753;praglonctelep;0;0/0
+2754;villámtelep;0;0/0
+2755;villámkristály;25;25/0
+2756;derengő telep;0;0/0
+2757;derengő gomba;3;3/0
+2758;magnóliabokor;0;0/0
+2759;manamagnólia;3;3/0
+2760;aranydukát;1000;1000/0
+2761;Villámpajzs;6000;6000/0
+2762;Villámíj;5000;5000/0
+2763;Villám vállszíj;5000;5000/0
+2764;manatároló;0;0/0
+2765;manafibrillátor;5000;5000/0
+2766;kiégett manakő;110;110/0
+2767;villám dobónyíl;90;90/0
+2768;villámvessző;90;90/0
+2769;próbaérme;150;150/0
+2770;elektromágnes;2000;2000/0
+2771;arany morfjelvény;500;500/0
+2772;ezüst morfjelvény;500;500/0
+2773;bronz morfjelvény;500;500/0
+2774;réz morfjelvény;500;500/0
+2775;Trinigan függője;5000;5000/0
+2776;aranykenőcs;500;500/0
+2777;kékkenőcs;500;500/0
+2778;Yasmina szobra;0;0/0
+2779;kortexbilincs;1000;1000/0
+2780;bíbor térváltó;5000;5000/0
+2781;thargodan térváltó;5000;5000/0
+2782;aranykocka;3000;3000/0
+2783;nagyobb monolit;0;0/0
+2784;Ketati kancsója;500;500/0
+2785;kénköves ménkő;200;200/0
+2786;Káoszjogar;2000;2000/0
+2787;ében érmeverő;2000;2000/0
+2788;refrug érme;500;500/0
+2789;Ragnar butykosa;2000;2000/0
+2790;Bányászok könyve;1000;1000/0
+2791;tl'urlang plazma;20;20/0
+2792;éjfatty telep;0;0/0
+2793;ganüid plazma;25;25/0
+2794;obszkurátor szív;50;50/0
+2795;krant inda;50;50/0
+2796;ganüid őskaptár;0;0/0
+2797;kraun serkentő;1000;1000/0
+2798;obszkurátor gyöngy;1000;1000/0
+2799;zygopter szárny;50;50/0
+2800;mindenség zafírja;1000;1000/0
+2801;krant tüske;50;50/0
+2802;ősi rom;0;0/0
+2803;krant gubó;0;0/0
+2804;krant diszkosz;100;100/0
+2805;krant kampó;500;500/0
+2806;kraun varázsital;500;500/0
+2807;obszidián telep;0;0/0
+2808;obszidián szilánk;25;25/0
+2809;kiszáradt krant;0;0/0
+2810;krantszilánk;25;25/0
+2811;protokristály;1000;1000/0
+2812;Szolisz pikkely;1000;1000/0
+2813;Szolisz gyöngy;5000;5000/0
+2814;Ughal szilánk;1000;1000/0
+2815;Ughal kristály;5000;5000/0
+2816;kr'uagon golyó;200;200/0
+2817;ganüid plazmagömb;200;200/0
+2818;Daxx halálvért;10000;10000/0
+2819;Daxx halálköntös;10000;10000/0
+2820;Daxx palást;10000;10000/0
+2821;mágia kulcs;500;500/0
+2822;Daxx kulcs;500;500/0
+2823;kraun kulcs;500;500/0
+2824;polteid kulcs;500;500/0
+2825;illúzióérme;500;500/0
+2826;krant gyöngy;200;200/0
+2827;energiagolyó;200;200/0
+2828;Daxx korona;6000;6000/0
+2829;Daxx rúna;1000;1000/0
+2830;tl'urlang jelzőkő;9;9/0
+2831;ganüid minta;25;25/0
+2832;Daxx vállvédő;5000;5000/0
+2833;Daxx öv;5000;5000/0
+2834;Daxx nadrág;10000;10000/0
+2835;car'vor plazma;20;20/0
+2836;Daxx csizma;10000;10000/0
+2837;kristályformáció;0;0/0
+2838;Kutatás lencséje;5000;5000/0
+2839;elveszett szilánk;500;500/0
+2840;Bronztiara;6000;6000/0
+2841;Ezüsttiara;6000;6000/0
+2842;Aranytiara;6000;6000/0
+2843;zöld szikla;0;0/0
+2844;gm'uller konverter;1000;1000/0
+2845;krant minta;25;25/0
+2846;savgolyó;500;500/0
+2847;daxx vérpezsdítő;500;500/0
+2848;daxx bőrkérgesítő;500;500/0
+2849;Fonálgyűrű;2000;2000/0
+2850;Fonálkarkötő;10000;10000/0
+2851;trigal embléma;2500;2500/0
+2852;arany kalandérem;500;500/0
+2853;ezüst kalandérem;500;500/0
+2854;bronz kalandérem;500;500/0
+2855;réz kalandérem;500;500/0
+2856;királyi embléma;1000;1000/0
+2857;császári embléma;1000;1000/0
+2858;ónix masszadühítő;1000;1000/0
+2859;fénymedál;500;500/0
+2860;káoszmedál;500;500/0
+2861;nih'vor kristály;5000;5000/0
+2862;antidem pulzáns;5000;5000/0
+2863;fénylő pulzáns;5000;5000/0
+2864;kraun injektor;30;30/180
+2865;kraun revitalizátor;300;300/1800
+2866;Szolisz porvihar;0;0/0
+2867;ht'oszol por;50;50/0
+2868;ht'okron zsák;100;100/0
+2869;ht'okron redő;100;100/0
+2870;ében szikla;0;0/0
+2871;ébenkő;25;25/0
+2872;ht'agur csont;25;25/50
+2873;ht'emul pikkely;300;300/0
+2874;kraun település;0;0/0
+2875;kraun prizma;200;200/0
+2876;ht'agur fétis;200;200/0
+2877;polteid serkentő;1000;1000/0
+2878;polteid varázsital;500;500/0
+2879;ht'agur kolónia;0;0/0
+2880;kirak rúna;101;101/0
+2881;marek rúna;101;101/0
+2882;naso rúna;101;101/0
+2883;mindenség éjköve;1000;1000/0
+2884;polteid település;0;0/0
+2885;tr'anthal kolónia;0;0/0
+2886;polteid prizma;200;200/0
+2887;tr'anthal szilánk;200;200/0
+2888;tr'ugh telep;0;0/0
+2889;tr'ugh kristály;25;25/0
+2890;tr'omil fogszilánk;300;300/0
+2891;tr'onel plazma;300;300/0
+2892;polteid hőpasztilla;30;30/0
+2893;polteid hőbomba;300;300/0
+2894;polteid hősugárzó;300;300/0
+2895;Ughal jégvihar;0;0/0
+2896;tr'ugh szilánk;50;50/0
+2897;tr'ugh szelence;100;100/0
+2898;szoliszrúna;1000;1000/0
+2899;ughal rúna;1000;1000/0
+2900;ózafír függő;5000;5000/0
+2901;ht'okron medál;0;0/0
+2902;napfény karvédő;4000;4000/0
+2903;ht'okron gyűrű;3000;3000/0
+2904;szoliszmedál;5000;5000/0
+2905;galaxit;500;500/0
+2906;képlékeny ughaldragnit;30000;30000/0
+2907;tündöklő ughaldragnit;3000;3000/0
+2908;hibátlan ughaldragnit;3000;3000/0
+2909;viharos ughaldragnit;3000;3000/0
+2910;sáfrányos ughaldragnit;3000;3000/0
+2911;borostyán ughaldragnit;1000;1000/0
+2912;halálos ughaldragnit;3000;3000/0
+2913;kraun rúna;5000;5000/0
+2914;polteid rúna;5000;5000/0
+2915;vörös pikkely;1000;1000/0
+2916;vörös gyöngy;5000;5000/0
+2917;kék szilánk;1000;1000/0
+2918;kék kristály;5000;5000/0
+2919;kristálykulacs;500;500/0
+2920;szoliszvíz;0;0/0
+2921;tr'anthal rúna;5000;5000/0
+2922;manamágnes;1000;1000/0
+2923;parázsló ughaldragnit;0;0/0
+2924;arany vadászérem;500;500/0
+2925;ezüst vadászérem;500;500/0
+2926;bronz vadászérem;500;500/0
+2927;réz vadászérem;500;500/0
+2928;?;0;0/0
+2929;?;0;0/0
+2930;?;0;0/0
+2931;?;0;0/0
+2932;?;0;0/0
+2933;?;0;0/0
+2934;mindenség gyémántja;1000;1000/0
+2935;?;0;0/0
+2936;?;0;0/0
+2937;?;0;0/0
+2938;?;0;0/0
+2939;?;0;0/0
+2940;?;0;0/0
+2941;?;0;0/0
+2942;?;0;0/0
+2943;?;0;0/0
+2944;?;0;0/0
+2945;?;0;0/0
+2946;?;0;0/0
+2947;?;0;0/0
+2948;?;0;0/0
+2949;?;0;0/0
+2950;?;0;0/0
+2951;?;0;0/0
+2952;?;0;0/0
+2953;?;0;0/0
+2954;?;0;0/0
+2955;?;0;0/0
+2956;?;0;0/0
+2957;arany díszérem;500;500/0
+2958;ezüst díszérem;500;500/0
+2959;bronz díszérem;500;500/0
+2960;réz díszérem;500;500/0
+2961;argum varázskristály;3500;3500/0
+2962;zangrozi embléma;0;0/0
+2963;mhufexi embléma;0;0/0
