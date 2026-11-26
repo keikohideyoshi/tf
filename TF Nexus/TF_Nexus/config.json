@@ -1,9 +1,9 @@
 {
-  "theme": "Federation",
+  "theme": "Obsidian",
   "fantasy": true,
   "size": [
-    1900,
-    1035
+    1100,
+    750
   ],
   "applications": [
     {
@@ -66,9 +66,5 @@
       "script": "",
       "enabled": true
     }
-  ],
-  "position": [
-    9,
-    34
   ]
 }
