@@ -14,3 +14,9 @@ Nyolc új téma, egyedi SVG fantasy hátterekkel. A Témagaléria gomb színes e
 
 ## 1.3 – Saját könyvjelzők
 A fejléc minden témában: Túlélők Földje alkalmazásközpont. A Könyvjelzők menüben weboldalakat (HTTP/HTTPS), fájlokat és könyvtárakat adhatsz hozzá. A kezelőben a kijelölt elem után kerül az új könyvjelző vagy elválasztó. A sorrend húzással módosítható, a változások azonnal mentődnek. A törlés csak a menüelemet érinti. A célokat a rendszer társított alkalmazása nyitja meg. Hiányzó cél esetén a könyvjelző megmarad. Frissítés az update.sh segítségével, a régi konfiguráció megőrzésével.
+
+## 1.4 – TF Analyzer integráció
+A TF Analyzer 1.1 kártyáján a Desktop Edition `start.sh` fájlját állítsd be.
+A letöltött fordulók táblázatában jobb kattintás → Elemzés a TF Analyzerrel.
+A Nexus a teljes fájlútvonalat `--fordulo` paraméterrel adja át; a már futó Analyzer saját helyi kommunikációja fogadja a kérést. A normál indítás változatlan.
+Meglévő Nexus frissítéséhez zárd be, majd az új csomagból futtasd az `update.sh` fájlt. A konfiguráció megmarad.

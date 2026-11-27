@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# TF Analyzer 0.6.6 – Arch/EndeavourOS-kompatibilis, önjavító indító
+# TF Analyzer 1.1 – Arch/EndeavourOS-kompatibilis, önjavító indító
 set -Eeuo pipefail
 cd -- "$(dirname -- "$(readlink -f -- "${BASH_SOURCE[0]}")")"
 
@@ -50,7 +50,7 @@ REQ_HASH="$(sha256sum requirements.txt | cut -d' ' -f1)"
 STAMP="$VENV/.tf_analyzer_requirements.sha256"
 check_imports() {
   "$PY" - <<'PYIMPORT' >/dev/null 2>&1
-import streamlit, bs4, pandas, plotly
+import PySide6, bs4, pandas, openpyxl, matplotlib
 PYIMPORT
 }
 
@@ -65,5 +65,5 @@ else
   info 'Minden szükséges függőség rendelkezésre áll.'
 fi
 
-info 'TF Analyzer indítása: http://127.0.0.1:8501'
-exec "$PY" -m streamlit run app.py --server.address 127.0.0.1 --server.port 8501
+info 'TF Analyzer Desktop indítása'
+exec "$PY" app.py "$@"

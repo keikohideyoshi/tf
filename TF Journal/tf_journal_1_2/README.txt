@@ -12,4 +12,6 @@ A hiányzó fordulók csak a megfigyelt fordulók közötti hézagokat jelentik.
 
 Teszt: a három eredeti ZIP koordinátái, dátumai, azonosítói és besorolása ellenőrizve; grafikus felület nem tesztelt valódi Linux asztali munkamenetben.
 
-1.1: A régi fordulók felismerése és a Térkép fül. Az 1.0 adatbázisa és saját zones.json fájlja átmásolható bezárt alkalmazás mellett, biztonsági mentés után. Az eredeti fordulókat újra kell importálni a tartalék adatokhoz. A térképen görgővel nagyíthatsz, húzással mozgathatsz, kattintással részleteket láthatsz. A feltételezett pontok alapból ki vannak kapcsolva. PNG exporthoz Pillow és Ghostscript szükséges. A hőtérkép színezett köröket használ.
+1.2: A régi fordulók felismerése és a Térkép fül. Az 1.0 adatbázisa és saját zones.json fájlja átmásolható bezárt alkalmazás mellett, biztonsági mentés után. Az eredeti fordulókat újra kell importálni a tartalék adatokhoz. A térképen görgővel nagyíthatsz, húzással mozgathatsz, kattintással részleteket láthatsz. A feltételezett pontok alapból ki vannak kapcsolva. PNG exporthoz Pillow és Ghostscript szükséges. A hőtérkép színezett köröket használ.
+
+1.2: Betáplálási idő (HH:MM), karakterlap szintje, szintdiagram és évjelölések a térkép lejátszójában. A szintlépés zöld jelölése csak szomszédos ismert fordulók esetén jelenik meg. A hiányzó értékeket nem becsüljük. A régi adatbázis automatikusan bővül; az eredeti fordulók ismételt importálása tölti fel az új mezőket. Átmásolás előtt készíts biztonsági mentést.

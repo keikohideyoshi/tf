@@ -1,4 +1,4 @@
-# TF Vagyonanalizátor 1.2.1 — Linux
+# TF Vagyonanalizátor 1.2.2 — Linux
 
 ## Indítás
 
@@ -36,5 +36,9 @@ A `mintak/` könyvtárban az 1700. és 1701. forduló ZIP-jei szerepelnek.
 - A nettó változás az előző importált fordulóhoz viszonyít; hiányzó előzmény vagy ár esetén — jelenik meg. Hiányos árazásnál a vagyonarány nem számítható pontosan.
 - Meglévő adatok átvitele: bezárt program mellett másold át az 1.2 mappájából a vagyon.sqlite3 fájlt az új mappába, az első indítás előtt.
 
-## 1.2.1 – Hibajavítás
+## 1.2.2 – Hibajavítás
 A Tárgyak és bankszéf fülön állítsd be a feltételeket, majd kattints a **Szűrés alkalmazása** gombra. A találati táblázat a panel alatt jelenik meg, rendezhető oszlopokkal. A találatok száma, ismert összértéke és a hiányzó árak száma a táblázat felett látható. A Szűrők törlése visszaállítja a teljes listát. A főablak jobb alsó sarkában minden fülről elérhető a piros Bezárás gomb.
+
+
+## 1.2.2 – Rendezési javítás
+Minden táblázat nyers numerikus adatok szerint rendez; magyar területi beállítású szövegrendezés, hiányzó értékek mindig a végén. Az oszlop és irány szűrés után megmarad.

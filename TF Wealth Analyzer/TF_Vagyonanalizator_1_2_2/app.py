@@ -1,8 +1,9 @@
 import sys,re,csv,json,zipfile,sqlite3,html
+from functools import cmp_to_key
 from pathlib import Path
 from collections import defaultdict
 from bs4 import BeautifulSoup
-from PySide6.QtCore import Qt,QUrl
+from PySide6.QtCore import Qt,QUrl,QCollator,QLocale
 from PySide6.QtWidgets import (QApplication,QMainWindow,QWidget,QVBoxLayout,QHBoxLayout,QPushButton,QLabel,QTabWidget,QTableWidget,QTableWidgetItem,QFileDialog,QMessageBox,QLineEdit,QHeaderView,QTextEdit,QSplitter,QComboBox,QGridLayout)
 from PySide6.QtWebEngineWidgets import QWebEngineView
 
@@ -77,7 +78,7 @@ def parse_price(value):
 
 class Window(QMainWindow):
  def __init__(self):
-  super().__init__();self.setWindowTitle('TF Vagyonanalizátor 1.2.1');self.resize(1450,900)
+  super().__init__();self.setWindowTitle('TF Vagyonanalizátor 1.2.2');self.resize(1450,900)
   self.db=conn();load_bundled_prices(self.db);self.selected=None
   outer=QWidget();self.setCentralWidget(outer);layout=QVBoxLayout(outer);layout.setContentsMargins(24,20,24,20);layout.setSpacing(14)
   header=QHBoxLayout();logo=QLabel('◆  TF VAGYONANALIZÁTOR');logo.setObjectName('brand');header.addWidget(logo);header.addStretch()
@@ -197,13 +198,36 @@ class Window(QMainWindow):
   cell=self.turntable.item(row,0)
   if cell:self.selected=int(cell.text());self.refresh_detail()
  def make_table(self,widget,heads,rows):
-  widget.setSortingEnabled(False);widget.clear();widget.setColumnCount(len(heads));widget.setHorizontalHeaderLabels(heads);widget.setRowCount(len(rows));widget.setAlternatingRowColors(True)
-  for r,row in enumerate(rows):
-   for c,val in enumerate(row):
-    item=QTableWidgetItem(str(val));item.setFlags(item.flags() & ~Qt.ItemIsEditable)
-    if isinstance(val,(int,float)):item.setData(Qt.EditRole,val);item.setTextAlignment(Qt.AlignRight|Qt.AlignVCenter)
-    widget.setItem(r,c,item)
-  widget.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeToContents);widget.horizontalHeader().setStretchLastSection(True);widget.setSortingEnabled(True)
+  # A Qt beépített cellaszöveg-rendezése helyett a nyers sorokat rendezzük.
+  header=widget.horizontalHeader()
+  if not hasattr(widget,'_sort_state'):
+   default=(6,Qt.DescendingOrder) if widget is self.detail else (0,Qt.AscendingOrder)
+   widget._sort_state=default
+   header.setSectionsClickable(True)
+   header.sectionClicked.connect(lambda column,w=widget:self.sort_header(w,column))
+  widget._raw_rows=list(rows)
+  widget._heads=list(heads)
+  widget.setSortingEnabled(False)
+  self.render_sorted(widget)
+ def sort_header(self,widget,column):
+  old,direction=widget._sort_state
+  direction=Qt.DescendingOrder if old==column and direction==Qt.AscendingOrder else Qt.AscendingOrder
+  widget._sort_state=(column,direction)
+  self.render_sorted(widget)
+ def render_sorted(self,widget):
+  column,direction=widget._sort_state
+  collator=QCollator(QLocale('hu_HU'));collator.setCaseSensitivity(Qt.CaseInsensitive)
+  rows=sort_rows(widget._raw_rows,column,direction==Qt.DescendingOrder,collator.compare)
+  widget.setUpdatesEnabled(False)
+  try:
+   widget.clearContents();widget.setColumnCount(len(widget._heads));widget.setHorizontalHeaderLabels(widget._heads);widget.setRowCount(len(rows));widget.setAlternatingRowColors(True)
+   for r,row in enumerate(rows):
+    for c,val in enumerate(row):
+     item=QTableWidgetItem('—' if val is None else str(val));item.setFlags(item.flags() & ~Qt.ItemIsEditable)
+     if isinstance(val,(int,float)):item.setTextAlignment(Qt.AlignRight|Qt.AlignVCenter)
+     widget.setItem(r,c,item)
+   header=widget.horizontalHeader();header.setSectionResizeMode(QHeaderView.ResizeToContents);header.setStretchLastSection(True);header.setSortIndicator(column,direction);header.setSortIndicatorShown(True)
+  finally:widget.setUpdatesEnabled(True)
  def refresh(self):
   turns=self.turns();prices=self.prices();missing=self.missing();rows=[];chart=[]
   for t,n,g,items in turns:
@@ -252,11 +276,11 @@ class Window(QMainWindow):
    QMessageBox.warning(self,'Érvénytelen szűrő','A minimum nem lehet nagyobb a maximumnál.');return
   rows=select_items(self.detail_rows,query,loc,pf,df,ranges)
   self.empty_results.setVisible(not rows);self.empty_results.setText('Nincs a feltételeknek megfelelő tárgy.' if self.detail_rows else 'Nincs importált tárgylista.')
-  self.make_table(self.detail,DETAIL_HEADS,[display_row(r) for r in rows]);self.detail.sortItems(6,Qt.DescendingOrder)
+  self.make_table(self.detail,DETAIL_HEADS,[display_row(r) for r in rows])
   self.filter_summary.setText(f'{len(rows)} / {len(self.detail_rows)} tárgytípus  •  Szűrt ismert érték: {sum(r[6] or 0 for r in rows):,} arany  •  Hiányzó ár: {sum(r[5] is None for r in rows)}'.replace(',',' '))
  def refresh_top(self,*args):
   ix=(6,5,4)[self.top_metric.currentIndex()];limit=int(self.top_count.currentText());rows=sorted((r for r in self.detail_rows if r[ix] is not None),key=lambda r:(-r[ix],r[0]))[:limit]
-  self.make_table(self.top_table,['Helyezés']+DETAIL_HEADS,[(i,*display_row(r)) for i,r in enumerate(rows,1)]);self.top_table.sortItems(0,Qt.AscendingOrder)
+  self.make_table(self.top_table,['Helyezés']+DETAIL_HEADS,[(i,*display_row(r)) for i,r in enumerate(rows,1)])
   self.top_summary.setText(f'{self.selected or "—"}. forduló  •  TOP {limit} – {self.top_metric.currentText()}  •  Ismert összérték: {sum(r[6] or 0 for r in rows):,} arany  •  A TOP a teljes tárgylistából készül.'.replace(',',' '))
 
 def select_items(source,query,loc,pf,df,ranges):
@@ -284,7 +308,18 @@ def aggregate_items(items,previous,prices,gold):
   qty=inv+bank;price=prices[i][1] if i in prices else None;value=qty*price if price is not None else None;delta=qty-old[i] if previous is not None else None
   rows.append((i,name,inv,bank,qty,price,value,round(100*value/total,3) if value is not None and total and not incomplete else None,delta,delta*price if delta is not None and price is not None else None))
  return rows
-def display_row(r):return tuple('—' if v is None else v for v in r)
+def display_row(r):return r
+
+def sort_rows(rows,column,descending,compare_text):
+ def missing(v):return v is None or v in ('—','HIÁNYZIK')
+ known=[r for r in rows if not missing(r[column])]
+ unknown=[r for r in rows if missing(r[column])]
+ def compare(a,b):
+  x,y=a[column],b[column]
+  if isinstance(x,(int,float)) and isinstance(y,(int,float)):
+   return (x>y)-(x<y)
+  return compare_text(str(x),str(y))
+ return sorted(known,key=cmp_to_key(compare),reverse=descending)+unknown
 
 STYLE='''QPushButton#closeButton{background:#702e39;border:1px solid #a54a55;color:#ffe3e5}QPushButton#closeButton:hover{background:#963d4b}QComboBox{background:#1d2b39;border:1px solid #365165;border-radius:8px;padding:9px;color:#d9e5ef}QComboBox QAbstractItemView{background:#1d2b39;selection-background-color:#28525a;color:#d9e5ef}QLabel#latest{background:#162937;border:1px solid #2a4b55;border-radius:11px;padding:17px;color:#8de7db;font-size:15px;font-weight:600}QMainWindow,QWidget{background:#101722;color:#d9e5ef;font-family:Inter,"Noto Sans",sans-serif;font-size:13px}QLabel#brand{font-size:23px;font-weight:800;color:#65dfd1}QLabel#sub{color:#9aabc1;font-size:12px}QLabel#summary{background:#1b2938;border:1px solid #314458;border-radius:15px;padding:22px;color:#f5f8fa;font-size:18px;font-weight:700}QPushButton{background:#203443;border:1px solid #345063;border-radius:9px;padding:11px 14px;color:#aaf3e7;font-weight:650}QPushButton:hover{background:#2c5860}QTabWidget::pane{border:1px solid #293c4f;border-radius:10px}QTabBar::tab{background:#1a2634;color:#a9bac9;padding:13px 19px;border-radius:7px;margin-right:5px}QTabBar::tab:selected{background:#28525a;color:#b7fff0}QTableWidget{background:#141f2c;alternate-background-color:#1b2a38;gridline-color:#2a3b4c;selection-background-color:#24666c;border:0}QHeaderView::section{background:#243747;color:#b7d8de;padding:11px;border:0}QLineEdit{background:#1d2b39;border:1px solid #365165;border-radius:8px;padding:11px}'''
 if __name__=='__main__':

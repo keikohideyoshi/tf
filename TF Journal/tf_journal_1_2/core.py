@@ -39,10 +39,14 @@ def parse(b,source):
     if d:
         try:date=datetime.date(int(d[1]),next(i+1 for i,m in enumerate(months) if d[2].lower().startswith(m)),int(d[3])).isoformat()
         except (ValueError,StopIteration):pass
+    clock=re.search(r"Betáplálva:\s*\d{4}\.\s*\w+\.?\s*\d{1,2}\.?\s*(\d{1,2})h:\s*(\d{2})",header,re.I)
+    time=f"{int(clock[1]):02d}:{clock[2]}" if clock and int(clock[1])<24 and int(clock[2])<60 else None
+    lv=re.findall(r"\bSzint\s*:\s*(\d+)\s+Merészség\s*:",text,re.I)
+    level=int(lv[0]) if lv and len(set(lv))==1 else None
     lab=re.search(r'mezőn\s+táborozol\s*,\s*a\s+(\d+)\.\s*labirintusban\s*,\s*(\d+)\.\s*szinten\s*,\s*(\d+)\.\s*ponton',text,re.I)
     start=re.search(r"letáboroztál\s+a\s+\[(\d+)\s*,\s*(\d+)\]\s+koordinátán",header,re.I)
     moves=re.findall(r"\(Továbbmész\.\.\.\)\s*\[(\d+)\s*,\s*(\d+)\]",clean(s[:kl.start()] if kl else s),re.I)
-    return (int(cid[1]),t[1].strip(),int(t[2]),date,x,y, f'{lab[1]}. labirintus, {lab[2]}. szint, {lab[3]}. pont' if lab else '',source, x,y, *(map(int,start.groups()) if start else (None,None)), *(map(int,moves[-1]) if moves else (None,None)))
+    return (int(cid[1]),t[1].strip(),int(t[2]),date,x,y, f'{lab[1]}. labirintus, {lab[2]}. szint, {lab[3]}. pont' if lab else '',source, x,y, *(map(int,start.groups()) if start else (None,None)), *(map(int,moves[-1]) if moves else (None,None)),time,level)
 def records(path):
     p=Path(path)
     if p.suffix.lower()=='.zip':
@@ -69,6 +73,9 @@ def connect(path):
         for c in ('direct_x','direct_y','start_x','start_y','move_x','move_y'):db.execute('ALTER TABLE rounds ADD COLUMN '+c+' INTEGER')
         db.execute("ALTER TABLE rounds ADD COLUMN method TEXT DEFAULT 'Karakterlap'")
         db.execute('UPDATE rounds SET direct_x=x,direct_y=y');db.commit()
+    for c,typ in [("time","TEXT"),("level","INTEGER")]:
+        if c not in cols:db.execute(f"ALTER TABLE rounds ADD COLUMN {c} {typ}")
+    db.commit()
     return db
 def resolve(db):
     for (cid,) in db.execute('SELECT DISTINCT cid FROM rounds').fetchall():

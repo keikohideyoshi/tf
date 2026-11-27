@@ -7,10 +7,10 @@ from mapview import MapView
 BG='#10151e'; PANEL='#1c2533'; FG='#e0e6ef'; GOLD='#d6b579'; GREEN='#65c5a5'
 class App:
  def __init__(self):
-    self.root=tk.Tk();self.root.title('TF Journal 1.1');self.root.geometry('1180x760');self.root.minsize(800,520);self.root.configure(bg=BG)
+    self.root=tk.Tk();self.root.title('TF Journal 1.2');self.root.geometry('1180x760');self.root.minsize(800,520);self.root.configure(bg=BG)
     self.db=connect(ROOT/'journal.sqlite3');self.zones=load_zones();self.busy=False;self.q=queue.Queue();self.data={};self.sort={}
     s=ttk.Style();s.theme_use('clam');s.configure('.',background=BG,foreground=FG,fieldbackground=PANEL,font=('Sans',10));s.configure('TButton',background=PANEL,padding=7);s.map('TButton',background=[('active','#34465a')]);s.configure('Treeview',background=PANEL,fieldbackground=PANEL,foreground=FG,rowheight=27);s.configure('Treeview.Heading',background='#293749',foreground=GOLD);s.map('Treeview',background=[('selected','#36596a')]);s.configure('TCombobox',fieldbackground=PANEL);s.map('TCombobox',fieldbackground=[('readonly',PANEL)],foreground=[('readonly',FG)]);s.configure('TNotebook.Tab',padding=(12,8));s.map('TNotebook.Tab',background=[('selected',PANEL)]);s.configure('TEntry',insertcolor=FG)
-    top=ttk.Frame(self.root,padding=14);top.pack(fill='x');tk.Label(top,text='TF Journal',font=('Sans',26,'bold'),bg=BG,fg=GOLD).pack(anchor='w');ttk.Label(top,text='A karakter útinaplója  •  1.1').pack(anchor='w')
+    top=ttk.Frame(self.root,padding=14);top.pack(fill='x');tk.Label(top,text='TF Journal',font=('Sans',26,'bold'),bg=BG,fg=GOLD).pack(anchor='w');ttk.Label(top,text='A karakter útinaplója  •  1.2').pack(anchor='w')
     bar=ttk.Frame(self.root,padding=(14,0));bar.pack(fill='x');self.buttons=[]
     for text,cmd in [('Mappa importálása',self.folder),('Fájlok importálása',self.files),('Területszerkesztő',self.edit),('CSV export',lambda:self.export(False)),('Excel export',lambda:self.export(True))]:
         b=ttk.Button(bar,text=text,command=cmd);b.pack(side='left',padx=3);self.buttons.append(b)
@@ -18,7 +18,7 @@ class App:
     for label,var in [('Fordulótól',self.lo),('Fordulóig',self.hi)]:ttk.Label(filters,text=label).pack(side='left',padx=5);ttk.Entry(filters,textvariable=var,width=8).pack(side='left')
     ttk.Button(filters,text='Szűrés',command=self.refresh).pack(side='left',padx=5);ttk.Button(filters,text='Alaphelyzet',command=self.reset).pack(side='left');self.summary=tk.Label(self.root,bg=PANEL,fg=GREEN,anchor='w',padx=15,pady=12,font=('Sans',12));self.summary.pack(fill='x',padx=14)
     self.nb=ttk.Notebook(self.root);self.nb.pack(fill='both',expand=True,padx=14,pady=10);self.trees={}
-    for name,cols in [('Fordulók',['Forduló','Dátum','X','Y','Terület','Labirintus','Forrás','Koordináta forrása']),('Zónaváltások',['Előző forduló','Első ismert forduló','Honnan','Hová','Bizonyosság']),('Időszakok',['Terület','Első forduló','Utolsó forduló','Darab']),('Statisztikák',['Terület','Fordulók','Első','Utolsó','Időszakok','Leghosszabb','Egyedi mezők','Arány (%)']),('Hiányzó fordulók',['Első hiányzó','Utolsó hiányzó','Darab'])]:
+    for name,cols in [('Fordulók',['Forduló','Dátum','X','Y','Terület','Labirintus','Forrás','Koordináta forrása','Időpont','Szint']),('Zónaváltások',['Előző forduló','Első ismert forduló','Honnan','Hová','Bizonyosság']),('Időszakok',['Terület','Első forduló','Utolsó forduló','Darab']),('Statisztikák',['Terület','Fordulók','Első','Utolsó','Időszakok','Leghosszabb','Egyedi mezők','Arány (%)']),('Hiányzó fordulók',['Első hiányzó','Utolsó hiányzó','Darab'])]:
         f=ttk.Frame(self.nb);self.nb.add(f,text=name);self.trees[name]=self.tree(f,cols,name)
     f=ttk.Frame(self.nb);self.nb.add(f,text='Idővonal');self.canvas=tk.Canvas(f,bg=PANEL,highlightthickness=0);self.canvas.pack(fill='both',expand=True);self.canvas.bind('<Configure>',lambda e:self.draw())
     self.mapview=MapView(self.nb,self);self.nb.add(self.mapview.frame,text="Térkép")
@@ -40,7 +40,7 @@ class App:
         a=int(self.lo.get() or 0);b=int(self.hi.get() or 999999999)
         if a<0 or b<a:raise ValueError()
     except ValueError:messagebox.showerror('Szűrés','Érvénytelen fordulótartomány');return
-    rows=[(t,d,x,y,zone(x,y,self.zones),l,s,m) for t,d,x,y,l,s,m in self.db.execute('SELECT turn,date,x,y,lab,source,method FROM rounds WHERE cid=? AND turn BETWEEN ? AND ? ORDER BY turn',(self.ids.get(self.char.get(),-1),a,b))];self.rows=rows;sp=spans(rows);changes=[];missing=[]
+    rows=[(t,d,x,y,zone(x,y,self.zones),l,s,m,tm,lv) for t,d,x,y,l,s,m,tm,lv in self.db.execute('SELECT turn,date,x,y,lab,source,method,time,level FROM rounds WHERE cid=? AND turn BETWEEN ? AND ? ORDER BY turn',(self.ids.get(self.char.get(),-1),a,b))];self.rows=rows;sp=spans(rows);changes=[];missing=[]
     for p,r in zip(rows,rows[1:]):
         gap=r[0]-p[0]>1
         if gap:missing.append((p[0]+1,r[0]-1,r[0]-p[0]-1))
@@ -76,9 +76,9 @@ class App:
                         r=parse(raw,src);old=db.execute('SELECT date,direct_x,direct_y,lab FROM rounds WHERE cid=? AND turn=?',(r[0],r[2])).fetchone()
                         if old:
                             dup+=1
-                            db.execute('UPDATE rounds SET direct_x=coalesce(direct_x,?),direct_y=coalesce(direct_y,?),start_x=coalesce(start_x,?),start_y=coalesce(start_y,?),move_x=coalesce(move_x,?),move_y=coalesce(move_y,?) WHERE cid=? AND turn=?',(*r[8:14],r[0],r[2]))
+                            db.execute("UPDATE rounds SET direct_x=coalesce(direct_x,?),direct_y=coalesce(direct_y,?),start_x=coalesce(start_x,?),start_y=coalesce(start_y,?),move_x=coalesce(move_x,?),move_y=coalesce(move_y,?),time=coalesce(time,?),level=coalesce(level,?),date=coalesce(nullif(date,''),?) WHERE cid=? AND turn=?",(*r[8:16],r[3],r[0],r[2]))
                             if old[1] is not None and r[4] is not None and tuple(old[1:3])!=r[4:6]:errors.append(src+': eltérő duplikátum, korábbi adat megőrizve')
-                        else:db.execute('INSERT INTO rounds (cid,name,turn,date,x,y,lab,source,direct_x,direct_y,start_x,start_y,move_x,move_y) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)',r);added+=1
+                        else:db.execute('INSERT INTO rounds (cid,name,turn,date,x,y,lab,source,direct_x,direct_y,start_x,start_y,move_x,move_y,time,level) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)',r);added+=1
                     except Exception as e:errors.append(src+': '+str(e))
             except Exception as e:errors.append(str(p)+': '+str(e))
             self.q.put(('progress',f'Dolgozom… {i+1}/{len(files)} fájl'))

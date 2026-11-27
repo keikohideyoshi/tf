@@ -72,7 +72,7 @@ class Window(QMainWindow):
         self.limit=QComboBox(); self.limit.addItems(['5','10','20','50','Összes']); self.limit.setCurrentText(str(cfg['round_browser'].get('recent_count',5))); h.addWidget(QLabel('Utolsó:')); h.addWidget(self.limit)
         for name,fn in [('Karakterek…',self.edit_characters),('Frissítés',self.refresh_rounds),('Mappa',self.open_folder),('Legutóbbi',self.open_latest)]:
             b=QPushButton(name); b.clicked.connect(fn); h.addWidget(b)
-        l.addLayout(h); self.round_table=QTableWidget(0,3); self.round_table.setHorizontalHeaderLabels(['Forduló','Formátum','Fájlnév']); self.round_table.horizontalHeader().setSectionResizeMode(2,QHeaderView.Stretch); self.round_table.setSelectionBehavior(QAbstractItemView.SelectRows); self.round_table.setEditTriggers(QAbstractItemView.NoEditTriggers); self.round_table.verticalHeader().hide(); self.round_table.setMinimumHeight(130); self.round_table.setMaximumHeight(210); self.round_table.cellDoubleClicked.connect(lambda r,c:self.open_round(r)); l.addWidget(self.round_table)
+        l.addLayout(h); self.round_table=QTableWidget(0,3); self.round_table.setHorizontalHeaderLabels(['Forduló','Formátum','Fájlnév']); self.round_table.horizontalHeader().setSectionResizeMode(2,QHeaderView.Stretch); self.round_table.setSelectionBehavior(QAbstractItemView.SelectRows); self.round_table.setEditTriggers(QAbstractItemView.NoEditTriggers); self.round_table.verticalHeader().hide(); self.round_table.setMinimumHeight(130); self.round_table.setMaximumHeight(210); self.round_table.cellDoubleClicked.connect(lambda r,c:self.open_round(r)); self.round_table.setContextMenuPolicy(Qt.CustomContextMenu); self.round_table.customContextMenuRequested.connect(self.round_menu); l.addWidget(self.round_table)
         h=QHBoxLayout(); self.round_info=QLabel(); h.addWidget(self.round_info,1); b=QPushButton('Megnyitás'); b.clicked.connect(lambda:self.open_round(self.round_table.currentRow())); h.addWidget(b); l.addLayout(h); v.addWidget(panel)
         self.load_characters(); self.character.currentIndexChanged.connect(self.round_selection); self.limit.currentTextChanged.connect(self.round_selection)
         self.round_timer=QTimer(self); self.round_timer.timeout.connect(self.refresh_rounds); self.round_timer.start(10000); self.refresh_rounds()
@@ -97,6 +97,34 @@ class Window(QMainWindow):
             for col,value in enumerate((str(n),p.suffix[1:].upper(),p.name)):
                 item=QTableWidgetItem(value); item.setToolTip(str(p)); self.round_table.setItem(r,col,item)
         self.round_info.setText(f'{len(shown)} / {len(rows)} forduló'+(f' • {unknown} fel nem ismert fájl' if unknown else '') if c else 'Adj hozzá karaktert a Karakterek… gombbal.')
+    def round_menu(self,pos):
+        item=self.round_table.itemAt(pos)
+        if item is None:return
+        r=item.row()
+        if not 0<=r<len(self.round_rows):return
+        p=self.round_rows[r][1].absolute()
+        self.round_table.selectRow(r)
+        m=QMenu(self)
+        m.addAction('Forduló megnyitása',lambda:self.open_local(p))
+        m.addAction('Elemzés a TF Analyzerrel',lambda:self.analyze_round(p))
+        m.addSeparator()
+        m.addAction('Fájl helyének megnyitása',lambda:self.open_local(p.parent))
+        m.addAction('Elérési út másolása',lambda:QApplication.clipboard().setText(str(p)))
+        m.exec(self.round_table.viewport().mapToGlobal(pos))
+    def analyze_round(self,p):
+        a=next((a for a in cfg['applications'] if a['id']=='chart'),None)
+        if a is None:
+            a=next((a for a in cfg['applications'] if a['name'].strip().casefold()=='tf analyzer'),None)
+        if a is None:
+            QMessageBox.warning(self,'TF Analyzer','A TF Analyzer alkalmazáskártya hiányzik.'); return
+        if not a.get('enabled',True):
+            QMessageBox.warning(self,'TF Analyzer','Az alkalmazáskártya le van tiltva.'); return
+        if not a.get('script') or not path(a).is_file():
+            self.edit(a)
+        if not a.get('enabled',True) or not a.get('script') or not path(a).is_file():return
+        if not p.is_file():
+            QMessageBox.warning(self,'TF Analyzer','A fordulófájl nem található.'); return
+        self.launch(a,round_file=p)
     def open_round(self,r):
         if 0<=r<len(self.round_rows):self.open_local(self.round_rows[r][1])
     def open_latest(self):self.open_round(0)
@@ -197,15 +225,19 @@ class Window(QMainWindow):
         if Edit(a,self).exec(): save(); self.categories()
     def launch_selected(self):
         if self.list.currentItem(): self.launch(self.get(self.list.currentItem()))
-    def launch(self,a):
-        if alive(a): QMessageBox.information(self,'TF Nexus','Az alkalmazás már fut.'); return
-        if self.state(a)!='Indítható': self.edit(a); return
+    def launch(self,a,round_file=None):
+        running=alive(a)
+        if running and round_file is None: QMessageBox.information(self,'TF Nexus','Az alkalmazás már fut.'); return
+        if not a.get('enabled',True) or not a.get('script') or not path(a).is_file(): self.edit(a); return
         p=path(a)
         try:
             with (LOG/(a['id']+'.log')).open('ab') as f:
-                proc=subprocess.Popen(['/bin/bash',str(p)],cwd=p.parent,stdin=subprocess.DEVNULL,stdout=f,stderr=subprocess.STDOUT,start_new_session=True)
-                s=Path(f'/proc/{proc.pid}/stat').read_text().rsplit(')',1)[1].split(); (LOG/(a['id']+'.pid')).write_text(json.dumps(dict(pid=proc.pid,start=int(s[19]),boot=Path('/proc/sys/kernel/random/boot_id').read_text())))
-            self.status.setText('Elindítva: '+a['name']); self.update_status()
+                args=['/bin/bash',str(p)]
+                if round_file is not None: args.extend(['--fordulo',str(round_file)])
+                proc=subprocess.Popen(args,cwd=p.parent,stdin=subprocess.DEVNULL,stdout=f,stderr=subprocess.STDOUT,start_new_session=True)
+                if not running:
+                    s=Path(f'/proc/{proc.pid}/stat').read_text().rsplit(')',1)[1].split(); (LOG/(a['id']+'.pid')).write_text(json.dumps(dict(pid=proc.pid,start=int(s[19]),boot=Path('/proc/sys/kernel/random/boot_id').read_text())))
+            self.status.setText(('Elemzés kérése: '+round_file.name) if round_file is not None else 'Elindítva: '+a['name']); self.update_status()
         except OSError as e: QMessageBox.warning(self,'Indítási hiba',str(e))
     def menu(self,pos):
         i=self.list.itemAt(pos)
